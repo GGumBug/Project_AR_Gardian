@@ -10,7 +10,7 @@ public class ObjectManager : MonoBehaviour
 
     public static ObjectManager GetInstance()
     {
-        if(instance == null)
+        if (instance == null)
         {
             GameObject go = new GameObject("@ObjectManager");
             instance = go.AddComponent<ObjectManager>();
@@ -21,5 +21,14 @@ public class ObjectManager : MonoBehaviour
 
     }
     #endregion
+
+    public GameObject CreateGuardian(int i)
+    {
+        Object characterObj = Resources.Load($"Objrct/Guardian{i}");
+        GameObject character = (GameObject)Instantiate(characterObj);
+
+        return character;
+    }
+
 
 }
