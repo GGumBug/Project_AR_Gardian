@@ -6,24 +6,24 @@ using UnityEngine.UI;
 
 public class UIMap : MonoBehaviour
 {
-    public int monsterListScore; //몬스터 순번 0이면 1단계 1이면 2단계 이런식
+    //static public int dokevListScore;
+    //int monsterListScore; //몬스터 순번 0이면 1단계 1이면 2단계 이런식
     Image MapImg;
     public Button[] monsterBut;
-
     void Start()
     {
         monsterBut = GetComponentsInChildren<Button>();
         MapImg = GetComponentInChildren<Image>();
         MapImg.sprite = Resources.Load<Sprite>("Image/MainMap");
         Image monster = Instantiate(MapImg);
-        Monsterhide();
+        Monsterbuthide();
         MonsterCount();
-
+        //dokevListScore = monsterListScore;
     }
 
-    void MonsterCount()
+    void MonsterCount()//for문을 사용하면 더 좋을거같다하심 근데 어케할지 감이안잡혀서 보류
     {
-        switch (monsterListScore)
+        switch (BattleManager.GetInstance().monsterListScore)
         {
             case 0:
                 monsterBut[0].gameObject.SetActive(true);
@@ -44,16 +44,12 @@ public class UIMap : MonoBehaviour
         }
     }
 
-    void Monsterhide()
+    void Monsterbuthide()
     {
         for (int i = 0; i < monsterBut.Length; i++)
         {
             monsterBut[i].gameObject.SetActive(false);
         }
-    }
-    void Update()
-    {
-        
     }
     void ChangeBattleScene()
     {
