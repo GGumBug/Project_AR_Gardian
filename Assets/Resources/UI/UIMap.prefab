@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 3052885015973297729}
   - component: {fileID: 3052885015973297730}
   m_Layer: 5
-  m_Name: LanternGoblin
+  m_Name: LanternGuardian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
