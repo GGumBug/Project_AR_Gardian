@@ -27,16 +27,13 @@ public class UIMap : MonoBehaviour
         {
             case 0:
                 monsterBut[0].gameObject.SetActive(true);
-                ChangeBattleScene();
                 break;
             case 1:
                 monsterBut[0].interactable = false;
                 monsterBut[1].gameObject.SetActive(true);
-                ChangeBattleScene();
                 break;
             case 2:
                 monsterBut[2].gameObject.SetActive(true);
-                ChangeBattleScene();
                 break;
 
         }
