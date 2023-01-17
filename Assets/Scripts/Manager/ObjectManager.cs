@@ -24,9 +24,9 @@ public class ObjectManager : MonoBehaviour
 
     public GameObject CreateGuardian(int i)
     {
-        Object characterObj = Resources.Load($"Objrct/Guardian{i}");
+        Object characterObj = Resources.Load($"Object/Guardian_{i}");
         GameObject character = (GameObject)Instantiate(characterObj);
-
+        Debug.Log(i);
         return character;
     }
 
