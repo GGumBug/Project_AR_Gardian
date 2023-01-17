@@ -36,7 +36,6 @@ public class ScenesManager : MonoBehaviour
     {
 
         UIManager.GetInstance().ClearList();
-        ObjectManager.GetInstance().ClearList();
 
         currentScene = scene;
         SceneManager.LoadScene(scene.ToString());
