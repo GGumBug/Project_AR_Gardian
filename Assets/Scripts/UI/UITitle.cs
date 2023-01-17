@@ -14,12 +14,12 @@ public class UITitle : MonoBehaviour
         TitleImg = GetComponentInChildren<Image>();
         GameStart = GetComponentInChildren<Button>();
         TitleImg.sprite = Resources.Load<Sprite>("Image/Title");
-        Image monster = (Image)Instantiate(TitleImg);
+        Image monster = Instantiate(TitleImg);
         GameStart.onClick.AddListener(ChangeMainScene);
     }
 
     void ChangeMainScene()
     {
-        ScenesManager.GetInstance().ChangeScene(Scene.Menu);
+        ScenesManager.GetInstance().ChangeScene(Scene.Main);
     }
 }
