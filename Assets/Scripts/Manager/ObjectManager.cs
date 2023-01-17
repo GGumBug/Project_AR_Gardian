@@ -21,14 +21,20 @@ public class ObjectManager : MonoBehaviour
 
     }
     #endregion
-
+    public GameObject CreateWisp()
+    {
+        Object characterWisp = Resources.Load($"Object/Wisp");
+        GameObject wisp = (GameObject)Instantiate(characterWisp);
+        return wisp;
+    }
     public GameObject CreateGuardian(int i)
     {
-        Object characterObj = Resources.Load($"Object/Guardian_{i}");
-        GameObject character = (GameObject)Instantiate(characterObj);
-        Debug.Log(i);
-        return character;
+        Object GuardianObj = Resources.Load($"Object/Guardian_{i}");
+        GameObject Guardian = (GameObject)Instantiate(GuardianObj);
+        return Guardian;
     }
+
+
 
 
 }

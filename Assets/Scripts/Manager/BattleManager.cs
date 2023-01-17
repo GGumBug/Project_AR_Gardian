@@ -26,9 +26,23 @@ public class BattleManager : MonoBehaviour
     {
 
     }
-    
     public void BattleStart()
     {
+        ObjectManager.GetInstance().CreateWisp();
+    }
+    public void GuardianAppear()
+    {
         ObjectManager.GetInstance().CreateGuardian(monsterListScore);
+    }
+
+    void TouchGuardian() // 나중에머 도깨비불에 터치하면 모델링 생성되겠금하는 함수 아직안씀 ㅇㅇ
+    {
+        if (Input.GetTouch(0).phase == TouchPhase.Ended)
+        {
+            {
+                GuardianAppear();
+            }
+        }
+
     }
 }
