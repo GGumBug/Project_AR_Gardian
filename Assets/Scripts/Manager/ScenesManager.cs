@@ -8,6 +8,7 @@ public enum Scene
     Title,
     Menu,
     Main,
+    Battle,
 }
 
 public class ScenesManager : MonoBehaviour
