@@ -7,17 +7,19 @@ using UnityEngine.UI;
 public class UITitle : MonoBehaviour
 {
     Image TitleImg;
+    Button GameStart;
     // Start is called before the first frame update
     void Start()
     {
         TitleImg = GetComponentInChildren<Image>();
+        GameStart = GetComponentInChildren<Button>();
         TitleImg.sprite = Resources.Load<Sprite>("Image/Title");
         Image monster = (Image)Instantiate(TitleImg);
+        GameStart.onClick.AddListener(ChangeMainScene);
     }
 
-    // Update is called once per frame
-    void Update()
+    void ChangeMainScene()
     {
-        
+        ScenesManager.GetInstance().ChangeScene(Scene.Menu);
     }
 }
