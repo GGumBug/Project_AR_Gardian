@@ -20,7 +20,7 @@ public class UIMap : MonoBehaviour
 
     void MonsterCount()//for문을 사용하면 더 좋을거같다하심 근데 어케할지 감이안잡혀서 보류
     {
-        switch (BattleManager.GetInstance().monsterListScore)
+        switch (BattleManager.GetInstance().curGuardian)
         {
             case 0:
                 monsterBut[0].gameObject.SetActive(true);
