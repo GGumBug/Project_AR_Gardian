@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ObjectManager : MonoBehaviour
 {
@@ -26,12 +27,13 @@ public class ObjectManager : MonoBehaviour
     {
         Object characterWisp = Resources.Load($"Object/Wisp_{BattleManager.GetInstance().curGuardian}");
         GameObject wisp = (GameObject)Instantiate(characterWisp, SpawnManager.GetInstance().spawnPosition);
+
         return wisp;
     }
     public GameObject CreateGuardian(int i)
     {
         Object GuardianObj = Resources.Load($"Object/Guardian_{i}");
-        GameObject Guardian = (GameObject)Instantiate(GuardianObj);
+        GameObject Guardian = (GameObject)Instantiate(GuardianObj, SpawnManager.GetInstance().spawnPosition);
         return Guardian;
     }
 }
