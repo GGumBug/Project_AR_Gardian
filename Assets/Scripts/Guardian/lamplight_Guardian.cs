@@ -13,8 +13,8 @@ public class lamplight_Guardian : GuardianBase
         this.isClear = false;
     }
 
-    public abstract Attack()
-    {
+    //public abstract Attack()
+    //{
 
-    }
+    //}
 }
