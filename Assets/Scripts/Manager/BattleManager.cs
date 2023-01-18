@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BattleManager : MonoBehaviour
 {
-    #region instance
+    #region SingleTone
 
     private static BattleManager instance = null;
 
@@ -22,5 +22,6 @@ public class BattleManager : MonoBehaviour
     }
     #endregion
     public int curGuardian;//몬스터 순번 0이면 1단계 1이면 2단계 이런식
+
 
 }

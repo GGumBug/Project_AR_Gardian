@@ -12,4 +12,9 @@ public class Duaksini_Guardian : GuardianBase
         this.delay = delay;
         this.isClear = false;
     }
+    public override void Attack()
+    {
+        GameManager.GetInstance().SetHp(-atk);
+        GameManager.GetInstance().SetHp(-atk);
+    }
 }
