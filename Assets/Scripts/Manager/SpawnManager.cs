@@ -74,12 +74,12 @@ public class SpawnManager : MonoBehaviour
         int rate = Random.Range(0, 100);
 
         if (rate <= SpawnRate)
-            SpawnMonster();
+            SpawnWisp();
         else
             Invoke("CheckTime", SpawnDelay);
     }
 
-    void SpawnMonster()
+    void SpawnWisp()
     {
         monsterPref = ObjectManager.GetInstance().CreateWisp();
     }
