@@ -8,6 +8,7 @@ public class UIMap : MonoBehaviour
 {
     Image MapImg;
     public Button[] monsterBut;
+    public Canvas gameInfocanvas;
     void Start()
     {
         monsterBut = GetComponentsInChildren<Button>();
@@ -16,6 +17,8 @@ public class UIMap : MonoBehaviour
         Image monster = Instantiate(MapImg);
         Monsterbuthide();
         MonsterCount();
+        monsterBut[3].gameObject.SetActive(true);
+        monsterBut[3].onClick.AddListener(OpenGameInfo);
     }
 
     void MonsterCount()//for문을 사용하면 더 좋을거같다하심 근데 어케할지 감이안잡혀서 보류
@@ -53,4 +56,8 @@ public class UIMap : MonoBehaviour
         ScenesManager.GetInstance().ChangeScene(Scene.Battle);
     }
 
+    void OpenGameInfo()
+    {
+        gameInfocanvas.gameObject.SetActive(true);
+    }
 }
