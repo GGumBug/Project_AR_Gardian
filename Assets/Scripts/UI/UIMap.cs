@@ -8,7 +8,7 @@ public class UIMap : MonoBehaviour
 {
     Image MapImg;
     public Button[] monsterBut;
-    public Canvas gameInfocanvas;
+    public GameObject gameInfocanvas;
     void Start()
     {
         monsterBut = GetComponentsInChildren<Button>();
