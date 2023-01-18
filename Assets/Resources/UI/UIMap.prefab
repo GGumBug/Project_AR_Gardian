@@ -1960,7 +1960,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240a64feabaf5a74eaaecb54828fa43f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterBut: []
+  monsterBut:
+  - {fileID: 3298291159222467796}
+  - {fileID: 675786207455975155}
+  - {fileID: 5038552298311221866}
   gameInfocanvas: {fileID: 4871446678342524858}
 --- !u!1 &8445930636486380615
 GameObject:
