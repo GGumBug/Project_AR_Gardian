@@ -7,7 +7,7 @@ public class UIWisp : MonoBehaviour
 {
     [SerializeField] Button btnSpawnGuardian;
 
-    public void GetGuardian()
+    public void OnMouseDown()
     {
         ObjectManager.GetInstance().CreateGuardian(BattleManager.GetInstance().curGuardian);
     }
