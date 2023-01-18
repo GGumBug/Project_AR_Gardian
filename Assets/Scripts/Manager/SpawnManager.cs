@@ -32,7 +32,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] float SpawnDelay = 2f;
     [SerializeField] int SpawnRate = 40;
 
-    private void Awake()
+    private void Start()
     {
         GameObject arSessionOrigin = GameObject.FindGameObjectWithTag("ARSessionOrigin");
         arRaycast = arSessionOrigin.GetComponent<ARRaycastManager>();
