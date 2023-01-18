@@ -8,6 +8,7 @@ public class GuardianBase : MonoBehaviour
     public int atk;
     public int hp;
     public float delay;
+    public bool isClear;
 
     public string GetGuardianName()
     {
@@ -17,9 +18,5 @@ public class GuardianBase : MonoBehaviour
     public void SetGuardianName(string name)
     {
         GuardianName = name;
-    }
-
-    public virtual void Attack()
-    {
     }
 }
