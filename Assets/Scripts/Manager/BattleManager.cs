@@ -29,7 +29,7 @@ public class BattleManager : MonoBehaviour
     }
     public void BattleStart()
     {
-        ObjectManager.GetInstance().CreateWisp();
+
     }
     public void GuardianAppear()
     {
