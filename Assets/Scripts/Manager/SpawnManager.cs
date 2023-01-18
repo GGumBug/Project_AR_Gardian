@@ -23,14 +23,14 @@ public class SpawnManager : MonoBehaviour
     }
     #endregion
 
+    [Header("Object")]
     ARRaycastManager arRaycast;
-
     GameObject monsterPref = null;
-
     public Transform spawnPosition;
 
-    public float SpawnDelay = 2f;
-    public int SpawnRate = 40;
+    [Header("Rate")]
+    [SerializeField] float SpawnDelay = 2f;
+    [SerializeField] int SpawnRate = 40;
 
     private void Awake()
     {
