@@ -29,8 +29,8 @@ public class SpawnManager : MonoBehaviour
     public Transform spawnPosition;
 
     [Header("Rate")]
-    [SerializeField] float SpawnDelay = 2f;
-    [SerializeField] int SpawnRate = 40;
+    [SerializeField] float SpawnDelay = 0.5f;
+    [SerializeField] int SpawnRate = 70;
 
     private void Start()
     {
