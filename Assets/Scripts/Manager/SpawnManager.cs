@@ -25,12 +25,19 @@ public class SpawnManager : MonoBehaviour
 
     ARRaycastManager arRaycast;
 
-    GameObject monsterPref;
+    GameObject monsterPref = null;
+
+    public Transform spawnPosition;
+
+    public float SpawnDelay = 2f;
+    public int SpawnRate = 40;
 
     private void Awake()
     {
         GameObject arSessionOrigin = GameObject.FindGameObjectWithTag("ARSessionOrigin");
         arRaycast = arSessionOrigin.GetComponent<ARRaycastManager>();
+        GameObject spawnPositionGo = GameObject.FindGameObjectWithTag("SpawnPosition");
+        spawnPosition = spawnPositionGo.transform;
     }
 
     private void Update()
@@ -39,20 +46,42 @@ public class SpawnManager : MonoBehaviour
 
         List<ARRaycastHit> hits = new List<ARRaycastHit>();
 
-        monsterPref = ObjectManager.GetInstance().CreateWisp();
-
         if (arRaycast.Raycast(screenPoint, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes))
         {
-            Pose planePos = hits[0].pose;
+            if (monsterPref != null)
+            {
+                return;
+            }
 
-            monsterPref.transform.position = planePos.position;
-            monsterPref.transform.rotation = planePos.rotation;
+            if (IsInvoking())
+                return;
 
-            monsterPref.SetActive(true);
+            Invoke("CheckTime", SpawnDelay);
         }
         else
         {
-            monsterPref.SetActive(false);
+            CancelInvoke("CheckTime");
+
+            if (monsterPref != null)
+            {
+                Destroy(monsterPref);
+                monsterPref = null;
+            }
         }
     }
+    void CheckTime()
+    {
+        int rate = Random.Range(0, 100);
+
+        if (rate <= SpawnRate)
+            SpawnMonster();
+        else
+            Invoke("CheckTime", SpawnDelay);
+    }
+
+    void SpawnMonster()
+    {
+        monsterPref = ObjectManager.GetInstance().CreateWisp();
+    }
+
 }
