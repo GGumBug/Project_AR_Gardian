@@ -25,7 +25,7 @@ public class ObjectManager : MonoBehaviour
     public GameObject CreateWisp()
     {
         Object characterWisp = Resources.Load($"Object/Wisp_{BattleManager.GetInstance().curGuardian}");
-        GameObject wisp = (GameObject)Instantiate(characterWisp);
+        GameObject wisp = (GameObject)Instantiate(characterWisp, SpawnManager.GetInstance().spawnPosition);
         return wisp;
     }
     public GameObject CreateGuardian(int i)
