@@ -22,6 +22,8 @@ public class ObjectManager : MonoBehaviour
     }
     #endregion
 
+    Dictionary<string, GameObject> GuardianList = new Dictionary<string, GameObject>();
+
     public GameObject CreateWisp()
     {
         Object characterWisp = Resources.Load($"Object/Wisp_{BattleManager.GetInstance().curGuardian}");
@@ -33,6 +35,21 @@ public class ObjectManager : MonoBehaviour
     {
         Object GuardianObj = Resources.Load($"Object/Guardian_{i}");
         GameObject Guardian = (GameObject)Instantiate(GuardianObj, SpawnManager.GetInstance().spawnPosition);
+
+        GuardianList.Add($"Guardian_{i}", Guardian);
         return Guardian;
+    }
+
+    public GameObject GetGuardian(string key)
+    {
+        if (GuardianList.ContainsKey(key))
+            return GuardianList[key];
+
+        return null;
+    }
+
+    public void ClearObject()
+    {
+        GuardianList.Clear();
     }
 }
