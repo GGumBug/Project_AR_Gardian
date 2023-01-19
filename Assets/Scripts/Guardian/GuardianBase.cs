@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class GuardianBase
+public class GuardianBase
 {
     public string GuardianName { get; protected set; }
     public int atk { get; protected set; }
@@ -11,5 +11,16 @@ public abstract class GuardianBase
     public bool isClear { get; set; }
     public bool canAttack { get; set; }
 
-    public abstract void Attack();
+    public virtual GuardianBase Clone()
+    {
+        var NewData = new GuardianBase();
+        NewData.GuardianName = GuardianName;
+        NewData.atk = atk;
+        NewData.hp = hp;
+        NewData.delay = delay;
+        NewData.isClear = isClear;
+        NewData.canAttack = canAttack;
+
+        return NewData;
+    }
 }
