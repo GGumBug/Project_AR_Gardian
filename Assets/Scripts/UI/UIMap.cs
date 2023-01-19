@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UIMap : MonoBehaviour
 {
+    GuardianBase dokevbase;
     Image MapImg;
     public Button[] monsterBut;
     public GameObject gameInfocanvas;
@@ -16,6 +17,8 @@ public class UIMap : MonoBehaviour
         MapImg.sprite = Resources.Load<Sprite>("Image/MainMap");
         Image monster = Instantiate(MapImg);
         Monsterbuthide();
+        //monsterBut[0].gameObject.SetActive(true);
+        //monsterBut[0].onClick.AddListener(ChangeBattleScene);
         MonsterCount();
         monsterBut[3].gameObject.SetActive(true);
         monsterBut[3].onClick.AddListener(OpenGameInfo);
@@ -23,6 +26,16 @@ public class UIMap : MonoBehaviour
 
     void MonsterCount()//for문을 사용하면 더 좋을거같다하심 근데 어케할지 감이안잡혀서 보류
     {
+        //for (int i = 0; i < monsterBut.Length - 1; i++)//이경우 0번째 버튼은 이미 켜져있어야하는데 0번째 몬스터를 잡을면 0번째 버튼이 켜진다 monsterBut[i+1]? 이게 맞는가?
+        //{
+        //    if (GuardianManager.GetInstance().GuardianList[i].isClear == true)
+        //    {
+        //        monsterBut[i].gameObject.SetActive(true);
+        //        monsterBut[i].onClick.AddListener(ChangeBattleScene);
+
+        //        return;
+        //    }
+        //}
         switch (BattleManager.GetInstance().curGuardian)
         {
             case 0:
