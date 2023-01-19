@@ -32,6 +32,9 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] float SpawnDelay = 0.5f;
     [SerializeField] int SpawnRate = 70;
 
+    [Header("bool")]
+    public bool page_1 = false;
+
     private void Start()
     {
         GameObject arSessionOrigin = GameObject.FindGameObjectWithTag("ARSessionOrigin");
@@ -42,6 +45,11 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
+        if (page_1 == true)
+        {
+            return;
+        }
+
         var screenPoint = Camera.current.ViewportToScreenPoint(new Vector2(0.5f, 0.5f));
 
         List<ARRaycastHit> hits = new List<ARRaycastHit>();
