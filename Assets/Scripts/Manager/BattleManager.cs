@@ -21,6 +21,7 @@ public class BattleManager : MonoBehaviour
 
     }
     #endregion
+
     public int curGuardian;//몬스터 순번 0이면 1단계 1이면 2단계 이런식
 
 
