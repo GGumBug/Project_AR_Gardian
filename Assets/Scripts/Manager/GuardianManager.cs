@@ -28,4 +28,12 @@ public class GuardianManager : MonoBehaviour
         new Darksini_Guardian("어둑시니", 20, 200, 2f),
         new Duaksini_Guardian("두억시니", 40, 300, 1f),
     };
+
+    public void SetGuardian()
+    {
+        int curGuardian = BattleManager.GetInstance().curGuardian;
+        var guardian = ObjectManager.GetInstance().GetGuardian($"Guardian_{curGuardian}");
+        Guardian_Mono guardian_Mono = guardian.GetComponent<Guardian_Mono>();
+        guardian_Mono.guardian = GuardianList[curGuardian].Clone();
+    }
 }
