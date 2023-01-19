@@ -29,11 +29,26 @@ public class GuardianManager : MonoBehaviour
         new Duaksini_Guardian("두억시니", 40, 300, 1f),
     };
 
+    Dictionary<string, GameObject> GuardianMonoList = new Dictionary<string, GameObject>();
+
     public void SetGuardian()
     {
         int curGuardian = BattleManager.GetInstance().curGuardian;
         var guardian = ObjectManager.GetInstance().GetGuardian($"Guardian_{curGuardian}");
         Guardian_Mono guardian_Mono = guardian.GetComponent<Guardian_Mono>();
         guardian_Mono.guardian = GuardianList[curGuardian].Clone();
+
+        GuardianMonoList.Add($"Guardian_{curGuardian}", guardian);
+    }
+
+    public GameObject GetGuardianMono()
+    {
+        int curGuardian = BattleManager.GetInstance().curGuardian;
+        if (GuardianMonoList.ContainsKey($"Guardian_{curGuardian}"))
+        {
+            return GuardianMonoList[$"Guardian_{curGuardian}"];
+        }
+
+        return null;
     }
 }

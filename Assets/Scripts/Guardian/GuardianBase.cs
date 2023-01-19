@@ -6,10 +6,11 @@ public class GuardianBase
 {
     public string GuardianName { get; protected set; }
     public int atk { get; protected set; }
-    public int hp { get; protected set; }
+    public int hp { get; set; }
     public float delay { get; protected set; }
     public bool isClear { get; set; }
     public bool canAttack { get; set; }
+    public bool canParrying { get; set; }
 
     public virtual GuardianBase Clone()
     {
@@ -22,5 +23,10 @@ public class GuardianBase
         NewData.canAttack = canAttack;
 
         return NewData;
+    }
+
+    public virtual void Attack()
+    {
+        GameManager.GetInstance().SetHp(-atk);
     }
 }

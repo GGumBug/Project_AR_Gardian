@@ -11,5 +11,6 @@ public class Duaksini_Guardian : GuardianBase
         this.hp = hp;
         this.delay = delay;
         this.isClear = false;
+        this.canAttack = false;
     }
 }

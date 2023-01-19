@@ -5,10 +5,21 @@ using UnityEngine.UI;
 
 public class Wisp : MonoBehaviour
 {
+    UIBattle uIBattle;
+
     public void OnMouseDown()
     {
         ObjectManager.GetInstance().CreateGuardian(BattleManager.GetInstance().curGuardian);
-        SpawnManager.GetInstance().page_1 = true;
+        GuardianManager.GetInstance().SetGuardian();
+
+        UIManager.GetInstance().OpenUI("UIBattle");
+        GameObject uIBattleGo = UIManager.GetInstance().GetUI("UIBattle");
+        uIBattle = uIBattleGo.GetComponent<UIBattle>();
+        uIBattle.btnAttack.onClick.AddListener(()=> { BattleManager.GetInstance().PlayerAttack(); });
+        uIBattle.btnParrying.onClick.AddListener(() => { GameManager.GetInstance().Parrying(); });
+        uIBattle.RefreshHP();
+
+        BattleManager.GetInstance().page = Page.page_1;
         Destroy(gameObject);
     }
 }

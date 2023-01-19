@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
             go.AddComponent<StandaloneInputModule>();
         }
     }
-    Dictionary<string, GameObject> uiList = new Dictionary<string, GameObject>();
+    public Dictionary<string, GameObject> uiList = new Dictionary<string, GameObject>();
 
     public void OpenUI(string uiName)
     {

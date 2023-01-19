@@ -27,4 +27,20 @@ public class GameManager : MonoBehaviour
     {
         NewPlayer.hp += dmg;
     }
+
+    public void Attack()
+    {
+        int a = BattleManager.GetInstance().curGuardian;
+        GuardianManager.GetInstance().GuardianList[a].hp -= NewPlayer.atk;
+    }
+
+    public void Parrying()
+    {
+        int a = BattleManager.GetInstance().curGuardian;
+
+        if (GuardianManager.GetInstance().GuardianList[a].canParrying)
+        {
+            BattleManager.GetInstance().GuardianStun();
+        }
+    }
 }

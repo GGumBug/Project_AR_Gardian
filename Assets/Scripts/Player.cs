@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public int hp;
 
     [Header("Bool")]
-    bool canAttack;
+    public bool canAttack;
 
     public Player(string name, int atk, int hp)
     {
