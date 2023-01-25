@@ -51,4 +51,19 @@ public class GuardianManager : MonoBehaviour
 
         return null;
     }
+
+    public void GuardianDie()
+    {
+        int curGuardian = BattleManager.GetInstance().curGuardian;
+
+        if (GuardianList[curGuardian].hp <= 0)
+        {
+            GuardianList[curGuardian].hp = 0;
+            BattleManager.GetInstance().uIBattle.RefreshHP();
+            BattleManager.GetInstance().uIBattle.BattleInfo("Stage Clear");
+            ScenesManager.GetInstance().EndBattle();
+        }
+    }
+
+
 }
