@@ -64,8 +64,4 @@ public class GuardianManager : MonoBehaviour
             ScenesManager.GetInstance().EndBattle();
         }
     }
-
-
-
-
 }
