@@ -34,7 +34,7 @@ public class BattleManager : MonoBehaviour
     public Page page = Page.page_0;
 
     public UIBattle uIBattle;
-
+    Animator animator;
     public Material[] mat = new Material[2];
     Material curmat;
 
@@ -100,7 +100,8 @@ public class BattleManager : MonoBehaviour
         }
 
         GameManager.GetInstance().NewPlayer.canAttack = true;
-        //애니메이션
+        FindAnimator();
+        animator.SetTrigger("isAttack"); // 공격 애니메이션
 
         yield return new WaitForSeconds(2f);
 
@@ -158,8 +159,15 @@ public class BattleManager : MonoBehaviour
     IEnumerator ParryingDelayRoutine()
     {
         GameManager.GetInstance().NewPlayer.isParrying = true;
-        //패링 애니메이션
+        FindAnimator();
+        animator.SetTrigger("isParrying"); //패링 애니메이션
         yield return new WaitForSeconds(1f);
         GameManager.GetInstance().NewPlayer.isParrying = false;
+    }
+
+    public void FindAnimator()
+    {
+        GameObject arSessionOrigin = GameObject.FindGameObjectWithTag("ARSessionOrigin");
+        animator = arSessionOrigin.GetComponentInChildren<Animator>();
     }
 }
