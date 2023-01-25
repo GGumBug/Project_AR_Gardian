@@ -38,9 +38,21 @@ public class GameManager : MonoBehaviour
     {
         int a = BattleManager.GetInstance().curGuardian;
 
-        if (GuardianManager.GetInstance().GuardianList[a].canParrying && !NewPlayer.isParrying)
+        if (GuardianManager.GetInstance().GuardianList[a].canParrying && !NewPlayer.isParrying && !NewPlayer.canAttack)
         {
+            BattleManager.GetInstance().ParryingDelay();
             BattleManager.GetInstance().GuardianStun();
+        }
+    }
+
+    public void PlayerDie()
+    {
+        if (NewPlayer.hp <= 0)
+        {
+            NewPlayer.hp = 0;
+            BattleManager.GetInstance().uIBattle.RefreshHP();
+            BattleManager.GetInstance().uIBattle.BattleInfo("YOU DIED");
+            ScenesManager.GetInstance().EndBattle();
         }
     }
 }
