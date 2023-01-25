@@ -38,7 +38,7 @@ public class GameManager : MonoBehaviour
     {
         int a = BattleManager.GetInstance().curGuardian;
 
-        if (GuardianManager.GetInstance().GuardianList[a].canParrying)
+        if (GuardianManager.GetInstance().GuardianList[a].canParrying && !NewPlayer.isParrying)
         {
             BattleManager.GetInstance().GuardianStun();
         }

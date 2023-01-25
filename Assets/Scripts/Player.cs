@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
 
     [Header("Bool")]
     public bool canAttack;
+    public bool isParrying;
 
     public Player(string name, int atk, int hp)
     {
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
         this.atk = atk;
         this.hp = hp;
         canAttack = false;
+        isParrying = false;
     }
 
     private void Start()

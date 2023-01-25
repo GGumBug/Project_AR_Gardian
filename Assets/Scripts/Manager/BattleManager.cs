@@ -130,6 +130,7 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator GuardianStunDelay()
     {
+        GameManager.GetInstance().NewPlayer.isParrying = true;
         GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = true;
         // 스턴 애니메이션
         GameObject go = GuardianManager.GetInstance().GetGuardianMono();
@@ -139,5 +140,6 @@ public class BattleManager : MonoBehaviour
         gome.material = curmat;
 
         GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = false;
+        GameManager.GetInstance().NewPlayer.isParrying = false;
     }
 }
