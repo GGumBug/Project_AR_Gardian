@@ -108,6 +108,8 @@ public class BattleManager : MonoBehaviour
 
         uIBattle = FindUIBattle();
         uIBattle.RefreshHP();
+
+
         GuardianManager.GetInstance().GuardianDie();
 
         yield return new WaitForSeconds(1f);
@@ -136,7 +138,7 @@ public class BattleManager : MonoBehaviour
 
     public void ParryingDelay()
     {
-        StopCoroutine("ParryingDelayRoutine");
+        StartCoroutine("ParryingDelayRoutine");
     }
 
     IEnumerator GuardianStunDelay()

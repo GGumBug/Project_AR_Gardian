@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public Player NewPlayer = new Player("비형", 10, 100);
+    public Player NewPlayer = new Player("비형", 50, 100);
 
     public void SetHp(int dmg)
     {
@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
             BattleManager.GetInstance().uIBattle.RefreshHP();
             BattleManager.GetInstance().uIBattle.BattleInfo("YOU DIED");
             ScenesManager.GetInstance().EndBattle();
+            BattleManager.GetInstance().page = Page.page_0;
         }
     }
 }

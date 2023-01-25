@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player
 { 
     [Header("State")]
     string playerName;
@@ -20,10 +20,5 @@ public class Player : MonoBehaviour
         this.hp = hp;
         canAttack = false;
         isParrying = false;
-    }
-
-    private void Start()
-    {
-        GameManager.GetInstance().NewPlayer = this;
     }
 }

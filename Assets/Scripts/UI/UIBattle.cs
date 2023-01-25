@@ -14,6 +14,7 @@ public class UIBattle : MonoBehaviour
     [SerializeField] TMP_Text battleInfo;
 
 
+
     public void RefreshHP()
     {
         int a = BattleManager.GetInstance().curGuardian;
@@ -24,5 +25,6 @@ public class UIBattle : MonoBehaviour
     public void BattleInfo(string info)
     {
         battleInfo.text = info;
+
     }
 }

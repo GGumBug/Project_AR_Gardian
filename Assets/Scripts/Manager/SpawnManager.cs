@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
             GameObject go = new GameObject("@SpawnManager");
             instance = go.AddComponent<SpawnManager>();
 
-            DontDestroyOnLoad(go);
+            //DontDestroyOnLoad(go);
         }
         return instance;
 
@@ -24,8 +24,8 @@ public class SpawnManager : MonoBehaviour
     #endregion
 
     [Header("Object")]
-    ARRaycastManager arRaycast;
-    GameObject monsterPref = null;
+    public ARRaycastManager arRaycast;
+    public GameObject monsterPref = null;
     public Transform spawnPosition;
 
     [Header("Rate")]
@@ -34,6 +34,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Start()
     {
+        monsterPref = null;
         GameObject arSessionOrigin = GameObject.FindGameObjectWithTag("ARSessionOrigin");
         arRaycast = arSessionOrigin.GetComponent<ARRaycastManager>();
         GameObject spawnPositionGo = GameObject.FindGameObjectWithTag("SpawnPosition");
@@ -42,6 +43,12 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
+        //if (arRaycast == null)
+        //{
+        //    GameObject arSessionOrigin = GameObject.FindGameObjectWithTag("ARSessionOrigin");
+        //    arRaycast = arSessionOrigin.GetComponent<ARRaycastManager>();
+        //}
+
         if (BattleManager.GetInstance().page == Page.page_1)
         {
             return;
@@ -53,11 +60,14 @@ public class SpawnManager : MonoBehaviour
 
         if (arRaycast.Raycast(screenPoint, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes))
         {
+            Debug.Log("arRaycast Hit");
+            Debug.Log("monsterPref : " + monsterPref);
             if (monsterPref != null)
             {
                 return;
             }
 
+            Debug.Log("IsInvoking : " + IsInvoking());
             if (IsInvoking())
                 return;
 

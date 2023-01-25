@@ -7,6 +7,7 @@ public class BattleScene : MonoBehaviour
     void Start()
     {
         SpawnManager.GetInstance();
+        BattleManager.GetInstance();
     }
 
 }
