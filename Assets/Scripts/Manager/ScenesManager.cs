@@ -44,4 +44,15 @@ public class ScenesManager : MonoBehaviour
     }
 
     #endregion
+
+    public void EndBattle()
+    {
+        StartCoroutine("EndBattleRoutine");
+    }
+
+    public IEnumerator EndBattleRoutine()
+    {
+        yield return new WaitForSeconds(2f);
+        ChangeScene(Scene.Main);
+    }
 }
