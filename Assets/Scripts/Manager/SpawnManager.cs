@@ -60,14 +60,11 @@ public class SpawnManager : MonoBehaviour
 
         if (arRaycast.Raycast(screenPoint, hits, UnityEngine.XR.ARSubsystems.TrackableType.Planes))
         {
-            Debug.Log("arRaycast Hit");
-            Debug.Log("monsterPref : " + monsterPref);
             if (monsterPref != null)
             {
                 return;
             }
 
-            Debug.Log("IsInvoking : " + IsInvoking());
             if (IsInvoking())
                 return;
 
