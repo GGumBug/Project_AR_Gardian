@@ -136,7 +136,7 @@ public class BattleManager : MonoBehaviour
 
     public void ParryingDelay()
     {
-        StopCoroutine("ParryingDelayRoutine");
+        StartCoroutine("ParryingDelayRoutine");
     }
 
     IEnumerator GuardianStunDelay()

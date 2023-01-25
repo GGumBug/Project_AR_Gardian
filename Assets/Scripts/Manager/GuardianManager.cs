@@ -68,12 +68,6 @@ public class GuardianManager : MonoBehaviour
     }
     public bool IsOpenGardian(int idx)
     {
-        //int targetIdx = idx - 1;
-
-        //if (targetIdx < 0)
-        //    targetIdx = 0;
-
-
         return GuardianList[idx].isClear;
     }
 
