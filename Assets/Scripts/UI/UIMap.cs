@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class UIMap : MonoBehaviour
 {
-    GuardianBase dokevbase;
     Image MapImg;
     public Button[] monsterBut;
     public GameObject gameInfocanvas;
@@ -28,7 +27,8 @@ public class UIMap : MonoBehaviour
             if (GuardianManager.GetInstance().IsOpenGardian(i) == false)
             {
                 monsterBut[i].image.sprite = Resources.Load<Sprite>("Image/DanGer");
-                monsterBut[i].image.color = new Color(1,1,1,1);
+                monsterBut[i].image.color = new Color(1, 1, 1, 1);
+                BattleManager.GetInstance().curGuardian = i;
                 monsterBut[i].onClick.AddListener(ChangeBattleScene);
                 return;
             }
@@ -49,12 +49,13 @@ public class UIMap : MonoBehaviour
         void ChangeBattleScene()
         {
             ScenesManager.GetInstance().ChangeScene(Scene.Battle);
+
         }
 
         void OpenGameInfo()
-        {
-            gameInfocanvas.gameObject.SetActive(true);
-        }
-    
+    {
+        gameInfocanvas.gameObject.SetActive(true);
+    }
+
 }
 

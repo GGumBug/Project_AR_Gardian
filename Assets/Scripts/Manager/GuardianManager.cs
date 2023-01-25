@@ -63,6 +63,7 @@ public class GuardianManager : MonoBehaviour
             BattleManager.GetInstance().uIBattle.BattleInfo("Stage Clear");
             ScenesManager.GetInstance().EndBattle();
             GuardianList[curGuardian].isClear = true;
+            BattleManager.GetInstance().page = Page.page_0;
 
         }
     }

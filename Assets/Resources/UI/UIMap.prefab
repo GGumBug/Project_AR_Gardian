@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4631428308590463171}
   - component: {fileID: 6161505777961607956}
   - component: {fileID: 675786207455975155}
+  - component: {fileID: 1735336417330688895}
   m_Layer: 5
   m_Name: Eodugsini
   m_TagString: Untagged
@@ -122,6 +123,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1735336417330688895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2153691218382927763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1b247c8bd81d2144b273c3104fec491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curBnt: 1
 --- !u!1 &3008640803586589491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,6 +1501,7 @@ GameObject:
   - component: {fileID: 123552934459750966}
   - component: {fileID: 5109913272020706563}
   - component: {fileID: 5038552298311221866}
+  - component: {fileID: 7846494055395009461}
   m_Layer: 5
   m_Name: Dueogsini
   m_TagString: Untagged
@@ -1597,6 +1612,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7846494055395009461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6524992732093750027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1b247c8bd81d2144b273c3104fec491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curBnt: 2
 --- !u!1 &6644847852386685097
 GameObject:
   m_ObjectHideFlags: 0
@@ -2248,6 +2276,7 @@ GameObject:
   - component: {fileID: 4242949467773260583}
   - component: {fileID: 5861246989941997205}
   - component: {fileID: 3298291159222467796}
+  - component: {fileID: 8850931877650073385}
   m_Layer: 5
   m_Name: LanternGuardian
   m_TagString: Untagged
@@ -2358,6 +2387,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8850931877650073385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757732828597195901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1b247c8bd81d2144b273c3104fec491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  curBnt: 0
 --- !u!1 &8853689862979445007
 GameObject:
   m_ObjectHideFlags: 0
