@@ -33,7 +33,7 @@ public class BattleManager : MonoBehaviour
 
     public Page page = Page.page_0;
 
-    UIBattle uIBattle;
+    public UIBattle uIBattle;
 
     public Material[] mat = new Material[2];
     Material curmat;
@@ -58,6 +58,10 @@ public class BattleManager : MonoBehaviour
 
     public void PlayerAttack()
     {
+        if (GameManager.GetInstance().NewPlayer.isParrying)
+        {
+            return;
+        }
         StartCoroutine("PlayerAttackDelay");
     }
 
@@ -81,6 +85,7 @@ public class BattleManager : MonoBehaviour
 
         uIBattle = FindUIBattle();
         uIBattle.RefreshHP();
+        GameManager.GetInstance().PlayerDie();
 
         yield return new WaitForSeconds(1f);
 
@@ -103,6 +108,7 @@ public class BattleManager : MonoBehaviour
 
         uIBattle = FindUIBattle();
         uIBattle.RefreshHP();
+        GuardianManager.GetInstance().GuardianDie();
 
         yield return new WaitForSeconds(1f);
 
@@ -128,9 +134,13 @@ public class BattleManager : MonoBehaviour
         StartCoroutine("GuardianStunDelay");
     }
 
+    public void ParryingDelay()
+    {
+        StopCoroutine("ParryingDelayRoutine");
+    }
+
     IEnumerator GuardianStunDelay()
     {
-        GameManager.GetInstance().NewPlayer.isParrying = true;
         GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = true;
         // 스턴 애니메이션
         GameObject go = GuardianManager.GetInstance().GetGuardianMono();
@@ -140,6 +150,14 @@ public class BattleManager : MonoBehaviour
         gome.material = curmat;
 
         GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = false;
+        
+    }
+
+    IEnumerator ParryingDelayRoutine()
+    {
+        GameManager.GetInstance().NewPlayer.isParrying = true;
+        //패링 애니메이션
+        yield return new WaitForSeconds(1f);
         GameManager.GetInstance().NewPlayer.isParrying = false;
     }
 }
