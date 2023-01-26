@@ -9,22 +9,21 @@ public class Player
     string playerName;
     public int atk;
     public int hp;
+    public float parryingDelay;
+    public float attackingDelay;
+
 
     [Header("Bool")]
     public bool canAttack;
-    public bool parrying;
-    public bool isParrying {
-        get { return parrying; }
-        set {
-            parrying = value; 
-        }
-    }
+    public bool isParrying;
 
-    public Player(string name, int atk, int hp)
+    public Player(string name, int atk, int hp, float parryingDelay, float attackingDelay)
     {
         playerName = name;
         this.atk = atk;
         this.hp = hp;
+        this.parryingDelay = parryingDelay;
+        this.attackingDelay = attackingDelay;
         canAttack = false;
         isParrying = false;
     }
