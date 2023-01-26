@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public Player NewPlayer = new Player("비형", 50, 100);
+    public Player NewPlayer = new Player("비형", 50, 100, 1f, 1.5f);
 
     public void SetHp(int dmg)
     {

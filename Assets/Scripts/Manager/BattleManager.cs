@@ -106,7 +106,7 @@ public class BattleManager : MonoBehaviour
         FindAnimator();
         animator.SetTrigger("isAttack"); // 공격 애니메이션
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(GameManager.GetInstance().NewPlayer.attackingDelay);
 
         GameManager.GetInstance().Attack();
 
@@ -165,7 +165,7 @@ public class BattleManager : MonoBehaviour
     {
         FindAnimator();
         animator.SetTrigger("isParrying"); //패링 애니메이션
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(GameManager.GetInstance().NewPlayer.parryingDelay);
         GameManager.GetInstance().NewPlayer.isParrying = false;
     }
 
