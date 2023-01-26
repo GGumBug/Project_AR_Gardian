@@ -8,7 +8,10 @@ public class UIBattle : MonoBehaviour
 {
     [Header ("UI")]
     public Button btnAttack;
-    public Button btnParrying;
+    public Button btnTop;
+    public Button btnRight;
+    public Button btnBottom;
+    public Button btnLeft;
     [SerializeField] Slider hpPlayer;
     [SerializeField] Slider hpGuardian;
     [SerializeField] TMP_Text battleInfo;
@@ -16,7 +19,10 @@ public class UIBattle : MonoBehaviour
     private void Start()
     {
         btnAttack.onClick.AddListener(() => { BattleManager.GetInstance().PlayerAttack(); });
-        btnParrying.onClick.AddListener(() => { GameManager.GetInstance().Parrying(); });
+        btnTop.onClick.AddListener(() => { GameManager.GetInstance().Parrying(0); });
+        btnRight.onClick.AddListener(() => { GameManager.GetInstance().Parrying(1); });
+        btnBottom.onClick.AddListener(() => { GameManager.GetInstance().Parrying(2); });
+        btnLeft.onClick.AddListener(() => { GameManager.GetInstance().Parrying(3); });
     }
 
     public void RefreshHP()
