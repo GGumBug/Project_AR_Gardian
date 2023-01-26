@@ -24,9 +24,9 @@ public class GuardianManager : MonoBehaviour
 
     public GuardianBase[] GuardianList =
     {
-        new lamplight_Guardian("등불도깨비", 10, 100, 2f),
-        new Darksini_Guardian("어둑시니", 20, 200, 2f),
-        new Duaksini_Guardian("두억시니", 40, 300, 1f),
+        new lamplight_Guardian("등불도깨비", 10, 100, 100, 2f),
+        new Darksini_Guardian("어둑시니", 20, 200, 200, 2f),
+        new Duaksini_Guardian("두억시니", 40, 300, 300, 1f),
     };
 
     Dictionary<string, GameObject> GuardianMonoList = new Dictionary<string, GameObject>();

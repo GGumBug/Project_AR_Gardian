@@ -144,6 +144,7 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator GuardianStunDelay()
     {
+
         GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = true;
         // 스턴 애니메이션
         GameObject go = GuardianManager.GetInstance().GetGuardianMono();
@@ -158,7 +159,6 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator ParryingDelayRoutine()
     {
-        GameManager.GetInstance().NewPlayer.isParrying = true;
         FindAnimator();
         animator.SetTrigger("isParrying"); //패링 애니메이션
         yield return new WaitForSeconds(1f);
