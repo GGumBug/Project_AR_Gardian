@@ -21,7 +21,9 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public Player NewPlayer = new Player("비형", 50, 100, 1f, 1.5f);
+    public Player NewPlayer = new Player("비형", 50, 100, 1f, 0.5f);
+
+    public int parryingDrection;
 
     public void SetHp(int dmg)
     {
@@ -34,8 +36,10 @@ public class GameManager : MonoBehaviour
         GuardianManager.GetInstance().GuardianList[a].hp -= NewPlayer.atk;
     }
 
-    public void Parrying()
+    public void Parrying(int b)
     {
+        parryingDrection = b;
+
         int a = BattleManager.GetInstance().curGuardian;
 
         if (GuardianManager.GetInstance().GuardianList[a].canParrying && !NewPlayer.isParrying && !NewPlayer.canAttack)
@@ -43,7 +47,6 @@ public class GameManager : MonoBehaviour
             NewPlayer.isParrying = true;
             GuardianManager.GetInstance().GuardianList[a].canParrying = false;
             BattleManager.GetInstance().ParryingDelay();
-            BattleManager.GetInstance().GuardianStun();
         }
 
         if (!GuardianManager.GetInstance().GuardianList[a].canParrying && !NewPlayer.isParrying && !NewPlayer.canAttack)

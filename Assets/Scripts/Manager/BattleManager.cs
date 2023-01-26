@@ -167,6 +167,7 @@ public class BattleManager : MonoBehaviour
         animator.SetTrigger("isParrying"); //패링 애니메이션
         yield return new WaitForSeconds(GameManager.GetInstance().NewPlayer.parryingDelay);
         GameManager.GetInstance().NewPlayer.isParrying = false;
+        GameManager.GetInstance().parryingDrection = -1;
     }
 
     public void FindAnimator()
