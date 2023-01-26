@@ -63,10 +63,10 @@ public class GuardianManager : MonoBehaviour
             GuardianList[curGuardian].hp = 0;
             BattleManager.GetInstance().uIBattle.RefreshHP();
             BattleManager.GetInstance().uIBattle.BattleInfo("Stage Clear");
-            ScenesManager.GetInstance().EndBattle();
             GuardianList[curGuardian].isClear = true;
             BattleManager.GetInstance().page = Page.page_0;
-
+            Object rewardObejct = Resources.Load($"UI/UIReward");
+            GameObject itemGameObejct = (GameObject)Instantiate(rewardObejct);
         }
     }
     public bool IsOpenGardian(int idx)
