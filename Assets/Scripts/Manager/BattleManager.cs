@@ -52,7 +52,10 @@ public class BattleManager : MonoBehaviour
                 GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = true;
                 StartCoroutine("GuardianAttack");
             }
-            
+        }
+        if (page == Page.page_0)
+        {
+            StopCoroutine("GuardianAttack");
         }
     }
 
