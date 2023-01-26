@@ -29,4 +29,6 @@ public class UIRewardItem : MonoBehaviour
         txtInfo.text = itemInfo;
         itemImage.sprite = Resources.Load<Sprite>($"Image/RewardItem_{itemimg}");
     }
+
+
 }
