@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 634748019160670363}
   - component: {fileID: 5141745367900770502}
   - component: {fileID: 4080651343526458662}
+  - component: {fileID: 2449063889321959439}
   m_Layer: 5
   m_Name: RewardItem
   m_TagString: Untagged
@@ -66,7 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -142,7 +143,20 @@ MonoBehaviour:
   btnItem: {fileID: 0}
   txtName: {fileID: 0}
   txtInfo: {fileID: 0}
+  bgImage: {fileID: 0}
   itemImage: {fileID: 0}
+--- !u!225 &2449063889321959439
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2309704181278496923}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6443841258218121968
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class UIitem : MonoBehaviour
 {
-    public Transform itemRoot;
+    public HorizontalLayoutGroup itemRoot;
 
 
     void Start()
@@ -22,7 +22,7 @@ public class UIitem : MonoBehaviour
             RewardItem item = RewardManager.itemDatas[randomidx];
 
             Object itemObejct = Resources.Load($"UI/RewardItem");
-            GameObject itemGameObejct = (GameObject)Instantiate(itemObejct, itemRoot);
+            GameObject itemGameObejct = (GameObject)Instantiate(itemObejct, itemRoot.transform);
             
 
             UIRewardItem uiRewardItem = itemGameObejct.GetComponent<UIRewardItem>();
@@ -30,7 +30,7 @@ public class UIitem : MonoBehaviour
             uiRewardItem.SetItemInfo(item.itemName, item.itemInfo, item.itemImg);
 
             RewardManager.itemDatas.RemoveAt(randomidx);
-
+            RewardManager.currentItems.Add(item.itemImg, uiRewardItem);
         }
     }
 
