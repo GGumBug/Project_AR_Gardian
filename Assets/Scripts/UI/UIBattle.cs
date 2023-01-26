@@ -13,12 +13,17 @@ public class UIBattle : MonoBehaviour
     [SerializeField] Slider hpGuardian;
     [SerializeField] TMP_Text battleInfo;
 
-
+    private void Start()
+    {
+        btnAttack.onClick.AddListener(() => { BattleManager.GetInstance().PlayerAttack(); });
+        btnParrying.onClick.AddListener(() => { GameManager.GetInstance().Parrying(); });
+    }
 
     public void RefreshHP()
     {
         int a = BattleManager.GetInstance().curGuardian;
         hpPlayer.value = GameManager.GetInstance().NewPlayer.hp;
+        hpGuardian.maxValue = GuardianManager.GetInstance().GuardianList[a].maxHp;
         hpGuardian.value = GuardianManager.GetInstance().GuardianList[a].hp;
     }
 
