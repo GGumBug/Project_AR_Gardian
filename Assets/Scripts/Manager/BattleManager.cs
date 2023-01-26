@@ -106,7 +106,7 @@ public class BattleManager : MonoBehaviour
         FindAnimator();
         animator.SetTrigger("isAttack"); // 공격 애니메이션
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         GameManager.GetInstance().Attack();
 
@@ -135,19 +135,19 @@ public class BattleManager : MonoBehaviour
 
     public void GuardianStun()
     {
-        StopCoroutine("GuardianAttack");
+        StopCoroutine("GuardianAttack"); // *중복 실행 방지
 
         StartCoroutine("GuardianStunDelay");
     }
 
     public void ParryingDelay()
     {
+        StopCoroutine("ParryingDelayRoutine");
         StartCoroutine("ParryingDelayRoutine");
     }
 
     IEnumerator GuardianStunDelay()
     {
-
         GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = true;
         // 스턴 애니메이션
         GameObject go = GuardianManager.GetInstance().GetGuardianMono();
@@ -157,6 +157,7 @@ public class BattleManager : MonoBehaviour
         gome.material = curmat;
 
         GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = false;
+
         
     }
 

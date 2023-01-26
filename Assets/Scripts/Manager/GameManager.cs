@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
 
         if (!GuardianManager.GetInstance().GuardianList[a].canParrying && !NewPlayer.isParrying && !NewPlayer.canAttack)
         {
+            NewPlayer.isParrying = true;
             BattleManager.GetInstance().ParryingDelay();
         }
     }
