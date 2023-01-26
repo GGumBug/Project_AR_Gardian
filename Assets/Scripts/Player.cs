@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player
-{ 
+{
+    //*MonoBehaviour는 씬이 끝나면 소멸하기 때문에 C#스크립트로 생성
     [Header("State")]
     string playerName;
     public int atk;
