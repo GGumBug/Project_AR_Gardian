@@ -11,7 +11,13 @@ public class Player
 
     [Header("Bool")]
     public bool canAttack;
-    public bool isParrying;
+    public bool parrying;
+    public bool isParrying {
+        get { return parrying; }
+        set {
+            parrying = value; 
+        }
+    }
 
     public Player(string name, int atk, int hp)
     {
