@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class lamplight_Guardian : GuardianBase
 {
-    public lamplight_Guardian(string name,int atk, int hp, float delay)
+    public lamplight_Guardian(string name,int atk,int maxHp, int hp, float delay)
     {
         this.GuardianName = name;
         this.atk = atk;
+        this.maxHp = maxHp;
         this.hp = hp;
         this.delay = delay;
         this.isClear = false;

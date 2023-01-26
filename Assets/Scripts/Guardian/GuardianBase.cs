@@ -6,6 +6,7 @@ public class GuardianBase
 {
     public string GuardianName { get; protected set; }
     public int atk { get; protected set; }
+    public int maxHp { get; set; }
     public int hp { get; set; }
     public float delay { get; protected set; }
     public bool isClear { get; set; }
@@ -17,6 +18,7 @@ public class GuardianBase
         var NewData = new GuardianBase();
         NewData.GuardianName = GuardianName;
         NewData.atk = atk;
+        NewData.maxHp = maxHp;
         NewData.hp = hp;
         NewData.delay = delay;
         NewData.isClear = isClear;
