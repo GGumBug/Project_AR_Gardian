@@ -74,17 +74,21 @@ public class BattleManager : MonoBehaviour
         GameObject go = GuardianManager.GetInstance().GetGuardianMono();
         MeshRenderer gome = go.GetComponentInChildren<MeshRenderer>();
         curmat = gome.material;
-        //공격 애니메이션
+        GuardianManager.GetInstance().GuardianList[curGuardian].StartAniMation();
         yield return new WaitForSeconds(1.5f);
 
         GuardianManager.GetInstance().GuardianList[curGuardian].canParrying = true;
-
         gome.material = mat[1];
         yield return new WaitForSeconds(0.5f);
+        if (GameManager.GetInstance().NewPlayer.isParrying && GuardianManager.GetInstance().attackDirection == GameManager.GetInstance().parryingDrection)
+        {
+            GuardianManager.GetInstance().GuardianList[curGuardian].ParryingCheck();
+            yield break;
+        }
+            
         GuardianManager.GetInstance().GuardianList[curGuardian].canParrying = false;
-        gome.material = curmat;
-
         GuardianManager.GetInstance().GuardianList[curGuardian].Attack();
+        gome.material = curmat;
 
         uIBattle = FindUIBattle();
         uIBattle.RefreshHP();
@@ -103,7 +107,7 @@ public class BattleManager : MonoBehaviour
         }
 
         GameManager.GetInstance().NewPlayer.canAttack = true;
-        FindAnimator();
+        FindSwordAnimator();
         animator.SetTrigger("isAttack"); // 공격 애니메이션
 
         yield return new WaitForSeconds(GameManager.GetInstance().NewPlayer.attackingDelay);
@@ -163,14 +167,14 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator ParryingDelayRoutine()
     {
-        FindAnimator();
+        FindSwordAnimator();
         animator.SetTrigger("isParrying"); //패링 애니메이션
         yield return new WaitForSeconds(GameManager.GetInstance().NewPlayer.parryingDelay);
         GameManager.GetInstance().NewPlayer.isParrying = false;
         GameManager.GetInstance().parryingDrection = -1;
     }
 
-    public void FindAnimator()
+    public void FindSwordAnimator()
     {
         GameObject arSessionOrigin = GameObject.FindGameObjectWithTag("ARSessionOrigin");
         animator = arSessionOrigin.GetComponentInChildren<Animator>();

@@ -22,6 +22,8 @@ public class GuardianManager : MonoBehaviour
     }
     #endregion
 
+    public int attackDirection;
+
     public GuardianBase[] GuardianList =
     {
         new lamplight_Guardian("등불도깨비", 10, 100, 100, 2f),
