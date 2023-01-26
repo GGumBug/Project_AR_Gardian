@@ -15,8 +15,6 @@ public class Wisp : MonoBehaviour
         UIManager.GetInstance().OpenUI("UIBattle");
         GameObject uIBattleGo = UIManager.GetInstance().GetUI("UIBattle");
         uIBattle = uIBattleGo.GetComponent<UIBattle>();
-        uIBattle.btnAttack.onClick.AddListener(()=> { BattleManager.GetInstance().PlayerAttack(); });
-        uIBattle.btnParrying.onClick.AddListener(() => { GameManager.GetInstance().Parrying(); });
         uIBattle.RefreshHP();
 
         BattleManager.GetInstance().page = Page.page_1;
