@@ -8,12 +8,12 @@ public class GuardianBase
     public int atk { get; protected set; }
     public int maxHp { get; set; }
     public int hp { get; set; }
-    public int attackDirection;
     public float delay { get; protected set; }
     public bool isClear { get; set; }
     public bool canAttack { get; set; }
     public bool canParrying { get; set; }
 
+    Animator guardianAnimator;
 
     public virtual GuardianBase Clone()
     {
@@ -29,41 +29,52 @@ public class GuardianBase
         return NewData;
     }
 
-    public virtual void Attack()
+    public virtual void StartAniMation()
     {
         int ran = Random.Range(0, 4);
-        attackDirection = ran;
+        GuardianManager.GetInstance().attackDirection = ran;
 
-        switch (attackDirection)
+        switch (GuardianManager.GetInstance().attackDirection)
         {
             case 0:
                 // 내려찍기
-                ConfirmAttack();
+                FindGuardianAnimator();
+                guardianAnimator.SetTrigger("G_Top");
                 break;
             case 1:
                 //우공격
-                ConfirmAttack();
+                FindGuardianAnimator();
+                guardianAnimator.SetTrigger("G_Left");
                 break;
             case 2:
                 //올려치기
-                ConfirmAttack();
+                FindGuardianAnimator();
+                guardianAnimator.SetTrigger("G_Bottom");
                 break;
             case 3:
                 //좌공격
-                ConfirmAttack();
+                FindGuardianAnimator();
+                guardianAnimator.SetTrigger("G_Right");
+
                 break;
         }
     }
 
-    void ConfirmAttack()
+    public virtual void Attack()
+    {
+        GameManager.GetInstance().SetHp(-atk);
+    }
+
+    public virtual void ParryingCheck()
     {
         int p = GameManager.GetInstance().parryingDrection;
 
-        if (GameManager.GetInstance().NewPlayer.isParrying && attackDirection == p)
-        {
             BattleManager.GetInstance().GuardianStun();
-            return;
-        }
-        GameManager.GetInstance().SetHp(-atk);
+    }
+
+    void FindGuardianAnimator()
+    {
+        GameObject go = GameObject.FindGameObjectWithTag("Guardian");
+        guardianAnimator = go.GetComponentInChildren<Animator>();
     }
 }
