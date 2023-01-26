@@ -7,13 +7,10 @@ using TMPro;
 
 public class UITitle : MonoBehaviour
 {
-    public Image TitleImg;
-    
-    public Image BtnImg1;
-    public Image BtnImg2;
+    public Image TitleImg;    
+    public Image GrdnIcon;
     public Button GameStart;
-    public TMP_Text GameStartTxt;
-
+   
     void Start()
     {
         // TitleImg = GetComponentInChildren<Image>();
@@ -24,7 +21,6 @@ public class UITitle : MonoBehaviour
         GetComponent<Canvas>().worldCamera = Camera.main;
         GetComponent<Canvas>().planeDistance = 11;
 
-        GameStartTxt = GameStart.GetComponentInChildren<TMP_Text>();
         Invoke("AppearLogo", 6.5f);
 
         GameStart.onClick.AddListener(ChangeMainScene);
@@ -35,25 +31,11 @@ public class UITitle : MonoBehaviour
     {
         TitleImg.rectTransform.DOScale(1, 1f);
         TitleImg.DOFade(1, 1f).OnComplete(() =>
-        {            
-            BtnImg1.DOFade(1, 1f);
-            BtnImg2.DOFade(1, 1f);
-            BtnImg2.transform.DOLocalMoveY(-60, 1).SetRelative().SetEase(Ease.Linear);
-            GameStart.image.DOFade(1, 2.5f);
-            GameStartTxt.DOFade(1, 2.5f);
-        });
-       
-        
-        //var originPos = TitleImg.rectTransform.anchoredPosition.y;
-        //var startPos = TitleImg.rectTransform.anchoredPosition;
-        //startPos.y -= 50;
-
-        //TitleImg.DOFade(1, 5f);
-        //TitleImg.rectTransform.DOAnchorPosY(originPos, 0.7f).ChangeStartValue(startPos)
-        //    .OnComplete(() => {
-        //         BtnImg2.rectTransform.DOAnchorPosY(-300, 1);
-        //        //
-        //    });
+        {
+            GameStart.image.DOFade(1, 2f);
+            GrdnIcon.DOFade(1, 3f);
+            
+        });       
 
     }
 
