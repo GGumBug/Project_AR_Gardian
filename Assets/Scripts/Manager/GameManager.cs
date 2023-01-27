@@ -35,7 +35,9 @@ public class GameManager : MonoBehaviour
     public void Attack()
     {
         int a = BattleManager.GetInstance().curGuardian;
-        GuardianManager.GetInstance().GuardianList[a].hp -= NewPlayer.atk;
+        GameObject go = GuardianManager.GetInstance().GuardianMonoList[$"Guardian_{a}"];
+        var guardian = go.GetComponent<GuardianBase>();
+        guardian.hp -= NewPlayer.atk;
     }
 
     public void Parrying(int b)
@@ -67,7 +69,13 @@ public class GameManager : MonoBehaviour
             BattleManager.GetInstance().uIBattle.BattleInfo("YOU DIED");
             BattleManager.GetInstance().uIBattle.dieimg.gameObject.SetActive(true);
             BattleManager.GetInstance().page = Page.page_0;
+            GuardianManager.GetInstance().ResetGuardian();
+
         }
+    }
+    public void ReTitle()
+    {
+        ScenesManager.GetInstance().DieTitle();
     }
     public void HealHp(int healhp)
     {
@@ -93,7 +101,10 @@ public class GameManager : MonoBehaviour
     }
     public void Skilltrue(bool skill_1)
     {
+        if(NewPlayer.skill_1 == false)
+        {
             NewPlayer.skill_1 = skill_1;
+        }
     }
     public void SkillBtnClick(Button Btn)
     {

@@ -24,7 +24,6 @@ public class UIitem : MonoBehaviour
             Object itemObejct = Resources.Load($"UI/RewardItem");
             GameObject itemGameObejct = (GameObject)Instantiate(itemObejct, itemRoot.transform);
             
-
             UIRewardItem uiRewardItem = itemGameObejct.GetComponent<UIRewardItem>();
             uiRewardItem.SetRefence();
             uiRewardItem.SetItemInfo(item);
@@ -33,5 +32,4 @@ public class UIitem : MonoBehaviour
             RewardManager.currentItems.Add(item.itemImg, uiRewardItem);
         }
     }
-
 }

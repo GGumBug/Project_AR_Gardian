@@ -31,7 +31,7 @@ public class GuardianManager : MonoBehaviour
         new Duaksini_Guardian("두억시니", 40, 300, 300, 1f),
     };
 
-    Dictionary<string, GameObject> GuardianMonoList = new Dictionary<string, GameObject>();
+    public Dictionary<string, GameObject> GuardianMonoList = new Dictionary<string, GameObject>();
 
     public void SetGuardian()
     {
@@ -54,6 +54,14 @@ public class GuardianManager : MonoBehaviour
         return null;
     }
 
+    public GuardianBase GetGuardianMonoBase()
+    {
+        GameObject go = GetGuardianMono();
+        var guardian = go.GetComponent<GuardianBase>();
+
+        return guardian;
+    }
+
     public void GuardianDie()
     {
         int curGuardian = BattleManager.GetInstance().curGuardian;
@@ -74,4 +82,12 @@ public class GuardianManager : MonoBehaviour
         return GuardianList[idx].isClear;
     }
 
+    public void ResetGuardian()
+    {
+        for (int i = 0; i < GuardianList.Length ; i++)
+        {
+            GuardianList[i].isClear = false;
+        }
+        GuardianMonoList.Clear();
+    }
 }

@@ -10,5 +10,9 @@ public class MainScene : MonoBehaviour
         Mainui = Resources.Load<GameObject>("UI/UIMap");
         GameObject uimain = (GameObject)Instantiate(Mainui);
     }
+    private void Update()
+    {
+        Debug.Log(BattleManager.GetInstance().curGuardian);
 
+    }
 }

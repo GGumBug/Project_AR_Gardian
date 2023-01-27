@@ -12,8 +12,7 @@ public class RewardManager : MonoBehaviour
         new RewardItem("깃털", "아무튼 깃털 \n 공격 딜레이0.25감소",2,0,0,0,0.25f,false),
         new RewardItem("붕대", "깨끗한 붕대 \n 체력을 30회복한다",3,30,0,0,0,false),
         new RewardItem("전기", "검이 빨라진다 \n 페링 딜레이0.5감소",4,0,0,0.5f,0,false),
-        new RewardItem("거북이등딱지", "테스트 스킬1 \n 화염공격?",5,0,0,0,0,true)
-
+        new RewardItem("거북이등딱지", "테스트 아이템1 \n 화염공격?",5,0,0,0,0,true),
     };
 
     public static Dictionary<int, UIRewardItem> currentItems = new Dictionary<int, UIRewardItem>();
