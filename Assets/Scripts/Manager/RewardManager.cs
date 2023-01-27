@@ -5,14 +5,14 @@ using UnityEngine;
 public class RewardManager : MonoBehaviour
 {
 
-    [SerializeField] public static List<RewardItem> itemDatas = new List<RewardItem>()
+    public static List<RewardItem> itemDatas = new List<RewardItem>()
     {
-        new RewardItem("환단", "영묘한 효험이 있는 약 \n 체력을 50회복한다. ",0),
-        new RewardItem("도깨비 방망이", "도깨비들이 주로 쓰는 방망이 \n 공격력 2배증가",1),
-        new RewardItem("깃털", "아무튼 깃털 \n 공격 딜레이감소",2),
-        new RewardItem("붕대", "깨끗한 붕대 \n 체력회복",3),
-        new RewardItem("전기", "검이 빨라진다 \n 페링딜레이감소",4),
-        new RewardItem("거북이등딱지", "한번 막아주나 \n 무적",5)
+        new RewardItem("환단", "영묘한 효험이 있는 약 \n 체력을 50회복한다. ",0,50,0,0,0),
+        new RewardItem("도깨비 방망이", "도깨비들이 주로 쓰는 방망이 \n 공격력 10증가",1,0,10,0,0),
+        new RewardItem("깃털", "아무튼 깃털 \n 공격 딜레이0.25감소",2,0,0,0,0.25f),
+        new RewardItem("붕대", "깨끗한 붕대 \n 체력을 30회복한다",3,30,0,0,0),
+        new RewardItem("전기", "검이 빨라진다 \n 페링 딜레이0.5감소",4,0,0,0.5f,0),
+        new RewardItem("거북이등딱지", "체력50회복,공격력10증가 \n 공격 딜레이0.25 감소,페링딜레이0.5감소",5,50,10,0.5f,0.25f)
 
     };
 

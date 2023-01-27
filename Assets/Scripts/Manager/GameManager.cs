@@ -67,4 +67,27 @@ public class GameManager : MonoBehaviour
             BattleManager.GetInstance().page = Page.page_0;
         }
     }
+    public void HealHp(int healhp)
+    {
+        NewPlayer.hp += healhp;
+        if(NewPlayer.hp > 100)
+        {
+            NewPlayer.hp = 100;
+        }
+    }
+
+    public void IncreaseAtk(int value)
+    {
+        NewPlayer.atk += value;
+    }
+
+    public void ParryingDelayDown(float pDelayDown)
+    {
+        NewPlayer.parryingDelay -= pDelayDown;
+    }
+    public void AttackDelayDown(float aDelayDown)
+    {
+        NewPlayer.attackingDelay -= aDelayDown;
+    }
 }
+

@@ -27,7 +27,7 @@ public class UIitem : MonoBehaviour
 
             UIRewardItem uiRewardItem = itemGameObejct.GetComponent<UIRewardItem>();
             uiRewardItem.SetRefence();
-            uiRewardItem.SetItemInfo(item.itemName, item.itemInfo, item.itemImg);
+            uiRewardItem.SetItemInfo(item);
 
             RewardManager.itemDatas.RemoveAt(randomidx);
             RewardManager.currentItems.Add(item.itemImg, uiRewardItem);

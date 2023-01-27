@@ -13,6 +13,8 @@ public class UIRewardItem : MonoBehaviour
 
     public CanvasGroup cGroup;
 
+    RewardItem rewarditem;
+
     public Button btnItem;
     public TMP_Text txtName;
     public TMP_Text txtInfo;
@@ -36,16 +38,19 @@ public class UIRewardItem : MonoBehaviour
         itemImage.DOFade(1f, 3f);
 
         cGroup = GetComponent<CanvasGroup>();
+
     }
 
-    public void SetItemInfo(string itemName, string itemInfo,int itemimg)
+    public void SetItemInfo(RewardItem data)
     {
-        txtName.text = itemName;
-        txtInfo.text = itemInfo;
+        rewarditem = data;
 
-        _itemimgKey = itemimg;
+        txtName.text = rewarditem.itemName;
+        txtInfo.text = rewarditem.itemInfo;
 
-        itemImage.sprite = Resources.Load<Sprite>($"Image/RewardItem_{itemimg}");
+        _itemimgKey = rewarditem.itemImg;
+
+        itemImage.sprite = Resources.Load<Sprite>($"Image/RewardItem_{rewarditem.itemImg}");
     }
 
     void ItemSelect()
@@ -61,9 +66,15 @@ public class UIRewardItem : MonoBehaviour
             if (curitem.Key != _itemimgKey)
                 curitem.Value.cGroup.DOFade(0, 0.5f);
             cGroup.DOFade(0f, 1.5f).SetDelay(1.5f);
-
         }
         ScenesManager.GetInstance().EndBattle();
-
+        SelectReward();
+    }
+    public void SelectReward()
+    {
+        GameManager.GetInstance().HealHp(rewarditem.itemHp);
+        GameManager.GetInstance().IncreaseAtk(rewarditem.itemAtk);
+        GameManager.GetInstance().ParryingDelayDown(rewarditem.itemparryingDelay);
+        GameManager.GetInstance().AttackDelayDown(rewarditem.itemattackingDelay);
     }
 }
