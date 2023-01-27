@@ -23,8 +23,8 @@ public class UIBattle : MonoBehaviour
     [SerializeField] Slider hpPlayer;
     [SerializeField] Slider hpGuardian;
     [SerializeField] TMP_Text battleInfo;
-    [SerializeField] SwipeManager swipeManager = null;
-    [SerializeField] TestSwipeManager testSwipeManager = null;
+    public SwipeManager swipeManager = null;
+    public TestSwipeManager testSwipeManager = null;
 
     private void Start()
     {

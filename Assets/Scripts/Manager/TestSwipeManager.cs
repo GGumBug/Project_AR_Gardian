@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class TestSwipeManager : MonoBehaviour
 {
+    Animator animator;
+
     private Vector3 fp;   //첫 번째 터치 위치
     private Vector3 lp;   //마지막 터치 위치
     private float dragDistance;  //스와이프 등록을 위한 최소 거리
+
+    public int playerAttackDirection;
 
     bool _isTouched = false;
 
@@ -47,11 +51,13 @@ public class TestSwipeManager : MonoBehaviour
                     if ((lp.x > fp.x))  //오른쪽으로 이동한 경우)
                     {   //오른쪽 스와이프
                         Debug.Log("Right Swipe");
+                        playerAttackDirection = 3;
                         BattleManager.GetInstance().PlayerAttack();
                     }
                     else
                     {   //왼쪽 스와이프
                         Debug.Log("Left Swipe");
+                        playerAttackDirection = 1;
                         BattleManager.GetInstance().PlayerAttack();
                     }
                 }
@@ -60,11 +66,13 @@ public class TestSwipeManager : MonoBehaviour
                     if (lp.y > fp.y)  //움직임이 올라간 경우
                     {   //위로 스와이프
                         Debug.Log("Up Swipe");
+                        playerAttackDirection = 2;
                         BattleManager.GetInstance().PlayerAttack();
                     }
                     else
                     {   //아래로 스와이프
                         Debug.Log("Down Swipe");
+                        playerAttackDirection = 0;
                         BattleManager.GetInstance().PlayerAttack();
                     }
                 }

@@ -107,14 +107,34 @@ public class BattleManager : MonoBehaviour
         }
 
         GameManager.GetInstance().NewPlayer.canAttack = true;
-        FindSwordAnimator();
+        uIBattle = FindUIBattle();
+
+        switch (uIBattle.testSwipeManager.playerAttackDirection) // 최종 빌드때 SwipManager로 수정
+        {
+            case 0:
+                animator = FindSwordAnimator();
+                animator.SetTrigger("isAttack_Top");
+                break;
+            case 1:
+                animator = FindSwordAnimator();
+                animator.SetTrigger("isAttack_Left");
+                break;
+            case 2:
+                animator = FindSwordAnimator();
+                animator.SetTrigger("isAttack_Bottom");
+                break;
+            case 3:
+                animator = FindSwordAnimator();
+                animator.SetTrigger("isAttack_Right");
+                break;
+        }
+        animator = FindSwordAnimator();
         animator.SetTrigger("isAttack"); // 공격 애니메이션
 
         yield return new WaitForSeconds(GameManager.GetInstance().NewPlayer.attackingDelay);
 
         GameManager.GetInstance().Attack();
 
-        uIBattle = FindUIBattle();
         uIBattle.RefreshHP();
 
 
@@ -167,16 +187,18 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator ParryingDelayRoutine()
     {
-        FindSwordAnimator();
+        animator = FindSwordAnimator();
         animator.SetTrigger("isParrying"); //패링 애니메이션
         yield return new WaitForSeconds(GameManager.GetInstance().NewPlayer.parryingDelay);
         GameManager.GetInstance().NewPlayer.isParrying = false;
         GameManager.GetInstance().parryingDrection = -1;
     }
 
-    public void FindSwordAnimator()
+    public Animator FindSwordAnimator()
     {
         GameObject arSessionOrigin = GameObject.FindGameObjectWithTag("ARSessionOrigin");
-        animator = arSessionOrigin.GetComponentInChildren<Animator>();
+        Animator animator = arSessionOrigin.GetComponentInChildren<Animator>();
+
+        return animator;
     }
 }
