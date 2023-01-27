@@ -55,4 +55,8 @@ public class ScenesManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         ChangeScene(Scene.Main);
     }
+    public void DieTitle()
+    {
+        ChangeScene(Scene.Title);
+    }
 }

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using DG.Tweening;
+
 
 public class UIBattle : MonoBehaviour
 {
@@ -13,6 +15,10 @@ public class UIBattle : MonoBehaviour
     public Button btnBottom;
     public Button btnLeft;
     public Button btnskill_1;
+    public Image dieimg;
+    public Button diebtn;
+
+
 
     [SerializeField] Slider hpPlayer;
     [SerializeField] Slider hpGuardian;
@@ -32,6 +38,7 @@ public class UIBattle : MonoBehaviour
         btnBottom.onClick.AddListener(() => { GameManager.GetInstance().Parrying(2); });
         btnLeft.onClick.AddListener(() => { GameManager.GetInstance().Parrying(3); });
         btnskill_1.onClick.AddListener(() => { GameManager.GetInstance().SkillBtnClick(btnskill_1); });
+        diebtn.onClick.AddListener(() => { ScenesManager.GetInstance().DieTitle(); });
 
         if (swipeManager == null)
             swipeManager = GetComponent<SwipeManager>();
@@ -44,6 +51,7 @@ public class UIBattle : MonoBehaviour
 
         if (testSwipeManager == null)
             testSwipeManager = gameObject.AddComponent<TestSwipeManager>();
+        dieimg.DOFade(1f, 2f);
     }
 
     public void RefreshHP()
@@ -57,6 +65,5 @@ public class UIBattle : MonoBehaviour
     public void BattleInfo(string info)
     {
         battleInfo.text = info;
-
     }
 }

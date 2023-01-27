@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public Player NewPlayer = new Player("비형", 50, 100, 1f, 0.5f);
 
     public int parryingDrection;
-
+    GuardianBase gb;
     public void SetHp(int dmg)
     {
         NewPlayer.hp += dmg;
@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
             NewPlayer.hp = 0;
             BattleManager.GetInstance().uIBattle.RefreshHP();
             BattleManager.GetInstance().uIBattle.BattleInfo("YOU DIED");
-            ScenesManager.GetInstance().EndBattle();
+            BattleManager.GetInstance().uIBattle.dieimg.gameObject.SetActive(true);
             BattleManager.GetInstance().page = Page.page_0;
         }
     }
