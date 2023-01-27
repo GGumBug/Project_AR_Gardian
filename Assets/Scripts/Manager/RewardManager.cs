@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RewardManager : MonoBehaviour
 {
-
     public static List<RewardItem> itemDatas = new List<RewardItem>()
     {
         new RewardItem("환단", "영묘한 효험이 있는 약 \n 체력을 50회복한다. ",0,50,0,0,0,false),
