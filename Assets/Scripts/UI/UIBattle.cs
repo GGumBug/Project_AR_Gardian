@@ -12,6 +12,8 @@ public class UIBattle : MonoBehaviour
     public Button btnRight;
     public Button btnBottom;
     public Button btnLeft;
+    public Button btnskill_1;
+
     [SerializeField] Slider hpPlayer;
     [SerializeField] Slider hpGuardian;
     [SerializeField] TMP_Text battleInfo;
@@ -20,11 +22,16 @@ public class UIBattle : MonoBehaviour
 
     private void Start()
     {
+        if(GameManager.GetInstance().NewPlayer.skill_1 == true)
+        {
+            btnskill_1.gameObject.SetActive(true);
+        }
         //btnAttack.onClick.AddListener(() => { BattleManager.GetInstance().PlayerAttack(); });
         btnTop.onClick.AddListener(() => { GameManager.GetInstance().Parrying(0); });
         btnRight.onClick.AddListener(() => { GameManager.GetInstance().Parrying(1); });
         btnBottom.onClick.AddListener(() => { GameManager.GetInstance().Parrying(2); });
         btnLeft.onClick.AddListener(() => { GameManager.GetInstance().Parrying(3); });
+        btnskill_1.onClick.AddListener(() => { GameManager.GetInstance().SkillBtnClick(btnskill_1); });
 
         if (swipeManager == null)
             swipeManager = GetComponent<SwipeManager>();

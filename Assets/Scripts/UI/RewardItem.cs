@@ -7,10 +7,10 @@ public class RewardItem
     public int itemAtk;
     public float itemparryingDelay;
     public float itemattackingDelay;
-    public int randomidx;
+    public bool skill_1;
 
 
-    public RewardItem(string name, string Info,int Img,int Hp,int atk,float pdelay , float adelay)
+    public RewardItem(string name, string Info,int Img,int Hp,int atk,float pdelay , float adelay,bool skill1)
     {
         itemName = name;
         itemInfo = Info;
@@ -19,5 +19,6 @@ public class RewardItem
         itemAtk = atk;
         itemparryingDelay = pdelay;
         itemattackingDelay = adelay;
+        skill_1 = skill1;
     }
 }

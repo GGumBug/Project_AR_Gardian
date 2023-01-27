@@ -76,5 +76,6 @@ public class UIRewardItem : MonoBehaviour
         GameManager.GetInstance().IncreaseAtk(rewarditem.itemAtk);
         GameManager.GetInstance().ParryingDelayDown(rewarditem.itemparryingDelay);
         GameManager.GetInstance().AttackDelayDown(rewarditem.itemattackingDelay);
+        GameManager.GetInstance().Skilltrue(rewarditem.skill_1);
     }
 }

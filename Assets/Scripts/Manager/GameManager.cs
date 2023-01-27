@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -88,6 +90,16 @@ public class GameManager : MonoBehaviour
     public void AttackDelayDown(float aDelayDown)
     {
         NewPlayer.attackingDelay -= aDelayDown;
+    }
+    public void Skilltrue(bool skill_1)
+    {
+            NewPlayer.skill_1 = skill_1;
+    }
+    public void SkillBtnClick(Button Btn)
+    {
+        Debug.Log("스킬발동 성공");
+        NewPlayer.skill_1 = false;
+        Btn.gameObject.SetActive(false);
     }
 }
 
