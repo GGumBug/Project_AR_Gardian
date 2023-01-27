@@ -5,8 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 
-
-
 public class UIRewardItem : MonoBehaviour
 {
     private int _itemimgKey;

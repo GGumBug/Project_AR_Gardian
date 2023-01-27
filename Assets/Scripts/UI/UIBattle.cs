@@ -38,7 +38,7 @@ public class UIBattle : MonoBehaviour
         btnBottom.onClick.AddListener(() => { GameManager.GetInstance().Parrying(2); });
         btnLeft.onClick.AddListener(() => { GameManager.GetInstance().Parrying(3); });
         btnskill_1.onClick.AddListener(() => { GameManager.GetInstance().SkillBtnClick(btnskill_1); });
-        diebtn.onClick.AddListener(() => { ScenesManager.GetInstance().DieTitle(); });
+        diebtn.onClick.AddListener(() => { GameManager.GetInstance().ReTitle(); });
 
         if (swipeManager == null)
             swipeManager = GetComponent<SwipeManager>();
@@ -58,8 +58,9 @@ public class UIBattle : MonoBehaviour
     {
         int a = BattleManager.GetInstance().curGuardian;
         hpPlayer.value = GameManager.GetInstance().NewPlayer.hp;
-        hpGuardian.maxValue = GuardianManager.GetInstance().GuardianList[a].maxHp;
-        hpGuardian.value = GuardianManager.GetInstance().GuardianList[a].hp;
+        GuardianBase guardian = GuardianManager.GetInstance().GetGuardianMonoBase();
+        hpGuardian.maxValue = guardian.maxHp;
+        hpGuardian.value = guardian.hp;
     }
 
     public void BattleInfo(string info)

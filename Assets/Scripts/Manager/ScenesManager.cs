@@ -58,5 +58,7 @@ public class ScenesManager : MonoBehaviour
     public void DieTitle()
     {
         ChangeScene(Scene.Title);
+        BattleManager.GetInstance().curGuardian = 0;
+        GameManager.GetInstance().NewPlayer.hp = 100;
     }
 }

@@ -6150,9 +6150,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1949490191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 903e9caea4b81de4381f4cee8b81832c, type: 3}
+  m_Script: {fileID: 11500000, guid: 2459a3067196ec749a36ad3d272fdfbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 0
+  atk: 0
+  pd: 0
+  ad: 0
+  skill: 0
 --- !u!1 &1959276470
 GameObject:
   m_ObjectHideFlags: 0
