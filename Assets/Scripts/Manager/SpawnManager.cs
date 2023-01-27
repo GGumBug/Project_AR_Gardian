@@ -43,12 +43,6 @@ public class SpawnManager : MonoBehaviour
 
     private void Update()
     {
-        //if (arRaycast == null)
-        //{
-        //    GameObject arSessionOrigin = GameObject.FindGameObjectWithTag("ARSessionOrigin");
-        //    arRaycast = arSessionOrigin.GetComponent<ARRaycastManager>();
-        //}
-
         if (BattleManager.GetInstance().page == Page.page_1)
         {
             return;
@@ -69,16 +63,6 @@ public class SpawnManager : MonoBehaviour
                 return;
 
             Invoke("CheckTime", SpawnDelay);
-        }
-        else
-        {
-            CancelInvoke("CheckTime");
-
-            if (monsterPref != null)
-            {
-                Destroy(monsterPref);
-                monsterPref = null;
-            }
         }
     }
     void CheckTime()

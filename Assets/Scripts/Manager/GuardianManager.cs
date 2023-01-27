@@ -57,7 +57,8 @@ public class GuardianManager : MonoBehaviour
     public GuardianBase GetGuardianMonoBase()
     {
         GameObject go = GetGuardianMono();
-        var guardian = go.GetComponent<GuardianBase>();
+        var guardian_Mono = go.GetComponent<Guardian_Mono>();
+        GuardianBase guardian = guardian_Mono.guardian;
 
         return guardian;
     }

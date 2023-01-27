@@ -35,8 +35,7 @@ public class GameManager : MonoBehaviour
     public void Attack()
     {
         int a = BattleManager.GetInstance().curGuardian;
-        GameObject go = GuardianManager.GetInstance().GuardianMonoList[$"Guardian_{a}"];
-        var guardian = go.GetComponent<GuardianBase>();
+        GuardianBase guardian = GuardianManager.GetInstance().GetGuardianMonoBase();
         guardian.hp -= NewPlayer.atk;
     }
 
