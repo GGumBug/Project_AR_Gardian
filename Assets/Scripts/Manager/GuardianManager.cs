@@ -65,11 +65,12 @@ public class GuardianManager : MonoBehaviour
 
     public void GuardianDie()
     {
+        GuardianBase guardian = GetGuardianMonoBase();
         int curGuardian = BattleManager.GetInstance().curGuardian;
 
-        if (GuardianList[curGuardian].hp <= 0)
+        if (guardian.hp <= 0)
         {
-            GuardianList[curGuardian].hp = 0;
+            guardian.hp = 0;
             BattleManager.GetInstance().uIBattle.RefreshHP();
             BattleManager.GetInstance().uIBattle.BattleInfo("Stage Clear");
             GuardianList[curGuardian].isClear = true;
