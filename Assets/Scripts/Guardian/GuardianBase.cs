@@ -39,22 +39,22 @@ public class GuardianBase
             case 0:
                 // 내려찍기
                 FindGuardianAnimator();
-                guardianAnimator.SetTrigger("G_Top");
+                guardianAnimator.SetTrigger("G_Bottom");
                 break;
             case 1:
                 //우공격
                 FindGuardianAnimator();
-                guardianAnimator.SetTrigger("G_Left");
+                guardianAnimator.SetTrigger("G_Right");
                 break;
             case 2:
                 //올려치기
                 FindGuardianAnimator();
-                guardianAnimator.SetTrigger("G_Bottom");
+                guardianAnimator.SetTrigger("G_Top");
                 break;
             case 3:
                 //좌공격
                 FindGuardianAnimator();
-                guardianAnimator.SetTrigger("G_Right");
+                guardianAnimator.SetTrigger("G_Left");
 
                 break;
         }
