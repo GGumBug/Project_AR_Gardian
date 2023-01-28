@@ -71,10 +71,13 @@ public class GuardianManager : MonoBehaviour
         if (guardian.hp <= 0)
         {
             guardian.hp = 0;
+            Animator animator = GuardianMonoList[$"Guardian_{curGuardian}"].GetComponentInChildren<Animator>();
+            animator.SetTrigger("G_Death");
             BattleManager.GetInstance().uIBattle.RefreshHP();
             BattleManager.GetInstance().uIBattle.BattleInfo("Stage Clear");
             GuardianList[curGuardian].isClear = true;
             BattleManager.GetInstance().page = Page.page_0;
+            GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = false;
             Object rewardObejct = Resources.Load($"UI/UIReward");
             GameObject itemGameObejct = (GameObject)Instantiate(rewardObejct);
         }

@@ -34,19 +34,14 @@ public class BattleManager : MonoBehaviour
     public Page page = Page.page_0;
 
     public UIBattle uIBattle;
-    Animator animator;
-    public Material[] mat = new Material[2];
-    Material curmat;
-
-    private void Start()
-    {
-        mat = Resources.LoadAll<Material>("Material");
-    }
+    Animator swordAnimator;
+    Animator guardianAnimator;
 
     private void Update()
     {
         if (page == Page.page_1)
         {
+            Debug.Log("Guardian Attack");
             if (!GuardianManager.GetInstance().GuardianList[curGuardian].canAttack)
             {
                 GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = true;
@@ -71,14 +66,10 @@ public class BattleManager : MonoBehaviour
     IEnumerator GuardianAttack()
     {
 
-        GameObject go = GuardianManager.GetInstance().GetGuardianMono();
-        MeshRenderer gome = go.GetComponentInChildren<MeshRenderer>();
-        curmat = gome.material;
         GuardianManager.GetInstance().GuardianList[curGuardian].StartAniMation();
         yield return new WaitForSeconds(1.5f);
 
         GuardianManager.GetInstance().GuardianList[curGuardian].canParrying = true;
-        gome.material = mat[1];
         yield return new WaitForSeconds(0.5f);
         if (GameManager.GetInstance().NewPlayer.isParrying && GuardianManager.GetInstance().attackDirection == GameManager.GetInstance().parryingDrection)
         {
@@ -88,7 +79,6 @@ public class BattleManager : MonoBehaviour
             
         GuardianManager.GetInstance().GuardianList[curGuardian].canParrying = false;
         GuardianManager.GetInstance().GuardianList[curGuardian].Attack();
-        gome.material = curmat;
 
         uIBattle = FindUIBattle();
         uIBattle.RefreshHP();
@@ -112,24 +102,24 @@ public class BattleManager : MonoBehaviour
         switch (uIBattle.testSwipeManager.playerAttackDirection) // 최종 빌드때 SwipManager로 수정
         {
             case 0:
-                animator = FindSwordAnimator();
-                animator.SetTrigger("isAttack_Top");
+                swordAnimator = FindSwordAnimator();
+                swordAnimator.SetTrigger("isAttack_Top");
                 break;
             case 1:
-                animator = FindSwordAnimator();
-                animator.SetTrigger("isAttack_Left");
+                swordAnimator = FindSwordAnimator();
+                swordAnimator.SetTrigger("isAttack_Left");
                 break;
             case 2:
-                animator = FindSwordAnimator();
-                animator.SetTrigger("isAttack_Bottom");
+                swordAnimator = FindSwordAnimator();
+                swordAnimator.SetTrigger("isAttack_Bottom");
                 break;
             case 3:
-                animator = FindSwordAnimator();
-                animator.SetTrigger("isAttack_Right");
+                swordAnimator = FindSwordAnimator();
+                swordAnimator.SetTrigger("isAttack_Right");
                 break;
         }
-        animator = FindSwordAnimator();
-        animator.SetTrigger("isAttack"); // 공격 애니메이션
+        swordAnimator = FindSwordAnimator();
+        swordAnimator.SetTrigger("isAttack"); // 공격 애니메이션
 
         yield return new WaitForSeconds(GameManager.GetInstance().NewPlayer.attackingDelay);
 
@@ -174,11 +164,10 @@ public class BattleManager : MonoBehaviour
     {
         GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = true;
         // 스턴 애니메이션
-        GameObject go = GuardianManager.GetInstance().GetGuardianMono();
-        MeshRenderer gome = go.GetComponentInChildren<MeshRenderer>();
-        gome.material = mat[0];
+        FindGuardianAnimator();
+        guardianAnimator.SetTrigger("G_Sturn");
+
         yield return new WaitForSeconds(2f);
-        gome.material = curmat;
 
         GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = false;
 
@@ -187,8 +176,8 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator ParryingDelayRoutine()
     {
-        animator = FindSwordAnimator();
-        animator.SetTrigger("isParrying"); //패링 애니메이션
+        swordAnimator = FindSwordAnimator();
+        swordAnimator.SetTrigger("isParrying"); //패링 애니메이션
         yield return new WaitForSeconds(GameManager.GetInstance().NewPlayer.parryingDelay);
         GameManager.GetInstance().NewPlayer.isParrying = false;
         GameManager.GetInstance().parryingDrection = -1;
@@ -197,8 +186,14 @@ public class BattleManager : MonoBehaviour
     public Animator FindSwordAnimator()
     {
         GameObject arSessionOrigin = GameObject.FindGameObjectWithTag("ARSessionOrigin");
-        Animator animator = arSessionOrigin.GetComponentInChildren<Animator>();
+        Animator swordAnimator = arSessionOrigin.GetComponentInChildren<Animator>();
 
-        return animator;
+        return swordAnimator;
+    }
+
+    void FindGuardianAnimator()
+    {
+        GameObject go = GameObject.FindGameObjectWithTag("Guardian");
+        guardianAnimator = go.GetComponentInChildren<Animator>();
     }
 }

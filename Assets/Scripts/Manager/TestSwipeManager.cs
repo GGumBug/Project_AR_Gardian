@@ -23,7 +23,6 @@ public class TestSwipeManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("GetMouseButtonDown");
             _isTouched = true;
             fp = Input.mousePosition;
         }
@@ -33,13 +32,11 @@ public class TestSwipeManager : MonoBehaviour
 
         if (Input.GetMouseButton(0)) // 사용자가 원터치로 화면을 터치하고 있습니다.
         {
-            Debug.Log("GetMouseButton");
             lp = Input.mousePosition;  //마지막 터치 위치. 목록을 사용하는 경우 생략            
         }
 
         if (Input.GetMouseButtonUp(0)) // 손가락이 화면에서 제거되었는지 확인
         {
-            Debug.Log("GetMouseButtonUp");
             _isTouched = false;
             lp = Input.mousePosition;
             //드래그 거리가 화면 높이의 20%보다 큰지 확인
