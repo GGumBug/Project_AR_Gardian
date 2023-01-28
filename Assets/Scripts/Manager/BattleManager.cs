@@ -41,7 +41,6 @@ public class BattleManager : MonoBehaviour
     {
         if (page == Page.page_1)
         {
-            Debug.Log("Guardian Attack");
             if (!GuardianManager.GetInstance().GuardianList[curGuardian].canAttack)
             {
                 GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = true;
