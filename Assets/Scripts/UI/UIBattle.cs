@@ -32,7 +32,6 @@ public class UIBattle : MonoBehaviour
         {
             btnskill_1.gameObject.SetActive(true);
         }
-        //btnAttack.onClick.AddListener(() => { BattleManager.GetInstance().PlayerAttack(); });
         btnTop.onClick.AddListener(() => { GameManager.GetInstance().Parrying(0); });
         btnRight.onClick.AddListener(() => { GameManager.GetInstance().Parrying(1); });
         btnBottom.onClick.AddListener(() => { GameManager.GetInstance().Parrying(2); });
