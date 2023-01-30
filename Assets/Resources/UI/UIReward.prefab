@@ -4926,6 +4926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemRoot: {fileID: 281168742368835786}
+  Bgimg: {fileID: 805254857870364735}
 --- !u!1 &1386460891868962771
 GameObject:
   m_ObjectHideFlags: 0
@@ -14725,7 +14726,7 @@ GameObject:
   - component: {fileID: 739915372918239160}
   - component: {fileID: 805254857870364735}
   m_Layer: 5
-  m_Name: Image
+  m_Name: bgimg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14772,7 +14773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8627451}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

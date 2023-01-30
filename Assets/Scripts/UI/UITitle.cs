@@ -9,23 +9,23 @@ public class UITitle : MonoBehaviour
 {
     public static List<RewardItem> itemDataClone;
 
-    public Image TitleImg;    
-    public Image GrdnIcon;
-    public Button GameStart;
+    [SerializeField] Image TitleImg;
+    [SerializeField] Image GrdnIcon;
+    [SerializeField] Button GameStart;
+    [SerializeField] Button SkipBnt;
+    [SerializeField] ParticleSystem ps;
+
 
     void Start()
     {
-        // TitleImg = GetComponentInChildren<Image>();
-        // GameStart = GetComponentInChildren<Button>();
-        // TitleImg.sprite = Resources.Load<Sprite>("Image/Title");
-        // Image monster = Instantiate(TitleImg);
        
         GetComponent<Canvas>().worldCamera = Camera.main;
         GetComponent<Canvas>().planeDistance = 11;
 
         Invoke("AppearLogo", 6.5f);
-
+        SkipBnt.onClick.AddListener(SkipTouch);
         GameStart.onClick.AddListener(ChangeMainScene);
+
         itemDataClone = new List<RewardItem>(RewardManager.itemDatas);
         RewardItemClone();
 
@@ -54,5 +54,17 @@ public class UITitle : MonoBehaviour
         {
             itemDataClone[i] = RewardManager.itemDatas[i];
         }
+    }
+    void SkipTouch()
+    {
+        CancelInvoke("AppearLogo");
+        ps.gameObject.SetActive(false);
+        TitleImg.rectTransform.DOScale(1, 0.1f);
+        TitleImg.DOFade(1, 0.1f).OnComplete(() =>
+        {
+            GameStart.image.DOFade(1,0.1f);
+            GrdnIcon.DOFade(1,0.1f);
+
+        });
     }
 }
