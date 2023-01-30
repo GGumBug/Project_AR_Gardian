@@ -9,6 +9,9 @@ public class UIMap : MonoBehaviour
     Image MapImg;
     public Button[] monsterBut;
     public GameObject gameInfocanvas;
+    public Image GetGrdn;
+    public Button ExitBtn;
+
     void Start()
     {
         monsterBut = GetComponentsInChildren<Button>();
@@ -26,15 +29,17 @@ public class UIMap : MonoBehaviour
         {
             if (GuardianManager.GetInstance().IsOpenGardian(i) == false)
             {
-                monsterBut[i].image.sprite = Resources.Load<Sprite>("Image/GetGuardianBtnImg");
-                monsterBut[i].image.color = new Color(1, 1, 1, 1);
+               // monsterBut[i].image.sprite = Resources.Load<Sprite>("Image/GetGuardianBtnImg");
+               // monsterBut[i].image.color = new Color(1, 1, 1, 1);
                 BattleManager.GetInstance().curGuardian = i;
                 monsterBut[i].onClick.AddListener(ChangeBattleScene);
+                GetGrdn.transform.position = monsterBut[i].transform.position;
                 return;
             }
             if (GuardianManager.GetInstance().IsOpenGardian(i) == true)
             {
                 monsterBut[i].image.sprite = Resources.Load<Sprite>("Image/ClearFire");
+
             }
 
         }
