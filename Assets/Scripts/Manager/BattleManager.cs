@@ -66,9 +66,10 @@ public class BattleManager : MonoBehaviour
     {
 
         GuardianManager.GetInstance().GuardianList[curGuardian].StartAniMation();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
 
         GuardianManager.GetInstance().GuardianList[curGuardian].canParrying = true;
+        Debug.Log(GuardianManager.GetInstance().GuardianList[curGuardian].canParrying);
         yield return new WaitForSeconds(0.5f);
         if (GameManager.GetInstance().NewPlayer.isParrying && GuardianManager.GetInstance().attackDirection == GameManager.GetInstance().parryingDrection)
         {
@@ -83,7 +84,7 @@ public class BattleManager : MonoBehaviour
         uIBattle.RefreshHP();
         GameManager.GetInstance().PlayerDie();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
 
         GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = false;
     }
