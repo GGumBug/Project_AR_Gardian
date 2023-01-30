@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+
 
 
 public class UIitem : MonoBehaviour
 {
     public HorizontalLayoutGroup itemRoot;
-    [SerializeField] Image Bgimg;
+    public Image Bgimg;
 
     void Start()
     {
         RanDomItem();
+        Fadein();
     }
     public void RanDomItem()
     {
@@ -32,4 +35,9 @@ public class UIitem : MonoBehaviour
             RewardManager.currentItems.Add(item.itemImg, uiRewardItem);
         }
     }
+    void Fadein()
+    {
+        Bgimg.DOFade(0.85f, 1f);
+    }
+
 }
