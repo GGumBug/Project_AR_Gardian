@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class UIitem : MonoBehaviour
 {
     public HorizontalLayoutGroup itemRoot;
-
+    [SerializeField] Image Bgimg;
 
     void Start()
     {
