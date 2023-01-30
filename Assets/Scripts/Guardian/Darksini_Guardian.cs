@@ -14,4 +14,10 @@ public class Darksini_Guardian : GuardianBase
         this.isClear = false;
         this.canAttack = false;
     }
+
+    public override void Attack()
+    {
+        Debug.Log("Double Attack");
+        GameManager.GetInstance().SetHp(-atk);
+    }
 }
