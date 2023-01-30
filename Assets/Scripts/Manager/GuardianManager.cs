@@ -80,7 +80,6 @@ public class GuardianManager : MonoBehaviour
             GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = false;
             Object rewardObejct = Resources.Load($"UI/UIReward");
             GameObject itemGameObejct = (GameObject)Instantiate(rewardObejct);
-            testtt2();
         }
     }
     public bool IsOpenGardian(int idx)
@@ -95,14 +94,6 @@ public class GuardianManager : MonoBehaviour
             GuardianList[i].isClear = false;
         }
         GuardianMonoList.Clear();
-    }
-    void testtt2()
-    {
-        for (int i = 0; i < UITitle.itemDataClone.Count; i++)
-        {
-            Debug.Log($"{UITitle.itemDataClone[i].itemName}\n{UITitle.itemDataClone[i].itemInfo}\n{UITitle.itemDataClone[i].itemImg}\n{UITitle.itemDataClone[i].itemHp}\n{UITitle.itemDataClone[i].itemAtk}\n{UITitle.itemDataClone[i].itemparryingDelay}\n{UITitle.itemDataClone[i].itemattackingDelay}");
-
-        }
     }
 
 }
