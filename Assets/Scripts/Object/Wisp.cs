@@ -12,6 +12,9 @@ public class Wisp : MonoBehaviour
         ObjectManager.GetInstance().CreateGuardian(BattleManager.GetInstance().curGuardian);
         GuardianManager.GetInstance().SetGuardian();
 
+        Object SwordOBJ = Resources.Load("Object/Sword");
+        GameObject Sword = (GameObject)Instantiate(SwordOBJ, BattleManager.GetInstance().FindARCamera());
+
         UIManager.GetInstance().OpenUI("UIBattle");
         GameObject uIBattleGo = UIManager.GetInstance().GetUI("UIBattle");
         uIBattle = uIBattleGo.GetComponent<UIBattle>();
