@@ -17,7 +17,6 @@ public class Wisp : MonoBehaviour
         uIBattle = uIBattleGo.GetComponent<UIBattle>();
         uIBattle.RefreshHP();
 
-        BattleManager.GetInstance().page = Page.page_1;
         Destroy(gameObject);
     }
 }
