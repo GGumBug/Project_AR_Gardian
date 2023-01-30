@@ -80,7 +80,7 @@ public class GuardianManager : MonoBehaviour
             GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = false;
             Object rewardObejct = Resources.Load($"UI/UIReward");
             GameObject itemGameObejct = (GameObject)Instantiate(rewardObejct);
-            Gameclear();
+            GameClear();
         }
     }
     public bool IsOpenGardian(int idx)
@@ -96,7 +96,7 @@ public class GuardianManager : MonoBehaviour
         }
         GuardianMonoList.Clear();
     }
-    public void Gameclear()
+    public void GameClear()
     {
         if(GuardianList[0].isClear && GuardianList[1].isClear && GuardianList[2].isClear)
         {
