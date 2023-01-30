@@ -164,7 +164,7 @@ public class BattleManager : MonoBehaviour
     {
         GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = true;
         // 스턴 애니메이션
-        FindGuardianAnimator();
+        guardianAnimator = FindGuardianAnimator();
         guardianAnimator.SetTrigger("G_Sturn");
 
         yield return new WaitForSeconds(2f);
@@ -191,9 +191,14 @@ public class BattleManager : MonoBehaviour
         return swordAnimator;
     }
 
-    void FindGuardianAnimator()
+    public Animator FindGuardianAnimator()
     {
-        GameObject go = GameObject.FindGameObjectWithTag("Guardian");
-        guardianAnimator = go.GetComponentInChildren<Animator>();
+        if (guardianAnimator == null)
+        {
+            GameObject go = GameObject.FindGameObjectWithTag("Guardian");
+            guardianAnimator = go.GetComponentInChildren<Animator>();
+        }
+
+        return guardianAnimator;
     }
 }

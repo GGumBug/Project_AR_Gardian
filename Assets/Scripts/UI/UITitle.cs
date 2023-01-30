@@ -28,7 +28,6 @@ public class UITitle : MonoBehaviour
         GameStart.onClick.AddListener(ChangeMainScene);
         itemDataClone = new List<RewardItem>(RewardManager.itemDatas);
         RewardItemClone();
-        testtt();
 
     }
 
@@ -54,14 +53,6 @@ public class UITitle : MonoBehaviour
         for (int i = 0; i < RewardManager.itemDatas.Count; i++)
         {
             itemDataClone[i] = RewardManager.itemDatas[i];
-        }
-    }
-    void testtt()
-    {
-        for (int i = 0; i < itemDataClone.Count; i++)
-        {
-            Debug.Log($"{itemDataClone[i].itemName}\n{itemDataClone[i].itemInfo}\n{itemDataClone[i].itemImg}\n{itemDataClone[i].itemHp}\n{itemDataClone[i].itemAtk}\n{itemDataClone[i].itemparryingDelay}\n{itemDataClone[i].itemattackingDelay}");
-
         }
     }
 }

@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public enum Scene
 { 
     Title,
-    Menu,
     Main,
     Battle,
+    Ending,
 }
 
 public class ScenesManager : MonoBehaviour
@@ -60,5 +60,9 @@ public class ScenesManager : MonoBehaviour
         ChangeScene(Scene.Title);
         BattleManager.GetInstance().curGuardian = 0;
         GameManager.GetInstance().NewPlayer.hp = 100;
+    }
+    public void EndingSceneChange()
+    {
+        ChangeScene(Scene.Ending);
     }
 }
