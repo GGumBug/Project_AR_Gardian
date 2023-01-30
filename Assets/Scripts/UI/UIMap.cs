@@ -61,6 +61,5 @@ public class UIMap : MonoBehaviour
         {
             gameInfocanvas.gameObject.SetActive(true);
         }
-
 }
 
