@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
             BattleManager.GetInstance().uIBattle.dieimg.gameObject.SetActive(true);
             BattleManager.GetInstance().page = Page.page_0;
             GuardianManager.GetInstance().ResetGuardian();
-
+            UITitle.itemDataClone.Clear();
         }
     }
     public void ReTitle()

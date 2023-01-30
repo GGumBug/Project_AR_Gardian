@@ -9,5 +9,4 @@ public class BattleScene : MonoBehaviour
         SpawnManager.GetInstance();
         BattleManager.GetInstance();
     }
-
 }

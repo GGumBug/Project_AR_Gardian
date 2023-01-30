@@ -13,13 +13,13 @@ public class UIitem : MonoBehaviour
     {
         RanDomItem();
     }
-    void RanDomItem()
+    public void RanDomItem()
     {
         for (int i = 0; i < 3; i++)
         {
-            int randomidx = Random.Range(0, RewardManager.itemDatas.Count);
+            int randomidx = Random.Range(0, UITitle.itemDataClone.Count);
 
-            RewardItem item = RewardManager.itemDatas[randomidx];
+            RewardItem item = UITitle.itemDataClone[randomidx];
 
             Object itemObejct = Resources.Load($"UI/RewardItem");
             GameObject itemGameObejct = (GameObject)Instantiate(itemObejct, itemRoot.transform);
@@ -28,7 +28,7 @@ public class UIitem : MonoBehaviour
             uiRewardItem.SetRefence();
             uiRewardItem.SetItemInfo(item);
 
-            RewardManager.itemDatas.RemoveAt(randomidx);
+            UITitle.itemDataClone.RemoveAt(randomidx);
             RewardManager.currentItems.Add(item.itemImg, uiRewardItem);
         }
     }
