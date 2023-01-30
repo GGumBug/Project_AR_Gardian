@@ -15,5 +15,5 @@ public class RewardManager : MonoBehaviour
         new RewardItem("거북이등딱지", "테스트 아이템1 \n 화염공격?",5,0,0,0,0,true),
     };
 
-    public static Dictionary<int, UIRewardItem> currentItems = new Dictionary<int, UIRewardItem>();
+    public static Dictionary<int, UIRewardItem> currentItems;
 }

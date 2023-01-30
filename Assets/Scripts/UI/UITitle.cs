@@ -50,6 +50,7 @@ public class UITitle : MonoBehaviour
     }
     void RewardItemClone()
     {
+        RewardManager.currentItems = new Dictionary<int, UIRewardItem>();
         for (int i = 0; i < RewardManager.itemDatas.Count; i++)
         {
             itemDataClone[i] = RewardManager.itemDatas[i];
