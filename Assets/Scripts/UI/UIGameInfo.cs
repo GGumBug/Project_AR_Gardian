@@ -39,7 +39,6 @@ public class UIGameInfo : MonoBehaviour
                 BackBnt.gameObject.SetActive(true);
                 break;
             case 2:
-                InfoMonsterBnt.gameObject.SetActive(false);
                 txtinfo.text = "대강 체력바 어쩌구 등등.";
                 InfoCount += 1;
                 break;
@@ -62,7 +61,6 @@ public class UIGameInfo : MonoBehaviour
             case 2:
                 txtinfo.text = "게임 설명.";
                 BackBnt.gameObject.SetActive(false);
-                InfoMonsterBnt.gameObject.SetActive(false);
                 InfoCount -= 1;
                 break;
             case 3:
@@ -72,7 +70,6 @@ public class UIGameInfo : MonoBehaviour
                 BackBnt.gameObject.SetActive(true);
                 break;
             case 4:
-                InfoMonsterBnt.gameObject.SetActive(false);
                 txtinfo.text = "대강 체력바 어쩌구 등등.";
                 InfoCount -= 1;
                 break;
