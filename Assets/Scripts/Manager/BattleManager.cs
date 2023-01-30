@@ -201,4 +201,10 @@ public class BattleManager : MonoBehaviour
 
         return guardianAnimator;
     }
+
+    public Transform FindARCamera()
+    {
+        GameObject mainCameraGo = GameObject.FindGameObjectWithTag("MainCamera");
+        return mainCameraGo.transform;
+    }
 }
