@@ -53,7 +53,9 @@ public class UIBattle : MonoBehaviour
 
         if (testSwipeManager == null)
             testSwipeManager = gameObject.AddComponent<TestSwipeManager>();
-        dieimg.DOFade(1f, 2f);
+       
+        dieimg.DOFade(2, 2f);
+        
     }
 
     public void RefreshHP()

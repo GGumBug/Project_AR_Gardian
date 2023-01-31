@@ -107,9 +107,14 @@ public class GameManager : MonoBehaviour
     }
     public void SkillBtnClick(Button Btn)
     {
-        Debug.Log("스킬발동 성공");
-        NewPlayer.skill_1 = false;
-        Btn.gameObject.SetActive(false);
+        Debug.Log("아직 사용불가");
+        if(NewPlayer.atk >= 100)
+        {
+            NewPlayer.skill_1 = false;
+            Btn.gameObject.SetActive(false);
+            Debug.Log("텟카이!");
+
+        }
     }
 }
 
