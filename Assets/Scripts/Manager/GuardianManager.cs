@@ -24,7 +24,7 @@ public class GuardianManager : MonoBehaviour
 
     public int attackDirection;
 
-    bool useUnblockableAttack;
+    public bool useUnblockableAttack;
 
     public GuardianBase[] GuardianList =
     {

@@ -58,6 +58,8 @@ public class ScenesManager : MonoBehaviour
     public void DieTitle()
     {
         ChangeScene(Scene.Title);
+        BattleManager.GetInstance().page = Page.page_0;
+        GuardianManager.GetInstance().useUnblockableAttack = false;
         BattleManager.GetInstance().curGuardian = 0;
         GameManager.GetInstance().NewPlayer.hp = 100;
     }
