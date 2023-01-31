@@ -12,7 +12,7 @@ public class UIRewardItem : MonoBehaviour
     public CanvasGroup cGroup;
 
     RewardItem rewarditem;
-
+    UIBattle uibattle;
     public Button btnItem;
     public TMP_Text txtName;
     public TMP_Text txtInfo;
@@ -67,6 +67,7 @@ public class UIRewardItem : MonoBehaviour
         }
         ScenesManager.GetInstance().EndBattle();
         SelectReward();
+        uibattle.RefreshHP();
     }
     public void SelectReward()
     {
