@@ -12,7 +12,7 @@ public class RewardManager : MonoBehaviour
         new RewardItem("     ", "\n 공격력 10 증가한다.",             3,0,10,0,0,false),       
         new RewardItem("     ", "\n 체력을 20 회복한다.",             4,0,0,0.25f,0,false),       
         new RewardItem("     ", "\n 공격력 30 증가한다.",             5,0,30,0,0,false),
-        new RewardItem("금강불괴","\n 너무나 강력해 다룰 수 없습니다.",6,0,0,0,0,true)
+        new RewardItem("금강불괴","\n 너무나 강력해 \n아직은 다룰 수 없을거같다.",6,0,0,0,0,true)
     };
 
     public static Dictionary<int, UIRewardItem> currentItems;
