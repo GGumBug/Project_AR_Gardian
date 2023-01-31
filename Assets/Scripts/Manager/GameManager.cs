@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public Player NewPlayer = new Player("비형", 50, 100, 1f, 2f);
+    public Player NewPlayer = new Player("비형", 110, 100, 1f, 2f);
 
     UIBattle uibattle;
     public int parryingDrection;
@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDie()
     {
+        Debug.Log($"HP = {NewPlayer.hp}");
         if (NewPlayer.hp <= 0)
         {
             if (NewPlayer.skill_1 == true)
@@ -72,6 +73,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 NewPlayer.hp = 0;
+                Debug.Log($"HP = {NewPlayer.hp}");
                 BattleManager.GetInstance().uIBattle.RefreshHP();
                 BattleManager.GetInstance().uIBattle.BattleInfo("YOU DIED");
                 BattleManager.GetInstance().uIBattle.dieimg.gameObject.SetActive(true);
@@ -80,6 +82,8 @@ public class GameManager : MonoBehaviour
                 {
                     GuardianManager.GetInstance().GuardianList[i].canAttack = false;
                 }
+                NewPlayer.canAttack = false;
+                NewPlayer.isParrying = false;
                 GuardianManager.GetInstance().ResetGuardian();
                 UITitle.itemDataClone.Clear();
 
