@@ -68,6 +68,10 @@ public class GameManager : MonoBehaviour
             BattleManager.GetInstance().uIBattle.BattleInfo("YOU DIED");
             BattleManager.GetInstance().uIBattle.dieimg.gameObject.SetActive(true);
             BattleManager.GetInstance().page = Page.page_0;
+            for (int i = 0; i < GuardianManager.GetInstance().GuardianList.Length; i++)
+            {
+                GuardianManager.GetInstance().GuardianList[i].canAttack = false;
+            }
             GuardianManager.GetInstance().ResetGuardian();
             UITitle.itemDataClone.Clear();
         }
