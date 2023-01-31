@@ -55,17 +55,23 @@ public class BattleManager : MonoBehaviour
 
     public void PlayerAttack()
     {
-        int randomidx = Random.Range(0, 100);
-        if (GameManager.GetInstance().NewPlayer.isParrying)
+        if (page == Page.page_0 || GameManager.GetInstance().NewPlayer.isParrying)
         {
             return;
         }
+        int randomidx = Random.Range(0, 100);
         if(randomidx < GuardianManager.GetInstance().GuardianList[curGuardian].parryingpercentage)
         {
-            Debug.Log($"{GuardianManager.GetInstance().GuardianList[curGuardian].GuardianName}(이)가 패링성공");
+            uIBattle = FindUIBattle();
+            PlayerAttackAnimation();
+            GuardianParrying();
             return;
         }
-
+        if (GameManager.GetInstance().NewPlayer.canAttack)
+        {
+            return;
+        }
+        StopCoroutine("PlayerAttackDelay");
         StartCoroutine("PlayerAttackDelay");
     }
 
@@ -98,46 +104,20 @@ public class BattleManager : MonoBehaviour
 
     public IEnumerator PlayerAttackDelay()
     {
-        if (GameManager.GetInstance().NewPlayer.canAttack)
-        {
-            yield break;
-        }
-
         GameManager.GetInstance().NewPlayer.canAttack = true;
         uIBattle = FindUIBattle();
 
-        switch (uIBattle.testSwipeManager.playerAttackDirection) // 최종 빌드때 SwipManager로 수정
-        {
-            case 0:
-                swordAnimator = FindSwordAnimator();
-                swordAnimator.SetTrigger("isAttack_Top");
-                break;
-            case 1:
-                swordAnimator = FindSwordAnimator();
-                swordAnimator.SetTrigger("isAttack_Left");
-                break;
-            case 2:
-                swordAnimator = FindSwordAnimator();
-                swordAnimator.SetTrigger("isAttack_Bottom");
-                break;
-            case 3:
-                swordAnimator = FindSwordAnimator();
-                swordAnimator.SetTrigger("isAttack_Right");
-                break;
-        }
-        swordAnimator = FindSwordAnimator();
-        swordAnimator.SetTrigger("isAttack"); // 공격 애니메이션
+        PlayerAttackAnimation();
 
-        yield return new WaitForSeconds(GameManager.GetInstance().NewPlayer.attackingDelay);
+        yield return new WaitForSeconds(1f);
 
         GameManager.GetInstance().Attack();
 
         uIBattle.RefreshHP();
 
-
         GuardianManager.GetInstance().GuardianDie();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(GameManager.GetInstance().NewPlayer.attackingDelay);
 
         GameManager.GetInstance().NewPlayer.canAttack = false;
     }
@@ -190,6 +170,13 @@ public class BattleManager : MonoBehaviour
         GameManager.GetInstance().parryingDrection = -1;
     }
 
+    void GuardianParrying()
+    {
+        guardianAnimator = BattleManager.GetInstance().FindGuardianAnimator();
+        guardianAnimator.SetTrigger("G_Parrying");
+        BattleManager.GetInstance().page = Page.page_0;
+    }
+
     public Animator FindSwordAnimator()
     {
         GameObject arSessionOrigin = GameObject.FindGameObjectWithTag("ARSessionOrigin");
@@ -207,6 +194,31 @@ public class BattleManager : MonoBehaviour
         }
 
         return guardianAnimator;
+    }
+
+    void PlayerAttackAnimation()
+    {
+        switch (uIBattle.testSwipeManager.playerAttackDirection) // 최종 빌드때 SwipManager로 수정
+        {
+            case 0:
+                swordAnimator = FindSwordAnimator();
+                swordAnimator.SetTrigger("isAttack_Top");
+                break;
+            case 1:
+                swordAnimator = FindSwordAnimator();
+                swordAnimator.SetTrigger("isAttack_Left");
+                break;
+            case 2:
+                swordAnimator = FindSwordAnimator();
+                swordAnimator.SetTrigger("isAttack_Bottom");
+                break;
+            case 3:
+                swordAnimator = FindSwordAnimator();
+                swordAnimator.SetTrigger("isAttack_Right");
+                break;
+        }
+        swordAnimator = FindSwordAnimator();
+        swordAnimator.SetTrigger("isAttack"); // 공격 애니메이션
     }
 
     public Transform FindARCamera()
