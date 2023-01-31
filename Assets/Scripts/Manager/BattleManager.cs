@@ -62,7 +62,7 @@ public class BattleManager : MonoBehaviour
         }
         if(randomidx < GuardianManager.GetInstance().GuardianList[curGuardian].parryingpercentage)
         {
-            Debug.Log("몬스터가 패링성공");
+            Debug.Log($"{GuardianManager.GetInstance().GuardianList[curGuardian].GuardianName}(이)가 패링성공");
             return;
         }
 
