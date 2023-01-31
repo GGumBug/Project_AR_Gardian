@@ -121,6 +121,7 @@ public class GameManager : MonoBehaviour
         if (NewPlayer.skill_1 == false)
         {
             NewPlayer.skill_1 = skill_1;
+            return;
         }
     }
     public void Skill2true(bool skill_2)
@@ -128,7 +129,18 @@ public class GameManager : MonoBehaviour
         if (NewPlayer.skill_2 == false)
         {
             NewPlayer.skill_2 = skill_2;
+            return;
         }
     }
+    public void SpecialDefencetrue()
+    {
+        if (NewPlayer.skill_1 == true && NewPlayer.skill_2 == true || NewPlayer.skill_2 == true && NewPlayer.skill_1 == true)
+        {
+            NewPlayer.defence = true;
+            NewPlayer.skill_2 = false;
+            NewPlayer.skill_1 = false;
+        }
+    }
+
 }
 
