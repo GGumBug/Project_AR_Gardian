@@ -4,12 +4,22 @@ using UnityEngine;
 
 public class Guardian_Mono : MonoBehaviour
 {
+    bool unblockableAttack;
     public GuardianBase guardian;
     Animator guardianAnimator;
 
     private void Start()
     {
         StartCoroutine("WaitCreateGuardian");
+    }
+
+    private void Update()
+    {
+        if (BattleManager.GetInstance().curGuardian == 2 && (float)guardian.hp / guardian.maxHp * 100 <= 50 && !unblockableAttack)
+        {
+            unblockableAttack = true;
+            BattleManager.GetInstance().page = Page.page_2;
+        }
     }
 
     IEnumerator WaitCreateGuardian()
