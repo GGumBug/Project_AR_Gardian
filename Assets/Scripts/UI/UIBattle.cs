@@ -22,6 +22,8 @@ public class UIBattle : MonoBehaviour
     [SerializeField] TMP_Text atk;
     [SerializeField] TMP_Text pd;
     [SerializeField] TMP_Text ad;
+    [SerializeField] Image Item1Img;
+    [SerializeField] Image Item1Fade;
 
     [SerializeField] Slider hpPlayer;
     [SerializeField] Slider hpGuardian;
@@ -39,7 +41,6 @@ public class UIBattle : MonoBehaviour
         btnRight.onClick.AddListener(() => { GameManager.GetInstance().Parrying(1); });
         btnBottom.onClick.AddListener(() => { GameManager.GetInstance().Parrying(2); });
         btnLeft.onClick.AddListener(() => { GameManager.GetInstance().Parrying(3); });
-        btnskill_1.onClick.AddListener(() => { GameManager.GetInstance().SkillBtnClick(btnskill_1); });
         diebtn.onClick.AddListener(() => { GameManager.GetInstance().ReTitle(); });
 
         if (swipeManager == null)
@@ -69,10 +70,22 @@ public class UIBattle : MonoBehaviour
         atk.text = GameManager.GetInstance().NewPlayer.atk.ToString();
         pd.text = GameManager.GetInstance().NewPlayer.parryingDelay.ToString();
         ad.text = GameManager.GetInstance().NewPlayer.attackingDelay.ToString();
+        SkillCheck();
     }
 
     public void BattleInfo(string info)
     {
         battleInfo.text = info;
+    }
+    public void SkillCheck()
+    {
+        if(GameManager.GetInstance().NewPlayer.skill_1 == true)
+        {
+            Item1Img.gameObject.SetActive(true);
+        }
+        else
+            Item1Img.gameObject.SetActive(false);
+        Item1Fade.DOFade(1,0.5f);
+        Item1Fade.DOFade(0,0.5f).SetDelay(0.25f);
     }
 }

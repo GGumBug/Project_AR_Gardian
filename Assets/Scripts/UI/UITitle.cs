@@ -53,6 +53,14 @@ public class UITitle : MonoBehaviour
         for (int i = 0; i < RewardManager.itemDatas.Count; i++)
         {
             itemDataClone[i] = RewardManager.itemDatas[i];
+            if (GameManager.GetInstance().NewPlayer.skill_1 == true)
+            {
+                itemDataClone.RemoveAt(6);
+            }
+            if(GameManager.GetInstance().NewPlayer.skill_2 == true)
+            {
+                itemDataClone.RemoveAt(9);
+            }
         }
     }
     void SkipTouch()
@@ -64,7 +72,7 @@ public class UITitle : MonoBehaviour
         {
             GameStart.image.DOFade(1,0.1f);
             GrdnIcon.DOFade(1,0.1f);
-
         });
+        SkipBnt.gameObject.SetActive(false);
     }
 }
