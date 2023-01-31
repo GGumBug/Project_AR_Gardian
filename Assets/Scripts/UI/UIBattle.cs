@@ -18,7 +18,10 @@ public class UIBattle : MonoBehaviour
     public Image dieimg;
     public Button diebtn;
 
-
+    [SerializeField] TMP_Text hp;
+    [SerializeField] TMP_Text atk;
+    [SerializeField] TMP_Text pd;
+    [SerializeField] TMP_Text ad;
 
     [SerializeField] Slider hpPlayer;
     [SerializeField] Slider hpGuardian;
@@ -60,6 +63,10 @@ public class UIBattle : MonoBehaviour
         GuardianBase guardian = GuardianManager.GetInstance().GetGuardianMonoBase();
         hpGuardian.maxValue = guardian.maxHp;
         hpGuardian.value = guardian.hp;
+        hp.text = GameManager.GetInstance().NewPlayer.hp.ToString();
+        atk.text = GameManager.GetInstance().NewPlayer.atk.ToString();
+        pd.text = GameManager.GetInstance().NewPlayer.parryingDelay.ToString();
+        ad.text = GameManager.GetInstance().NewPlayer.attackingDelay.ToString();
     }
 
     public void BattleInfo(string info)
