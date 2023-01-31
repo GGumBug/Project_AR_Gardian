@@ -12,6 +12,7 @@ public class GuardianBase
     public bool isClear { get; set; }
     public bool canAttack { get; set; }
     public bool canParrying { get; set; }
+    public int parryingpercentage { get; set; }
 
     Animator guardianAnimator;
 
@@ -25,6 +26,7 @@ public class GuardianBase
         NewData.delay = delay;
         NewData.isClear = isClear;
         NewData.canAttack = canAttack;
+        NewData.parryingpercentage = parryingpercentage;
 
         return NewData;
     }

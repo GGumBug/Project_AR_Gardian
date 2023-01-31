@@ -55,10 +55,17 @@ public class BattleManager : MonoBehaviour
 
     public void PlayerAttack()
     {
+        int randomidx = Random.Range(0, 100);
         if (GameManager.GetInstance().NewPlayer.isParrying)
         {
             return;
         }
+        if(randomidx < GuardianManager.GetInstance().GuardianList[curGuardian].parryingpercentage)
+        {
+            Debug.Log("몬스터가 패링성공");
+            return;
+        }
+
         StartCoroutine("PlayerAttackDelay");
     }
 
