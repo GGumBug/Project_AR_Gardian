@@ -14,7 +14,7 @@ public class UIBattle : MonoBehaviour
     public Button btnRight;
     public Button btnBottom;
     public Button btnLeft;
-    public Button btnskill_1;
+    public Button btnskill_2;
     public Image dieimg;
     public Button diebtn;
 
@@ -33,10 +33,6 @@ public class UIBattle : MonoBehaviour
 
     private void Start()
     {
-        if(GameManager.GetInstance().NewPlayer.skill_1 == true)
-        {
-            btnskill_1.gameObject.SetActive(true);
-        }
         btnTop.onClick.AddListener(() => { GameManager.GetInstance().Parrying(0); });
         btnRight.onClick.AddListener(() => { GameManager.GetInstance().Parrying(1); });
         btnBottom.onClick.AddListener(() => { GameManager.GetInstance().Parrying(2); });
@@ -85,5 +81,9 @@ public class UIBattle : MonoBehaviour
         }
         else
             Item1Img.gameObject.SetActive(false);
+    }
+    public void Fade()
+    {
+
     }
 }
