@@ -97,7 +97,7 @@ public class BattleManager : MonoBehaviour
         uIBattle.RefreshHP();
         GameManager.GetInstance().PlayerDie();
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
 
         GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = false;
     }
