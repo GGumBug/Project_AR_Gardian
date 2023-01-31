@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     public Player NewPlayer = new Player("비형", 50, 100, 1f, 2f);
 
+    UIBattle uibattle;
     public int parryingDrection;
     public void SetHp(int dmg)
     {

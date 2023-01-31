@@ -85,7 +85,5 @@ public class UIBattle : MonoBehaviour
         }
         else
             Item1Img.gameObject.SetActive(false);
-        Item1Fade.DOFade(1,0.5f);
-        Item1Fade.DOFade(0,0.5f).SetDelay(0.25f);
     }
 }
