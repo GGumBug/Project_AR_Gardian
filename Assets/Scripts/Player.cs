@@ -17,6 +17,8 @@ public class Player
     public bool canAttack;
     public bool isParrying;
     public bool skill_1 = false;
+    public bool skill_2 = false;
+
 
     public Player(string name, int atk, int hp, float parryingDelay, float attackingDelay)
     {

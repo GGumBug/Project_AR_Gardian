@@ -63,17 +63,27 @@ public class GameManager : MonoBehaviour
     {
         if (NewPlayer.hp <= 0)
         {
-            NewPlayer.hp = 0;
-            BattleManager.GetInstance().uIBattle.RefreshHP();
-            BattleManager.GetInstance().uIBattle.BattleInfo("YOU DIED");
-            BattleManager.GetInstance().uIBattle.dieimg.gameObject.SetActive(true);
-            BattleManager.GetInstance().page = Page.page_0;
-            for (int i = 0; i < GuardianManager.GetInstance().GuardianList.Length; i++)
+            if (NewPlayer.skill_1 == true)
             {
-                GuardianManager.GetInstance().GuardianList[i].canAttack = false;
+                NewPlayer.hp = 1;
+                NewPlayer.skill_1 = false;
+                BattleManager.GetInstance().uIBattle.RefreshHP();
             }
-            GuardianManager.GetInstance().ResetGuardian();
-            UITitle.itemDataClone.Clear();
+            else
+            {
+                NewPlayer.hp = 0;
+                BattleManager.GetInstance().uIBattle.RefreshHP();
+                BattleManager.GetInstance().uIBattle.BattleInfo("YOU DIED");
+                BattleManager.GetInstance().uIBattle.dieimg.gameObject.SetActive(true);
+                BattleManager.GetInstance().page = Page.page_0;
+                for (int i = 0; i < GuardianManager.GetInstance().GuardianList.Length; i++)
+                {
+                    GuardianManager.GetInstance().GuardianList[i].canAttack = false;
+                }
+                GuardianManager.GetInstance().ResetGuardian();
+                UITitle.itemDataClone.Clear();
+
+            }
         }
     }
     public void ReTitle()
@@ -83,7 +93,7 @@ public class GameManager : MonoBehaviour
     public void HealHp(int healhp)
     {
         NewPlayer.hp += healhp;
-        if(NewPlayer.hp > 100)
+        if (NewPlayer.hp > 100)
         {
             NewPlayer.hp = 100;
         }
@@ -102,22 +112,18 @@ public class GameManager : MonoBehaviour
     {
         NewPlayer.attackingDelay -= aDelayDown;
     }
-    public void Skilltrue(bool skill_1)
+    public void Skill1true(bool skill_1)
     {
-        if(NewPlayer.skill_1 == false)
+        if (NewPlayer.skill_1 == false)
         {
             NewPlayer.skill_1 = skill_1;
         }
     }
-    public void SkillBtnClick(Button Btn)
+    public void Skill2true(bool skill_2)
     {
-        Debug.Log("아직 사용불가");
-        if(NewPlayer.atk >= 100)
+        if (NewPlayer.skill_2 == false)
         {
-            NewPlayer.skill_1 = false;
-            Btn.gameObject.SetActive(false);
-            Debug.Log("텟카이!");
-
+            NewPlayer.skill_2 = skill_2;
         }
     }
 }
