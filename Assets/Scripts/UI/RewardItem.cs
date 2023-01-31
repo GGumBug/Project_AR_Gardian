@@ -8,9 +8,11 @@ public class RewardItem
     public float itemparryingDelay;
     public float itemattackingDelay;
     public bool skill_1;
+    public bool skill_2;
 
 
-    public RewardItem(string name, string Info, int Img, int Hp, int atk, float pdelay , float adelay, bool skill1)
+
+    public RewardItem(string name, string Info, int Img, int Hp, int atk, float pdelay , float adelay, bool skill1,bool skill2)
     {
         itemName = name;
         itemInfo = Info;
@@ -20,5 +22,6 @@ public class RewardItem
         itemparryingDelay = pdelay;
         itemattackingDelay = adelay;
         skill_1 = skill1;
+        skill_2 = skill2;
     }
 }
