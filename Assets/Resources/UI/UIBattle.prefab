@@ -1150,6 +1150,7 @@ GameObject:
   - component: {fileID: 1339659126643071233}
   - component: {fileID: 1339659126643071359}
   - component: {fileID: 1339659126643071232}
+  - component: {fileID: 2015380746425716828}
   m_Layer: 5
   m_Name: PlayerStateBG
   m_TagString: Untagged
@@ -1221,6 +1222,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2015380746425716828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339659126643071234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2459a3067196ec749a36ad3d272fdfbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: {fileID: 6801302974247163670}
+  atk: {fileID: 1339659126475267244}
+  pd: {fileID: 1339659125642688861}
+  ad: {fileID: 1339659126769957965}
 --- !u!1 &1339659126716300289
 GameObject:
   m_ObjectHideFlags: 0
