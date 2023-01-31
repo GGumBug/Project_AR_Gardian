@@ -10,7 +10,7 @@ public class RewardItem
     public bool skill_1;
 
 
-    public RewardItem(string name, string Info,int Img,int Hp,int atk,float pdelay , float adelay,bool skill1)
+    public RewardItem(string name, string Info, int Img, int Hp, int atk, float pdelay , float adelay, bool skill1)
     {
         itemName = name;
         itemInfo = Info;
