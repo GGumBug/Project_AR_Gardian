@@ -51,6 +51,11 @@ public class BattleManager : MonoBehaviour
         {
             StopCoroutine("GuardianAttack");
         }
+        if (page == Page.page_2)
+        {
+            StopCoroutine("GuardianAttack");
+            GuardianManager.GetInstance().UnblockableAttackDamege();
+        }
     }
 
     public void PlayerAttack()

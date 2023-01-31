@@ -24,6 +24,8 @@ public class GuardianManager : MonoBehaviour
 
     public int attackDirection;
 
+    bool useUnblockableAttack;
+
     public GuardianBase[] GuardianList =
     {
         new lamplight_Guardian("등불도깨비", 10, 100, 100, 2f,0),
@@ -102,5 +104,34 @@ public class GuardianManager : MonoBehaviour
         {
             ScenesManager.GetInstance().EndingSceneChange();
         }
+    }
+
+    public void UnblockableAttackDamege()
+    {
+        if (!useUnblockableAttack)
+        {
+            StopCoroutine("UnblockableAttackDamegeDelay");
+            StartCoroutine("UnblockableAttackDamegeDelay");
+            useUnblockableAttack = true;
+        }
+    }
+
+    IEnumerator UnblockableAttackDamegeDelay()
+    {
+        int a = BattleManager.GetInstance().curGuardian;
+
+        Animator animator = BattleManager.GetInstance().FindGuardianAnimator();
+        animator.SetTrigger("G_unblockableAttack");
+
+        yield return new WaitForSeconds(5f);
+
+        GameManager.GetInstance().SetHp(-100);
+
+        BattleManager.GetInstance().page = Page.page_1;
+        GuardianManager.GetInstance().GuardianList[a].canAttack = false;
+
+        UIBattle uIBattle = BattleManager.GetInstance().FindUIBattle();
+        uIBattle.RefreshHP();
+        GameManager.GetInstance().PlayerDie();
     }
 }
