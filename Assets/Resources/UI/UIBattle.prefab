@@ -859,12 +859,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24d93de7ae95a97449c3a01580574fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnAttack: {fileID: 0}
   btnTop: {fileID: 1919549845218392931}
   btnRight: {fileID: 5580078836120902415}
   btnBottom: {fileID: 5581251961424043185}
   btnLeft: {fileID: 1339659126127010083}
-  btnskill_2: {fileID: 0}
   dieimg: {fileID: 8726075558654435370}
   diebtn: {fileID: 414559179145200068}
   hp: {fileID: 6801302974247163670}
@@ -872,7 +870,8 @@ MonoBehaviour:
   pd: {fileID: 1339659125642688861}
   ad: {fileID: 1339659126769957965}
   Item1Img: {fileID: 5844856561743431920}
-  Item1Fade: {fileID: 8956965018384863283}
+  Item2Img: {fileID: 3798934124490598402}
+  DefenceImg: {fileID: 2416922101300928724}
   hpPlayer: {fileID: 1339659127536532970}
   hpGuardian: {fileID: 1339659127347603511}
   battleInfo: {fileID: 1339659125812701405}
