@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource bgAudioSource;
     public AudioSource sfxAudioSource;
+    public AudioSource playerSfxAudioSource;
 
     private void Awake()
     {
@@ -43,9 +44,23 @@ public class AudioManager : MonoBehaviour
         sfxAudioSource.Play();
     }
 
-    public void GuardianSoundPlay(int a)
+    public void GuardianSFXPlay(int a)
     {
         sfxAudioSource.clip = sfxList[a];
         sfxAudioSource.Play();
+    }
+
+    public void PlayerAttackSound(int b, int c)
+    {
+        int a = Random.Range(b, c);
+
+        playerSfxAudioSource.clip = sfxList[a];
+        playerSfxAudioSource.Play();
+    }
+
+    public void PlayerSFXPlay(int a)
+    {
+        playerSfxAudioSource.clip = sfxList[a];
+        playerSfxAudioSource.Play();
     }
 }

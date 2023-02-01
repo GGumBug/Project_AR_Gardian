@@ -69,6 +69,7 @@ public class BattleManager : MonoBehaviour
         {
             uIBattle = FindUIBattle();
             PlayerAttackAnimation();
+            AudioManager.instance.PlayerAttackSound(18,21);
             GuardianParrying();
             return;
         }
@@ -114,6 +115,7 @@ public class BattleManager : MonoBehaviour
         uIBattle = FindUIBattle();
 
         PlayerAttackAnimation();
+        AudioManager.instance.PlayerAttackSound(18, 21);
 
         yield return new WaitForSeconds(1f);
 
@@ -160,6 +162,7 @@ public class BattleManager : MonoBehaviour
         guardianAnimator = FindGuardianAnimator();
         guardianAnimator.SetTrigger("G_Sturn");
         SwichGuardianParryingSound();
+        AudioManager.instance.PlayerAttackSound(24,26);
 
         yield return new WaitForSeconds(2f);
 
@@ -179,10 +182,11 @@ public class BattleManager : MonoBehaviour
 
     void GuardianParrying()
     {
-        guardianAnimator = BattleManager.GetInstance().FindGuardianAnimator();
+        guardianAnimator = FindGuardianAnimator();
         guardianAnimator.SetTrigger("G_Parrying");
+        AudioManager.instance.PlayerAttackSound(21,24);
         SwichGuardianGParryingSound();
-        BattleManager.GetInstance().page = Page.page_0;
+        page = Page.page_0;
     }
 
     public Animator FindSwordAnimator()
@@ -256,13 +260,13 @@ public class BattleManager : MonoBehaviour
         switch (curGuardian)
         {
             case 0:
-                AudioManager.instance.GuardianSoundPlay(3);
+                AudioManager.instance.GuardianSFXPlay(3);
                 break;
             case 1:
-                AudioManager.instance.GuardianSoundPlay(10);
+                AudioManager.instance.GuardianSFXPlay(10);
                 break;
             case 2:
-                AudioManager.instance.GuardianSoundPlay(16);
+                AudioManager.instance.GuardianSFXPlay(16);
                 break;
         }
     }
@@ -272,10 +276,10 @@ public class BattleManager : MonoBehaviour
         switch (curGuardian)
         {
             case 1:
-                AudioManager.instance.GuardianSoundPlay(9);
+                AudioManager.instance.GuardianSFXPlay(9);
                 break;
             case 2:
-                AudioManager.instance.GuardianSoundPlay(15);
+                AudioManager.instance.GuardianSFXPlay(15);
                 break;
         }
     }
