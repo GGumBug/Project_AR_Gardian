@@ -75,8 +75,8 @@ public class GuardianManager : MonoBehaviour
         {
             guardian.hp = 0;
             Animator animator = GuardianMonoList[$"Guardian_{curGuardian}"].GetComponentInChildren<Animator>();
-            AudioManager.instance.GuardianSoundPlay(4);
             animator.SetTrigger("G_Death");
+            SwichGuardianDieSound();
             BattleManager.GetInstance().uIBattle.RefreshHP();
             BattleManager.GetInstance().uIBattle.BattleInfo("Stage Clear");
             GuardianList[curGuardian].isClear = true;
@@ -128,6 +128,7 @@ public class GuardianManager : MonoBehaviour
 
         GameManager.GetInstance().NewPlayer.canAttack = true;
         animator.SetTrigger("G_unblockableAttack");
+        AudioManager.instance.GuardianSoundPlay(17);
         if(GameManager.GetInstance().NewPlayer.defence == true)
         {
             GameManager.GetInstance().NewPlayer.defence = false;
@@ -147,5 +148,21 @@ public class GuardianManager : MonoBehaviour
 
         uIBattle.RefreshHP();
         GameManager.GetInstance().PlayerDie();
+    }
+
+    void SwichGuardianDieSound()
+    {
+        switch (BattleManager.GetInstance().curGuardian)
+        {
+            case 0:
+                AudioManager.instance.GuardianSoundPlay(4);
+                break;
+            case 1:
+                AudioManager.instance.GuardianSoundPlay(8);
+                break;
+            case 2:
+                AudioManager.instance.GuardianSoundPlay(14);
+                break;
+        }
     }
 }

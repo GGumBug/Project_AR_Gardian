@@ -11,6 +11,10 @@ public class Wisp : MonoBehaviour
     {
         ObjectManager.GetInstance().CreateGuardian(BattleManager.GetInstance().curGuardian);
         GuardianManager.GetInstance().SetGuardian();
+        if (BattleManager.GetInstance().curGuardian == 2)
+        {
+            AudioManager.instance.GuardianSoundPlay(17);
+        }
 
         AudioManager.instance.PlayBattleBGM();
 

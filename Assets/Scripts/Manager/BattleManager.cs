@@ -65,7 +65,7 @@ public class BattleManager : MonoBehaviour
             return;
         }
         int randomidx = Random.Range(0, 100);
-        if(randomidx < GuardianManager.GetInstance().GuardianList[curGuardian].parryingpercentage)
+        if (randomidx < GuardianManager.GetInstance().GuardianList[curGuardian].parryingpercentage)
         {
             uIBattle = FindUIBattle();
             PlayerAttackAnimation();
@@ -83,8 +83,7 @@ public class BattleManager : MonoBehaviour
     IEnumerator GuardianAttack()
     {
         GuardianManager.GetInstance().GuardianList[curGuardian].StartAniMation();
-
-        AudioManager.instance.GuardianAttackSound(0, 3);
+        SwichGuardianAttackSound();
 
         yield return new WaitForSeconds(1f);
 
@@ -96,7 +95,7 @@ public class BattleManager : MonoBehaviour
             GuardianManager.GetInstance().GuardianList[curGuardian].ParryingCheck();
             yield break;
         }
-            
+
         GuardianManager.GetInstance().GuardianList[curGuardian].canParrying = false;
         GuardianManager.GetInstance().GuardianList[curGuardian].Attack();
 
@@ -159,16 +158,14 @@ public class BattleManager : MonoBehaviour
         GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = true;
         // 스턴 애니메이션
         guardianAnimator = FindGuardianAnimator();
-
-        AudioManager.instance.GuardianSoundPlay(3);
-
         guardianAnimator.SetTrigger("G_Sturn");
+        SwichGuardianParryingSound();
 
         yield return new WaitForSeconds(2f);
 
         GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = false;
 
-        
+
     }
 
     IEnumerator ParryingDelayRoutine()
@@ -184,6 +181,7 @@ public class BattleManager : MonoBehaviour
     {
         guardianAnimator = BattleManager.GetInstance().FindGuardianAnimator();
         guardianAnimator.SetTrigger("G_Parrying");
+        SwichGuardianGParryingSound();
         BattleManager.GetInstance().page = Page.page_0;
     }
 
@@ -235,5 +233,50 @@ public class BattleManager : MonoBehaviour
     {
         GameObject mainCameraGo = GameObject.FindGameObjectWithTag("MainCamera");
         return mainCameraGo.transform;
+    }
+
+    void SwichGuardianAttackSound()
+    {
+        switch (curGuardian)
+        {
+            case 0:
+                AudioManager.instance.GuardianAttackSound(0, 3);
+                break;
+            case 1:
+                AudioManager.instance.GuardianAttackSound(5, 8);
+                break;
+            case 2:
+                AudioManager.instance.GuardianAttackSound(11, 14);
+                break;
+        }
+    }
+
+    void SwichGuardianParryingSound()
+    {
+        switch (curGuardian)
+        {
+            case 0:
+                AudioManager.instance.GuardianSoundPlay(3);
+                break;
+            case 1:
+                AudioManager.instance.GuardianSoundPlay(10);
+                break;
+            case 2:
+                AudioManager.instance.GuardianSoundPlay(16);
+                break;
+        }
+    }
+
+    void SwichGuardianGParryingSound()
+    {
+        switch (curGuardian)
+        {
+            case 1:
+                AudioManager.instance.GuardianSoundPlay(9);
+                break;
+            case 2:
+                AudioManager.instance.GuardianSoundPlay(15);
+                break;
+        }
     }
 }
