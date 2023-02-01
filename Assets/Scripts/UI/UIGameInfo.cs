@@ -33,20 +33,24 @@ public class UIGameInfo : MonoBehaviour
         switch (InfoCount)
         {
             case 1:
-                txtinfo.text = "버튼을 누르면 도깨비를 잡으러갑니다.";
+                txtinfo.text = "당신은 도깨비들의 왕입니다 \n도심속에서 말썽을 부리는 \n도깨비들을 잡아\n도깨비들의 왕임을 증명해주세요";
                 InfoMonsterBnt.gameObject.SetActive(true);
                 InfoCount += 1;
                 BackBnt.gameObject.SetActive(true);
                 break;
             case 2:
-                txtinfo.text = "대강 체력바 어쩌구 등등.";
+                txtinfo.text = "불꽃이있는 도깨비를 눌러\n도깨비를 잡을러 갑니다.";
                 InfoCount += 1;
                 break;
             case 3:
+                txtinfo.text = "도깨비를 잡으면\n보상 카드를 통해 캐릭터를 강화할수있습니다.";
+                InfoCount += 1;
                 break;
             case 4:
+                txtinfo.text = "죽어도 걱정하지마세요 \n타이틀 화면으로 돌아가지만\n능력치를 전승한채로 환생 할수있습니다.";
                 break;
             case 5:
+
                 break;
 
         }
@@ -59,21 +63,23 @@ public class UIGameInfo : MonoBehaviour
             case 1:
                 break;
             case 2:
-                txtinfo.text = "게임 설명.";
+                txtinfo.text = "당신은 도깨비들의 왕입니다 \n도심속에서 말썽을 부리는 \n도깨비들을 잡아\n도깨비들의 왕임을 증명해주세요";
                 BackBnt.gameObject.SetActive(false);
                 InfoCount -= 1;
                 break;
             case 3:
-                txtinfo.text = "버튼을 누르면 도깨비를 잡으러갑니다.";
+                txtinfo.text = "불꽃이있는 도깨비를 눌러\n도깨비를 잡을러 갑니다.";
                 InfoMonsterBnt.gameObject.SetActive(true);
                 InfoCount -= 1;
                 BackBnt.gameObject.SetActive(true);
                 break;
             case 4:
-                txtinfo.text = "대강 체력바 어쩌구 등등.";
+                txtinfo.text = "도깨비를 잡으면\n보상 카드를 통해 캐릭터를 강화할수있습니다.";
                 InfoCount -= 1;
                 break;
             case 5:
+                txtinfo.text = "죽어도 걱정하지마세요 \n타이틀 화면으로 돌아가지만\n능력치를 전승한채로 환생 할수있습니다.";
+                InfoCount -= 1;
                 break;
 
         }
