@@ -317,7 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c4b623c4d985f446bbbcfb3181deb71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpGuardian: {fileID: 4681163871770115394}
+  hpGuardianSlider: {fileID: 4681163871770115394}
 --- !u!1 &6052847059818196072
 GameObject:
   m_ObjectHideFlags: 0
@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3087cf634da434f90b1670af402713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiGuardian: {fileID: 0}
 --- !u!1 &6683054176856183045
 GameObject:
   m_ObjectHideFlags: 0

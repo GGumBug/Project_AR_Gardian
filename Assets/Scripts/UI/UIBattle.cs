@@ -9,12 +9,10 @@ using DG.Tweening;
 public class UIBattle : MonoBehaviour
 {
     [Header ("UI")]
-    public Button btnAttack;
     public Button btnTop;
     public Button btnRight;
     public Button btnBottom;
     public Button btnLeft;
-    public Button btnskill_2;
     public Image dieimg;
     public Button diebtn;
 
@@ -23,13 +21,15 @@ public class UIBattle : MonoBehaviour
     [SerializeField] TMP_Text pd;
     [SerializeField] TMP_Text ad;
     [SerializeField] Image Item1Img;
-    [SerializeField] Image Item1Fade;
+    [SerializeField] Image Item2Img;
+    [SerializeField] Image DefenceImg;
 
     [SerializeField] Slider hpPlayer;
-    [SerializeField] Slider hpGuardian;
     [SerializeField] TMP_Text battleInfo;
     public SwipeManager swipeManager = null;
     public TestSwipeManager testSwipeManager = null;
+
+
 
     private void Start()
     {
@@ -52,7 +52,6 @@ public class UIBattle : MonoBehaviour
             testSwipeManager = gameObject.AddComponent<TestSwipeManager>();
        
         dieimg.DOFade(2, 2f);
-        
     }
 
     public void RefreshHP()
@@ -60,20 +59,26 @@ public class UIBattle : MonoBehaviour
         int a = BattleManager.GetInstance().curGuardian;
         hpPlayer.value = GameManager.GetInstance().NewPlayer.hp;
         GuardianBase guardian = GuardianManager.GetInstance().GetGuardianMonoBase();
-        hpGuardian.maxValue = guardian.maxHp;
-        hpGuardian.value = guardian.hp;
+        GameObject getguardianmono = GuardianManager.GetInstance().GetGuardianMono();
+        UIGuardian getuiguardian = getguardianmono.GetComponentInChildren<UIGuardian>();
+        Debug.Log("1");
+        getuiguardian.hpGuardianSlider.maxValue = guardian.maxHp;
+        getuiguardian.hpGuardianSlider.value = guardian.hp;
+        Debug.Log("2");
         hp.text = GameManager.GetInstance().NewPlayer.hp.ToString();
         atk.text = GameManager.GetInstance().NewPlayer.atk.ToString();
         pd.text = GameManager.GetInstance().NewPlayer.parryingDelay.ToString();
         ad.text = GameManager.GetInstance().NewPlayer.attackingDelay.ToString();
-        SkillCheck();
+        Skill1Check();
+        Skill2Check();
+        SpecialDefenceCheck();
     }
 
     public void BattleInfo(string info)
     {
         battleInfo.text = info;
     }
-    public void SkillCheck()
+    public void Skill1Check()
     {
         if(GameManager.GetInstance().NewPlayer.skill_1 == true)
         {
@@ -82,8 +87,23 @@ public class UIBattle : MonoBehaviour
         else
             Item1Img.gameObject.SetActive(false);
     }
-    public void Fade()
+    public void Skill2Check()
     {
+        if (GameManager.GetInstance().NewPlayer.skill_2 == true)
+        {
+            Item2Img.gameObject.SetActive(true);
+        }
+        else
+            Item2Img.gameObject.SetActive(false);
+    }
 
+    public  void SpecialDefenceCheck()
+    {
+        if(GameManager.GetInstance().NewPlayer.defence == true)
+        {
+            DefenceImg.gameObject.SetActive(true);
+        }
+        else
+            DefenceImg.gameObject.SetActive(false);
     }
 }

@@ -5,5 +5,6 @@ using UnityEngine.UI;
 
 public class UIGuardian : MonoBehaviour
 {
-    public Slider hpGuardian;
+    public Slider hpGuardianSlider;
+
 }

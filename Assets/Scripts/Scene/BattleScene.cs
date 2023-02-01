@@ -8,5 +8,7 @@ public class BattleScene : MonoBehaviour
     {
         SpawnManager.GetInstance();
         BattleManager.GetInstance();
+        AudioManager.instance.bgAudioSource.loop = true;
+        AudioManager.instance.PlayBGM(0);
     }
 }

@@ -82,8 +82,10 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator GuardianAttack()
     {
-
         GuardianManager.GetInstance().GuardianList[curGuardian].StartAniMation();
+
+        AudioManager.instance.GuardianAttackSound(0, 3);
+
         yield return new WaitForSeconds(1f);
 
         GuardianManager.GetInstance().GuardianList[curGuardian].canParrying = true;
@@ -157,6 +159,9 @@ public class BattleManager : MonoBehaviour
         GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = true;
         // 스턴 애니메이션
         guardianAnimator = FindGuardianAnimator();
+
+        AudioManager.instance.GuardianSoundPlay(3);
+
         guardianAnimator.SetTrigger("G_Sturn");
 
         yield return new WaitForSeconds(2f);

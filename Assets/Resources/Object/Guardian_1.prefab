@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f3087cf634da434f90b1670af402713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiGuardian: {fileID: 0}
 --- !u!1 &2767816697184411380
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,7 +439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c4b623c4d985f446bbbcfb3181deb71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hpGuardian: {fileID: 5823230593117914293}
+  hpGuardianSlider: {fileID: 5823230593117914293}
 --- !u!1001 &5373587301974264194
 PrefabInstance:
   m_ObjectHideFlags: 0
