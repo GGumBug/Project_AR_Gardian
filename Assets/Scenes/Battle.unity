@@ -999,8 +999,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btnWisp: {fileID: 1909558626}
-  btnsk1: {fileID: 0}
-  btnsk2: {fileID: 0}
   wisp: {fileID: 0}
 --- !u!114 &842601625
 MonoBehaviour:
@@ -6922,6 +6920,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a85a2d32552559043974e83159a84bc3, type: 3}
   - {fileID: 8300000, guid: 618e13b0fc2b8c24fa98269cc5e0891d, type: 3}
   - {fileID: 8300000, guid: 774fc4c57e5f2434fa4d959b84413ccc, type: 3}
+  - {fileID: 8300000, guid: f7ee7c5488ce5f9499b367ebd0830ddf, type: 3}
   bgAudioSource: {fileID: 1974527522842235555}
   sfxAudioSource: {fileID: 1974527522842235552}
 --- !u!82 &1974527522842235555
