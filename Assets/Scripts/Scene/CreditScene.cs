@@ -52,6 +52,9 @@ public class CreditScene : MonoBehaviour
         AudioManager.instance.PlayBGM(0);
         
         toMain.gameObject.SetActive(false);
+
+        Invoke("ToMain", 24f);
+
     }
 
     void CreditTween()
@@ -102,6 +105,11 @@ public class CreditScene : MonoBehaviour
         seq.Join(mkWrksTxt.DOText("개발, 유니티", 2, true, ScrambleMode.All));
 
         seq.Append(copyrightImg.DOFade(0.9f, 1f));
+    }
+
+    void ToMain()
+    {
+        toMain.gameObject.SetActive(true);
     }
 
 }
