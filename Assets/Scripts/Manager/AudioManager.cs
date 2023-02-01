@@ -23,7 +23,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBGM(int a)
     {
-        bgAudioSource.clip = AudioManager.instance.bgList[a];
+        bgAudioSource.clip = bgList[a];
         instance.bgAudioSource.Play();
     }
 
@@ -33,5 +33,19 @@ public class AudioManager : MonoBehaviour
         bgAudioSource.loop = true;
         bgAudioSource.clip = bgList[a+1];
         bgAudioSource.Play();
+    }
+
+    public void GuardianAttackSound(int b, int c)
+    {
+        int a = Random.Range(b, c);
+
+        sfxAudioSource.clip = sfxList[a];
+        sfxAudioSource.Play();
+    }
+
+    public void GuardianSoundPlay(int a)
+    {
+        sfxAudioSource.clip = sfxList[a];
+        sfxAudioSource.Play();
     }
 }
