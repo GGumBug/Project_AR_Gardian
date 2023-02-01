@@ -25,7 +25,6 @@ public class UIBattle : MonoBehaviour
     [SerializeField] Image DefenceImg;
 
     [SerializeField] Slider hpPlayer;
-    [SerializeField] Slider hpGuardian;
     [SerializeField] TMP_Text battleInfo;
     public SwipeManager swipeManager = null;
     public TestSwipeManager testSwipeManager = null;

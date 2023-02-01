@@ -511,9 +511,9 @@ RectTransform:
   m_Father: {fileID: 842601628}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1575, y: -100}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 615, y: 440}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &488892784
@@ -789,9 +789,9 @@ RectTransform:
   m_Father: {fileID: 842601628}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1777, y: -100}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 817, y: 440}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &809283135
@@ -999,6 +999,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btnWisp: {fileID: 1909558626}
+  btnsk1: {fileID: 0}
+  btnsk2: {fileID: 0}
   wisp: {fileID: 0}
 --- !u!114 &842601625
 MonoBehaviour:
@@ -6574,6 +6576,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d4b8a431731764091c0c189d03dc5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atkt: 0
+  hpt: 0
+  parryingDelayt: 0
+  attackingDelayt: 0
+  canAttackt: 0
+  isParryingt: 0
+  skill_1t: 0
+  skill_2t: 0
+  defencet: 0
 --- !u!1 &1959276470
 GameObject:
   m_ObjectHideFlags: 0
