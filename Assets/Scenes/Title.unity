@@ -698,10 +698,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2904b6c642aae034ba23110380fb9ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgList: []
+  bgList:
+  - {fileID: 8300000, guid: 2b1021c25a3e3874e978383dccf10ce8, type: 3}
   sfxList: []
-  bgAudioSource: {fileID: 0}
-  sfxAudioSource: {fileID: 0}
+  bgAudioSource: {fileID: 854282918}
+  sfxAudioSource: {fileID: 854282917}
 --- !u!4 &854282920
 Transform:
   m_ObjectHideFlags: 0

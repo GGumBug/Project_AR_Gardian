@@ -464,8 +464,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgList: []
   sfxList: []
-  bgAudioSource: {fileID: 0}
-  sfxAudioSource: {fileID: 0}
+  bgAudioSource: {fileID: 1974527524134962853}
+  sfxAudioSource: {fileID: 1974527524134962854}
 --- !u!82 &1974527524134962853
 AudioSource:
   m_ObjectHideFlags: 0
