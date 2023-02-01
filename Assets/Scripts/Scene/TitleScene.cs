@@ -9,7 +9,6 @@ public class TitleScene : MonoBehaviour
     {
         TitleUI = Resources.Load<GameObject>("UI/TitleUI");
         GameObject titleui = (GameObject)Instantiate(TitleUI);
-
     }
 
 }

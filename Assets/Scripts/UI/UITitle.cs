@@ -33,6 +33,7 @@ public class UITitle : MonoBehaviour
 
     public void AppearLogo()
     {
+        AudioManager.instance.PlayBGM(0);
         TitleImg.rectTransform.DOScale(1, 1f);
         TitleImg.DOFade(1, 1f).OnComplete(() =>
         {
@@ -67,6 +68,7 @@ public class UITitle : MonoBehaviour
     {
         CancelInvoke("AppearLogo");
         ps.gameObject.SetActive(false);
+        AudioManager.instance.PlayBGM(0);
         TitleImg.rectTransform.DOScale(1, 0.1f);
         TitleImg.DOFade(1, 0.1f).OnComplete(() =>
         {

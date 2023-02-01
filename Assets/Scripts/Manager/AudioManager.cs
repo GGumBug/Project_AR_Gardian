@@ -20,4 +20,17 @@ public class AudioManager : MonoBehaviour
     {
         instance = this;
     }
+
+    public void PlayBGM(int a)
+    {
+        AudioManager.instance.bgAudioSource.clip = AudioManager.instance.bgList[a];
+        AudioManager.instance.bgAudioSource.Play();
+    }
+
+    public void PlayBattleBGM()
+    {
+        int a = BattleManager.GetInstance().curGuardian;
+        AudioManager.instance.bgAudioSource.clip = AudioManager.instance.bgList[a+1];
+        AudioManager.instance.bgAudioSource.Play();
+    }
 }
