@@ -75,6 +75,7 @@ public class GuardianManager : MonoBehaviour
         {
             guardian.hp = 0;
             Animator animator = GuardianMonoList[$"Guardian_{curGuardian}"].GetComponentInChildren<Animator>();
+            AudioManager.instance.GuardianSoundPlay(4);
             animator.SetTrigger("G_Death");
             BattleManager.GetInstance().uIBattle.RefreshHP();
             BattleManager.GetInstance().uIBattle.BattleInfo("Stage Clear");
