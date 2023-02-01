@@ -44,7 +44,8 @@ public class CreditScene : MonoBehaviour
 
     void Start()
     {
-        CreditTween();              
+        CreditTween();
+        AudioManager.instance.PlayBGM(0);
     }
 
     void CreditTween()
