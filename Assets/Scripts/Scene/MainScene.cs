@@ -9,5 +9,7 @@ public class MainScene : MonoBehaviour
     {
         Mainui = Resources.Load<GameObject>("UI/UIMap");
         GameObject uimain = (GameObject)Instantiate(Mainui);
+        AudioManager.instance.PlayBGM(0);
+        AudioManager.instance.bgAudioSource.loop = true;
     }
 }

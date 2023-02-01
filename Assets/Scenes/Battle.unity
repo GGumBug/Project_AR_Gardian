@@ -6574,15 +6574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d4b8a431731764091c0c189d03dc5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atkt: 0
-  hpt: 0
-  parryingDelayt: 0
-  attackingDelayt: 0
-  canAttackt: 0
-  isParryingt: 0
-  skill_1t: 0
-  skill_2t: 0
-  defencet: 0
 --- !u!1 &1959276470
 GameObject:
   m_ObjectHideFlags: 0
@@ -6908,7 +6899,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2904b6c642aae034ba23110380fb9ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgList: []
+  bgList:
+  - {fileID: 8300000, guid: 3ad4a168ac35fd0418f2445cb91508f8, type: 3}
+  - {fileID: 8300000, guid: 9589ced9a47784b49815ccd85c0362dd, type: 3}
+  - {fileID: 8300000, guid: db905c15eb6f03a44807fe6ebdc08414, type: 3}
+  - {fileID: 8300000, guid: 7a4161ad6f322794298e8f52ec26b9ba, type: 3}
   sfxList: []
   bgAudioSource: {fileID: 1974527522842235555}
   sfxAudioSource: {fileID: 1974527522842235552}
