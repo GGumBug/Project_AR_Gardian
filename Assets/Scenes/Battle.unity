@@ -999,6 +999,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btnWisp: {fileID: 1909558626}
+  btnsk1: {fileID: 477114730}
+  btnsk2: {fileID: 794502571}
   wisp: {fileID: 0}
 --- !u!114 &842601625
 MonoBehaviour:
@@ -6574,6 +6576,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d4b8a431731764091c0c189d03dc5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atkt: 0
+  hpt: 0
+  parryingDelayt: 0
+  attackingDelayt: 0
+  canAttackt: 0
+  isParryingt: 0
+  skill_1t: 0
+  skill_2t: 0
+  defencet: 0
+  WispCk: 0
 --- !u!1 &1959276470
 GameObject:
   m_ObjectHideFlags: 0
