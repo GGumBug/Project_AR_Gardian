@@ -133,16 +133,19 @@ public class GuardianManager : MonoBehaviour
         {
             GameManager.GetInstance().NewPlayer.defence = false;
             uIBattle.RefreshHP();
-            yield return new WaitForSeconds(7f);
+            yield return new WaitForSeconds(2f);
+            GameManager.GetInstance().NewPlayer.canAttack = true;
+            yield return new WaitForSeconds(5f);
             Debug.Log("7초지남");
             GameManager.GetInstance().NewPlayer.canAttack = false;
             BattleManager.GetInstance().page = Page.page_1;
             yield break;
         }
-        yield return new WaitForSeconds(5f);
-
-        GameManager.GetInstance().SetHp(-100);
         yield return new WaitForSeconds(2f);
+        GameManager.GetInstance().NewPlayer.canAttack = true;
+
+        yield return new WaitForSeconds(4f);
+        GameManager.GetInstance().SetHp(-100);
 
         BattleManager.GetInstance().page = Page.page_1;
 
