@@ -402,6 +402,7 @@ GameObject:
   - component: {fileID: 1354141929}
   - component: {fileID: 1354141928}
   - component: {fileID: 1354141927}
+  - component: {fileID: 1354141931}
   m_Layer: 0
   m_Name: AR Camera
   m_TagString: Untagged
@@ -516,6 +517,14 @@ Transform:
   m_Father: {fileID: 1659859599}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1354141931
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354141925}
+  m_Enabled: 1
 --- !u!1 &1659859597
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +694,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2904b6c642aae034ba23110380fb9ce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgList: []
+  bgList:
+  - {fileID: 8300000, guid: 04c16c26eb8f9094d9a3b61c61dce741, type: 3}
   sfxList: []
   bgAudioSource: {fileID: 1974527523215003256}
   sfxAudioSource: {fileID: 1974527523215003259}
