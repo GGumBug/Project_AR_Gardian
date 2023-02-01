@@ -19,8 +19,5 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        AudioSource[] AudioSourceList = GetComponents<AudioSource>();
-        bgAudioSource = AudioSourceList[0];
-        sfxAudioSource = AudioSourceList[1];
     }
 }
