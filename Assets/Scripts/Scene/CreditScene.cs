@@ -42,10 +42,16 @@ public class CreditScene : MonoBehaviour
 
     public Image copyrightImg;
 
+    // 메인으로 가는 버튼
+    public Button toMain;
+
     void Start()
     {
         CreditTween();
+        
         AudioManager.instance.PlayBGM(0);
+        
+        toMain.gameObject.SetActive(false);
     }
 
     void CreditTween()
