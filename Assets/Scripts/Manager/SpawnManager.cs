@@ -27,6 +27,7 @@ public class SpawnManager : MonoBehaviour
     public ARRaycastManager arRaycast;
     public GameObject monsterPref = null;
     public Transform spawnPosition;
+    public bool WispCheck = true;
 
     [Header("Rate")]
     [SerializeField] float SpawnDelay = 0.5f;
@@ -77,7 +78,12 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnWisp()
     {
-        monsterPref = ObjectManager.GetInstance().CreateWisp();
+        if (WispCheck == true)
+        {
+            monsterPref = ObjectManager.GetInstance().CreateWisp();
+            WispCheck = false;
+        }
+        return;
     }
 
 }

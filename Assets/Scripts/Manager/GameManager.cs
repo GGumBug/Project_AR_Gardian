@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
                 }
                 NewPlayer.canAttack = false;
                 NewPlayer.isParrying = false;
+                SpawnManager.GetInstance().WispCheck = true;
                 GuardianManager.GetInstance().ResetGuardian();
                 UITitle.itemDataClone.Clear();
 
