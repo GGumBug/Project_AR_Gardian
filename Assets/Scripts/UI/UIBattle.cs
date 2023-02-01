@@ -9,12 +9,10 @@ using DG.Tweening;
 public class UIBattle : MonoBehaviour
 {
     [Header ("UI")]
-    public Button btnAttack;
     public Button btnTop;
     public Button btnRight;
     public Button btnBottom;
     public Button btnLeft;
-    public Button btnskill_2;
     public Image dieimg;
     public Button diebtn;
 
@@ -23,7 +21,10 @@ public class UIBattle : MonoBehaviour
     [SerializeField] TMP_Text pd;
     [SerializeField] TMP_Text ad;
     [SerializeField] Image Item1Img;
-    [SerializeField] Image Item1Fade;
+    [SerializeField] Image Item2Img;
+    [SerializeField] Image DefenceImg;
+
+
 
     [SerializeField] Slider hpPlayer;
     [SerializeField] Slider hpGuardian;
@@ -66,14 +67,16 @@ public class UIBattle : MonoBehaviour
         atk.text = GameManager.GetInstance().NewPlayer.atk.ToString();
         pd.text = GameManager.GetInstance().NewPlayer.parryingDelay.ToString();
         ad.text = GameManager.GetInstance().NewPlayer.attackingDelay.ToString();
-        SkillCheck();
+        Skill1Check();
+        Skill2Check();
+        SpecialDefenceCheck();
     }
 
     public void BattleInfo(string info)
     {
         battleInfo.text = info;
     }
-    public void SkillCheck()
+    public void Skill1Check()
     {
         if(GameManager.GetInstance().NewPlayer.skill_1 == true)
         {
@@ -82,8 +85,23 @@ public class UIBattle : MonoBehaviour
         else
             Item1Img.gameObject.SetActive(false);
     }
-    public void Fade()
+    public void Skill2Check()
     {
+        if (GameManager.GetInstance().NewPlayer.skill_2 == true)
+        {
+            Item2Img.gameObject.SetActive(true);
+        }
+        else
+            Item2Img.gameObject.SetActive(false);
+    }
 
+    public  void SpecialDefenceCheck()
+    {
+        if(GameManager.GetInstance().NewPlayer.defence == true)
+        {
+            DefenceImg.gameObject.SetActive(true);
+        }
+        else
+            DefenceImg.gameObject.SetActive(false);
     }
 }

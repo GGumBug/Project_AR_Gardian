@@ -25,6 +25,7 @@ public class GuardianManager : MonoBehaviour
     public int attackDirection;
 
     public bool useUnblockableAttack;
+    UIBattle uIBattle;
 
     public GuardianBase[] GuardianList =
     {
@@ -121,16 +122,27 @@ public class GuardianManager : MonoBehaviour
         int a = BattleManager.GetInstance().curGuardian;
 
         Animator animator = BattleManager.GetInstance().FindGuardianAnimator();
-        animator.SetTrigger("G_unblockableAttack");
+        GuardianList[a].canAttack = false;
+        UIBattle uIBattle = BattleManager.GetInstance().FindUIBattle();
 
+        GameManager.GetInstance().NewPlayer.canAttack = true;
+        animator.SetTrigger("G_unblockableAttack");
+        if(GameManager.GetInstance().NewPlayer.defence == true)
+        {
+            GameManager.GetInstance().NewPlayer.defence = false;
+            uIBattle.RefreshHP();
+            yield return new WaitForSeconds(7f);
+            GameManager.GetInstance().NewPlayer.canAttack = false;
+            BattleManager.GetInstance().page = Page.page_1;
+            yield break;
+        }
         yield return new WaitForSeconds(5f);
 
         GameManager.GetInstance().SetHp(-100);
+        yield return new WaitForSeconds(2f);
 
         BattleManager.GetInstance().page = Page.page_1;
-        GuardianManager.GetInstance().GuardianList[a].canAttack = false;
 
-        UIBattle uIBattle = BattleManager.GetInstance().FindUIBattle();
         uIBattle.RefreshHP();
         GameManager.GetInstance().PlayerDie();
     }

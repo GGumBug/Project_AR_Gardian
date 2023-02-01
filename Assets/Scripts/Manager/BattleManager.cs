@@ -82,7 +82,6 @@ public class BattleManager : MonoBehaviour
 
     IEnumerator GuardianAttack()
     {
-
         GuardianManager.GetInstance().GuardianList[curGuardian].StartAniMation();
         yield return new WaitForSeconds(1f);
 
