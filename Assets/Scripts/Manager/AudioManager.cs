@@ -23,14 +23,15 @@ public class AudioManager : MonoBehaviour
 
     public void PlayBGM(int a)
     {
-        AudioManager.instance.bgAudioSource.clip = AudioManager.instance.bgList[a];
-        AudioManager.instance.bgAudioSource.Play();
+        bgAudioSource.clip = AudioManager.instance.bgList[a];
+        instance.bgAudioSource.Play();
     }
 
     public void PlayBattleBGM()
     {
         int a = BattleManager.GetInstance().curGuardian;
-        AudioManager.instance.bgAudioSource.clip = AudioManager.instance.bgList[a+1];
-        AudioManager.instance.bgAudioSource.Play();
+        bgAudioSource.loop = true;
+        bgAudioSource.clip = bgList[a+1];
+        bgAudioSource.Play();
     }
 }

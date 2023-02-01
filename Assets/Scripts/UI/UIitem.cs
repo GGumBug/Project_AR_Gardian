@@ -18,6 +18,9 @@ public class UIitem : MonoBehaviour
     }
     public void RanDomItem()
     {
+        AudioManager.instance.bgAudioSource.loop = false;
+        AudioManager.instance.PlayBGM(4);
+
         for (int i = 0; i < 3; i++)
         {
             int randomidx = Random.Range(0, UITitle.itemDataClone.Count);

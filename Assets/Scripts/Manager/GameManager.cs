@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
                 BattleManager.GetInstance().page = Page.page_0;
                 BattleManager.GetInstance().uIBattle.RefreshHP();
                 BattleManager.GetInstance().uIBattle.dieimg.gameObject.SetActive(true);
+                AudioManager.instance.PlayBGM(5);
                 for (int i = 0; i < GuardianManager.GetInstance().GuardianList.Length; i++)
                 {
                     GuardianManager.GetInstance().GuardianList[i].canAttack = false;
