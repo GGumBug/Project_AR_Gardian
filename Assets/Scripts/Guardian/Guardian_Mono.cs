@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Guardian_Mono : MonoBehaviour
 {
     bool unblockableAttack;
     public GuardianBase guardian;
     Animator guardianAnimator;
-
+    public UIGuardian uiGuardian;
     private void Start()
     {
         StartCoroutine("WaitCreateGuardian");
@@ -30,5 +31,10 @@ public class Guardian_Mono : MonoBehaviour
 
         yield return new WaitForSeconds(curAnimationTime);
         BattleManager.GetInstance().page = Page.page_1;
+    }
+    public void FindGuradianHpbar()
+    {
+        uiGuardian = gameObject.GetComponentInChildren<UIGuardian>();
+
     }
 }

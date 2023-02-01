@@ -132,6 +132,7 @@ public class GuardianManager : MonoBehaviour
             GameManager.GetInstance().NewPlayer.defence = false;
             uIBattle.RefreshHP();
             yield return new WaitForSeconds(7f);
+            Debug.Log("7초지남");
             GameManager.GetInstance().NewPlayer.canAttack = false;
             BattleManager.GetInstance().page = Page.page_1;
             yield break;

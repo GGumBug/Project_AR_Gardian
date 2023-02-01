@@ -24,13 +24,13 @@ public class UIBattle : MonoBehaviour
     [SerializeField] Image Item2Img;
     [SerializeField] Image DefenceImg;
 
-
-
     [SerializeField] Slider hpPlayer;
     [SerializeField] Slider hpGuardian;
     [SerializeField] TMP_Text battleInfo;
     public SwipeManager swipeManager = null;
     public TestSwipeManager testSwipeManager = null;
+
+
 
     private void Start()
     {
@@ -53,7 +53,6 @@ public class UIBattle : MonoBehaviour
             testSwipeManager = gameObject.AddComponent<TestSwipeManager>();
        
         dieimg.DOFade(2, 2f);
-        
     }
 
     public void RefreshHP()
@@ -61,8 +60,12 @@ public class UIBattle : MonoBehaviour
         int a = BattleManager.GetInstance().curGuardian;
         hpPlayer.value = GameManager.GetInstance().NewPlayer.hp;
         GuardianBase guardian = GuardianManager.GetInstance().GetGuardianMonoBase();
-        hpGuardian.maxValue = guardian.maxHp;
-        hpGuardian.value = guardian.hp;
+        GameObject getguardianmono = GuardianManager.GetInstance().GetGuardianMono();
+        UIGuardian getuiguardian = getguardianmono.GetComponentInChildren<UIGuardian>();
+        Debug.Log("1");
+        getuiguardian.hpGuardianSlider.maxValue = guardian.maxHp;
+        getuiguardian.hpGuardianSlider.value = guardian.hp;
+        Debug.Log("2");
         hp.text = GameManager.GetInstance().NewPlayer.hp.ToString();
         atk.text = GameManager.GetInstance().NewPlayer.atk.ToString();
         pd.text = GameManager.GetInstance().NewPlayer.parryingDelay.ToString();
