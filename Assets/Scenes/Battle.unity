@@ -6574,15 +6574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d4b8a431731764091c0c189d03dc5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atkt: 0
-  hpt: 0
-  parryingDelayt: 0
-  attackingDelayt: 0
-  canAttackt: 0
-  isParryingt: 0
-  skill_1t: 0
-  skill_2t: 0
-  defencet: 0
 --- !u!1 &1959276470
 GameObject:
   m_ObjectHideFlags: 0
@@ -6921,6 +6912,19 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 618e13b0fc2b8c24fa98269cc5e0891d, type: 3}
   - {fileID: 8300000, guid: 774fc4c57e5f2434fa4d959b84413ccc, type: 3}
   - {fileID: 8300000, guid: f7ee7c5488ce5f9499b367ebd0830ddf, type: 3}
+  - {fileID: 8300000, guid: d38a83d128bf2fc498475dafcf532f2e, type: 3}
+  - {fileID: 8300000, guid: 383b36f8c6bc830488cc151aae12fdde, type: 3}
+  - {fileID: 8300000, guid: 26936f0e3868f4644aef90eff06bb84b, type: 3}
+  - {fileID: 8300000, guid: 6f3ea213ef9b60343ab5ca914d3d14fd, type: 3}
+  - {fileID: 8300000, guid: a5900d08b9628b045a67babef1e6b97c, type: 3}
+  - {fileID: 8300000, guid: 108f5d877ce60824a96e43f6f86e6d6b, type: 3}
+  - {fileID: 8300000, guid: 7584f44e1a6602c4aa088455aaeec5c9, type: 3}
+  - {fileID: 8300000, guid: 871369ce422fd594ea37306f670278e8, type: 3}
+  - {fileID: 8300000, guid: a715b561d13888544b586edd9126d8b5, type: 3}
+  - {fileID: 8300000, guid: a2a2e6e11a73b2f4ba082a19f0850fef, type: 3}
+  - {fileID: 8300000, guid: 4284d8153f94f59488be9d1fa253d369, type: 3}
+  - {fileID: 8300000, guid: 1bff56400b31c6f4d9c97bb98b5adce2, type: 3}
+  - {fileID: 8300000, guid: 728c49b04f4a7264fb34bfb2ce1b134e, type: 3}
   bgAudioSource: {fileID: 1974527522842235555}
   sfxAudioSource: {fileID: 1974527522842235552}
 --- !u!82 &1974527522842235555
