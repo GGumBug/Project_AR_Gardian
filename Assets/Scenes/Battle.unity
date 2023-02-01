@@ -6904,6 +6904,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 9589ced9a47784b49815ccd85c0362dd, type: 3}
   - {fileID: 8300000, guid: db905c15eb6f03a44807fe6ebdc08414, type: 3}
   - {fileID: 8300000, guid: 7a4161ad6f322794298e8f52ec26b9ba, type: 3}
+  - {fileID: 8300000, guid: ef24526f04fa8d842a17adff50bcd43d, type: 3}
+  - {fileID: 8300000, guid: 388f1041b411b164da7aeb1916dfcc1d, type: 3}
   sfxList: []
   bgAudioSource: {fileID: 1974527522842235555}
   sfxAudioSource: {fileID: 1974527522842235552}
