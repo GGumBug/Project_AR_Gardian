@@ -62,6 +62,12 @@ public class UITitle : MonoBehaviour
             {
                 itemDataClone.RemoveAt(9);
             }
+            if (GameManager.GetInstance().NewPlayer.defence == true)
+            {
+                itemDataClone.RemoveAt(6);
+                itemDataClone.RemoveAt(9);
+            }
+
         }
     }
     void SkipTouch()
