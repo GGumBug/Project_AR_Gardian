@@ -128,7 +128,7 @@ public class GuardianManager : MonoBehaviour
 
         GameManager.GetInstance().NewPlayer.canAttack = true;
         animator.SetTrigger("G_unblockableAttack");
-        AudioManager.instance.GuardianSoundPlay(17);
+        AudioManager.instance.GuardianSFXPlay(17);
         if(GameManager.GetInstance().NewPlayer.defence == true)
         {
             GameManager.GetInstance().NewPlayer.defence = false;
@@ -142,12 +142,13 @@ public class GuardianManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
 
         GameManager.GetInstance().SetHp(-100);
-        yield return new WaitForSeconds(2f);
-
-        BattleManager.GetInstance().page = Page.page_1;
 
         uIBattle.RefreshHP();
         GameManager.GetInstance().PlayerDie();
+
+        yield return new WaitForSeconds(2f);
+
+        BattleManager.GetInstance().page = Page.page_1;
     }
 
     void SwichGuardianDieSound()
@@ -155,13 +156,13 @@ public class GuardianManager : MonoBehaviour
         switch (BattleManager.GetInstance().curGuardian)
         {
             case 0:
-                AudioManager.instance.GuardianSoundPlay(4);
+                AudioManager.instance.GuardianSFXPlay(4);
                 break;
             case 1:
-                AudioManager.instance.GuardianSoundPlay(8);
+                AudioManager.instance.GuardianSFXPlay(8);
                 break;
             case 2:
-                AudioManager.instance.GuardianSoundPlay(14);
+                AudioManager.instance.GuardianSFXPlay(14);
                 break;
         }
     }
