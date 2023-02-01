@@ -7,6 +7,8 @@ using TMPro;
 
 public class CreditScene : MonoBehaviour
 {
+    Sequence endingSequence = DOTween.Sequence();
+
     public Image blkBG;
     public Image creditImg;
     public Image ttlImg;
@@ -40,15 +42,10 @@ public class CreditScene : MonoBehaviour
 
     public Image copyrightImg;
 
-    // 메인으로 가는 버튼
-    public Button toMain;
-
     void Start()
     {
-        toMain.gameObject.SetActive(false);
-
-        CreditTween();       
-        
+        CreditTween();
+        AudioManager.instance.PlayBGM(0);
     }
 
     void CreditTween()
@@ -98,8 +95,7 @@ public class CreditScene : MonoBehaviour
         seq.Append(mkTxt.DOText("민 기", 2, true, ScrambleMode.All));
         seq.Join(mkWrksTxt.DOText("개발, 유니티", 2, true, ScrambleMode.All));
 
-        seq.Append(copyrightImg.DOFade(1f, 1.5f));
-        
+        seq.Append(copyrightImg.DOFade(0.9f, 1f));
     }
 
 }
