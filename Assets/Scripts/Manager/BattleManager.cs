@@ -210,7 +210,7 @@ public class BattleManager : MonoBehaviour
 
     void PlayerAttackAnimation()
     {
-        switch (uIBattle.swipeManager.playerAttackDirection) // 최종 빌드때 SwipManager로 수정
+        switch (uIBattle.testSwipeManager.playerAttackDirection) // 최종 빌드때 SwipManager로 수정
         {
             case 0:
                 swordAnimator = FindSwordAnimator();
