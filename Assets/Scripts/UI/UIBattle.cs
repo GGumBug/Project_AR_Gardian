@@ -106,4 +106,9 @@ public class UIBattle : MonoBehaviour
         else
             DefenceImg.gameObject.SetActive(false);
     }
+    public void GameClearImg()
+    {
+        vicImg1.DOFade(1, 1f);
+        vicImg2.DOFade(1, 1f);
+    }
 }
