@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class CreditScene : MonoBehaviour
 {
-    Sequence endingSequence = DOTween.Sequence();
 
     public Image blkBG;
     public Image creditImg;
@@ -43,7 +42,6 @@ public class CreditScene : MonoBehaviour
 
     public Image copyrightImg;
 
-    GameObject EndingUI;
 
     // 메인으로 가는 버튼
     public Button toMain;

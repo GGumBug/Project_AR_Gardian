@@ -27,7 +27,6 @@ public class GuardianManager : MonoBehaviour
     public int attackDirection;
 
     public bool useUnblockableAttack;
-    UIBattle uIBattle;
 
 
     public GuardianBase[] GuardianList =
