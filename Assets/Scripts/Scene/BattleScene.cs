@@ -12,5 +12,7 @@ public class BattleScene : MonoBehaviour
         BattleManager.GetInstance();
         AudioManager.instance.bgAudioSource.loop = true;
         AudioManager.instance.PlayBGM(0);
+        SpawnManager.GetInstance().WispCheck = true;
+
     }
 }

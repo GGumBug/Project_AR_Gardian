@@ -66,7 +66,6 @@ public class UIRewardItem : MonoBehaviour
             cGroup.DOFade(0f, 1.5f).SetDelay(1.5f);
         }
         ScenesManager.GetInstance().EndBattle();
-        SpawnManager.GetInstance().WispCheck = true;
         SelectReward();
         uibattle.RefreshHP();
     }
