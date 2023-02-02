@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public Player NewPlayer = new Player("비형", 110, 100, 1f, 2f);
+    public Player NewPlayer = new Player("비형", 20, 100, 1f, 2f);
 
     public int parryingDrection;
     public void SetHp(int dmg)
