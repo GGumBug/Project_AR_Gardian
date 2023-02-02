@@ -138,14 +138,20 @@ public class GuardianManager : MonoBehaviour
             uIBattle.RefreshHP();
             yield return new WaitForSeconds(3f);
             GameManager.GetInstance().NewPlayer.canAttack = true;
-            yield return new WaitForSeconds(4f);
+            yield return new WaitForSeconds(2f);
+            AudioManager.instance.GuardianSFXPlay(27);
+            AudioManager.instance.GuardianSFXPlay(28);
+            Transform player = GameObject.FindGameObjectWithTag("MainCamera").transform;
+            Object obj = Resources.Load("Particle/UseItem");
+            GameObject particle = (GameObject)Instantiate(obj, player);
+            yield return new WaitForSeconds(2f);
             Debug.Log("7초지남");
             GameManager.GetInstance().NewPlayer.canAttack = false;
             BattleManager.GetInstance().page = Page.page_1;
             yield break;
         }
         yield return new WaitForSeconds(5f);
-
+        AudioManager.instance.GuardianSFXPlay(27);
         GameManager.GetInstance().SetHp(-100);
 
         uIBattle.RefreshHP();
