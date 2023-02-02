@@ -6945,6 +6945,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6a7830ee2c8eb5448b0ea18074ae90b6, type: 3}
   - {fileID: 8300000, guid: e68980fdc94f5c849b86416da1a2d812, type: 3}
   - {fileID: 8300000, guid: 19e1981cc4734584c862292d8bc2ab8d, type: 3}
+  - {fileID: 8300000, guid: 4e5d9ff6d211fdb4a8ee86262a1f28cf, type: 3}
+  - {fileID: 8300000, guid: 0dc17bf4c1ebaf04baf3d92a59b4981e, type: 3}
   bgAudioSource: {fileID: 1974527522842235555}
   sfxAudioSource: {fileID: 1974527522842235552}
   playerSfxAudioSource: {fileID: 1974527522842235566}
