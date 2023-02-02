@@ -699,10 +699,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgList:
-  - {fileID: 8300000, guid: 2b1021c25a3e3874e978383dccf10ce8, type: 3}
+  - {fileID: 8300000, guid: 9006aa45f67f7a94cb654e7b8994e5ea, type: 3}
+  - {fileID: 8300000, guid: 07cf7c8d5657f6e4183d50fcf90db641, type: 3}
   sfxList: []
   bgAudioSource: {fileID: 854282918}
   sfxAudioSource: {fileID: 854282917}
+  playerSfxAudioSource: {fileID: 0}
 --- !u!4 &854282920
 Transform:
   m_ObjectHideFlags: 0
