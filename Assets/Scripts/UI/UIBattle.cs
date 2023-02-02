@@ -61,10 +61,8 @@ public class UIBattle : MonoBehaviour
         GuardianBase guardian = GuardianManager.GetInstance().GetGuardianMonoBase();
         GameObject getguardianmono = GuardianManager.GetInstance().GetGuardianMono();
         UIGuardian getuiguardian = getguardianmono.GetComponentInChildren<UIGuardian>();
-        Debug.Log("1");
         getuiguardian.hpGuardianSlider.maxValue = guardian.maxHp;
         getuiguardian.hpGuardianSlider.value = guardian.hp;
-        Debug.Log("2");
         hp.text = GameManager.GetInstance().NewPlayer.hp.ToString();
         atk.text = GameManager.GetInstance().NewPlayer.atk.ToString();
         pd.text = GameManager.GetInstance().NewPlayer.parryingDelay.ToString();
