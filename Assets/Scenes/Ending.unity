@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &149319749
+--- !u!1001 &403625440
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -134,11 +134,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: EndingUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 6706177385783814065, guid: eb08991cd5b4a164e8a1db1266c3a620,
-        type: 3}
-      propertyPath: currentScene
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6706177385783814077, guid: eb08991cd5b4a164e8a1db1266c3a620,
         type: 3}

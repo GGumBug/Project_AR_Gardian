@@ -138,6 +138,8 @@ public class GuardianManager : MonoBehaviour
 
         Animator animator = BattleManager.GetInstance().FindGuardianAnimator();
         GuardianList[a].canAttack = false;
+        GameManager.GetInstance().NewPlayer.skill_1 = false;
+
         UIBattle uIBattle = BattleManager.GetInstance().FindUIBattle();
 
         GameManager.GetInstance().NewPlayer.canAttack = true;
@@ -146,17 +148,16 @@ public class GuardianManager : MonoBehaviour
         if(GameManager.GetInstance().NewPlayer.defence == true)
         {
             GameManager.GetInstance().NewPlayer.defence = false;
-            uIBattle.RefreshHP();
             yield return new WaitForSeconds(3f);
             GameManager.GetInstance().NewPlayer.canAttack = true;
             yield return new WaitForSeconds(2f);
+            uIBattle.RefreshHP();
             AudioManager.instance.GuardianSFXPlay(27);
             AudioManager.instance.GuardianSFXPlay(28);
             Transform player = GameObject.FindGameObjectWithTag("MainCamera").transform;
             Object obj = Resources.Load("Particle/UseItem");
             GameObject particle = (GameObject)Instantiate(obj, player);
             yield return new WaitForSeconds(2f);
-            Debug.Log("7초지남");
             GameManager.GetInstance().NewPlayer.canAttack = false;
             BattleManager.GetInstance().page = Page.page_1;
             yield break;
@@ -169,7 +170,6 @@ public class GuardianManager : MonoBehaviour
         GameManager.GetInstance().PlayerDie();
 
         yield return new WaitForSeconds(2f);
-        Debug.Log("페이지1변경");
 
         BattleManager.GetInstance().page = Page.page_1;
     }
