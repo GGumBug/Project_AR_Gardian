@@ -33,7 +33,6 @@ public class UITitle : MonoBehaviour
 
     public void AppearLogo()
     {
-        AudioManager.instance.PlayBGM(0);
         TitleImg.rectTransform.DOScale(1, 1f);
         TitleImg.DOFade(1, 1f).OnComplete(() =>
         {
