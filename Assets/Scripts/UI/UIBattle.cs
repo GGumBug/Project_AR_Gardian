@@ -29,7 +29,9 @@ public class UIBattle : MonoBehaviour
     public SwipeManager swipeManager = null;
     public TestSwipeManager testSwipeManager = null;
 
-
+    // 도깨비 사냥에 성공했습니다.
+    public Image vicImg1;
+    public Image vicImg2;
 
     private void Start()
     {
