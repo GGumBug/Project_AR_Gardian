@@ -27,7 +27,7 @@ public class UIBattle : MonoBehaviour
     [SerializeField] Slider hpPlayer;
     [SerializeField] TMP_Text battleInfo;
     public SwipeManager swipeManager = null;
-    //public TestSwipeManager testSwipeManager = null;
+    public TestSwipeManager testSwipeManager = null;
 
     // 도깨비 사냥에 성공했습니다.
     public Image vicImg1;
@@ -47,11 +47,11 @@ public class UIBattle : MonoBehaviour
         if (swipeManager == null)
             swipeManager = gameObject.AddComponent<SwipeManager>();
 
-        //if (testSwipeManager == null)
-        //    testSwipeManager = GetComponent<TestSwipeManager>();
+        if (testSwipeManager == null)
+            testSwipeManager = GetComponent<TestSwipeManager>();
 
-        //if (testSwipeManager == null)
-        //    testSwipeManager = gameObject.AddComponent<TestSwipeManager>();
+        if (testSwipeManager == null)
+            testSwipeManager = gameObject.AddComponent<TestSwipeManager>();
 
         dieimg.DOFade(2, 2f);
     }
