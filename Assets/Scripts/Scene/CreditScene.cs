@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CreditScene : MonoBehaviour
 {
@@ -42,26 +43,57 @@ public class CreditScene : MonoBehaviour
 
     public Image copyrightImg;
 
+    GameObject EndingUI;
+
     // 메인으로 가는 버튼
     public Button toMain;
 
-    void Start()
+    #region Singletone
+
+    private static ScenesManager instance = null;
+
+    public static ScenesManager GetInstance()
     {
+        if (instance == null)
+        {
+            GameObject go = new GameObject("@ScenesManager");
+            instance = go.AddComponent<ScenesManager>();
+
+            DontDestroyOnLoad(go);
+        }
+        return instance;
+
+    }
+    #endregion
+
+    #region Scene Control
+    public Scene currentScene;
+    public void ChangeScene(Scene scene)
+    {
+
+        UIManager.GetInstance().ClearList();
+        ObjectManager.GetInstance().ClearObject();
+
+        currentScene = scene;
+        SceneManager.LoadScene(scene.ToString());
+    }
+
+    #endregion
+
+    void Start()
+    {   
         CreditTween();
-        
-        AudioManager.instance.PlayBGM(0);
-        
+
         toMain.gameObject.SetActive(false);
 
         Invoke("ToMain", 24f);
-
     }
 
     void CreditTween()
     {
         Sequence seq = DOTween.Sequence();        
        
-        seq.Append(blkBG.DOFade(1, 2f));
+        seq.Append(blkBG.DOFade(1, .5f));
         seq.Append(creditImg.DOFade(1, 1f));
         seq.AppendInterval(0.5f);
         seq.Append(creditImg.DOFade(0, 0.5f));
@@ -110,6 +142,13 @@ public class CreditScene : MonoBehaviour
     void ToMain()
     {
         toMain.gameObject.SetActive(true);
+
+        toMain.onClick.AddListener(ChangeToMainScene);
+    }
+
+    void ChangeToMainScene()
+    {
+        ScenesManager.GetInstance().ChangeScene(Scene.Title);
     }
 
 }

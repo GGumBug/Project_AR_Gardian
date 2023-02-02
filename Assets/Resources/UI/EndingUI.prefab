@@ -780,6 +780,7 @@ MonoBehaviour:
   mkWrksTxt: {fileID: 6706177386201112604}
   copyrightImg: {fileID: 6706177385845642118}
   toMain: {fileID: 6706177386720377575}
+  currentScene: 0
 --- !u!1 &6706177385845642169
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,7 +817,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 100, y: 100}
-  m_SizeDelta: {x: 445.37524, y: 34.204285}
+  m_SizeDelta: {x: 973.29, y: 74.747}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &6706177385845642119
 CanvasRenderer:
@@ -1446,7 +1447,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -100, y: 100}
-  m_SizeDelta: {x: 227.3951, y: 69.4017}
+  m_SizeDelta: {x: 349.6442, y: 106.71}
   m_Pivot: {x: 1, y: 0}
 --- !u!222 &6706177386720377573
 CanvasRenderer:
