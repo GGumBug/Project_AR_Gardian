@@ -158,7 +158,6 @@ public class GuardianManager : MonoBehaviour
         GameManager.GetInstance().PlayerDie();
 
         yield return new WaitForSeconds(2f);
-        Debug.Log("페이지1변경");
 
         BattleManager.GetInstance().page = Page.page_1;
     }
