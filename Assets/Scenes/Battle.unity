@@ -998,10 +998,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda1e21265d8846518df052075142489, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnWisp: {fileID: 1909558626}
-  btnsk1: {fileID: 0}
-  btnsk2: {fileID: 0}
-  wisp: {fileID: 0}
 --- !u!114 &842601625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6416,7 +6412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1909558626
 MonoBehaviour:
   m_ObjectHideFlags: 0
