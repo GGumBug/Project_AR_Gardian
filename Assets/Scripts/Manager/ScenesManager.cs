@@ -67,4 +67,9 @@ public class ScenesManager : MonoBehaviour
     {
         ChangeScene(Scene.Ending);
     }
+    public void EndingSceneChangeInvoke()
+    {
+        Invoke("EndingSceneChange", 4f);
+    }
+
 }

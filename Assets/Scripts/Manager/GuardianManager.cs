@@ -82,8 +82,6 @@ public class GuardianManager : MonoBehaviour
             GuardianList[curGuardian].isClear = true;
             BattleManager.GetInstance().page = Page.page_0;
             GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = false;
-            Object rewardObejct = Resources.Load($"UI/UIReward");
-            GameObject itemGameObejct = (GameObject)Instantiate(rewardObejct);
             GameClear();
         }
     }
@@ -104,7 +102,12 @@ public class GuardianManager : MonoBehaviour
     {
         if(GuardianList[0].isClear && GuardianList[1].isClear && GuardianList[2].isClear)
         {
-            ScenesManager.GetInstance().EndingSceneChange();
+            ScenesManager.GetInstance().EndingSceneChangeInvoke();
+        }
+        else
+        {
+            Object rewardObejct = Resources.Load($"UI/UIReward");
+            GameObject itemGameObejct = (GameObject)Instantiate(rewardObejct);
         }
     }
 
@@ -133,7 +136,9 @@ public class GuardianManager : MonoBehaviour
         {
             GameManager.GetInstance().NewPlayer.defence = false;
             uIBattle.RefreshHP();
-            yield return new WaitForSeconds(7f);
+            yield return new WaitForSeconds(3f);
+            GameManager.GetInstance().NewPlayer.canAttack = true;
+            yield return new WaitForSeconds(4f);
             Debug.Log("7초지남");
             GameManager.GetInstance().NewPlayer.canAttack = false;
             BattleManager.GetInstance().page = Page.page_1;
@@ -147,6 +152,7 @@ public class GuardianManager : MonoBehaviour
         GameManager.GetInstance().PlayerDie();
 
         yield return new WaitForSeconds(2f);
+        Debug.Log("페이지1변경");
 
         BattleManager.GetInstance().page = Page.page_1;
     }
