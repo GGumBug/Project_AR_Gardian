@@ -431,8 +431,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 083726580cc648741b5a4a2e5536fbd7, type: 2}
+  m_sharedMaterial: {fileID: -1662516626591270670, guid: 083726580cc648741b5a4a2e5536fbd7,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -762,6 +763,8 @@ MonoBehaviour:
   battleInfo: {fileID: 1339659125812701405}
   swipeManager: {fileID: 0}
   testSwipeManager: {fileID: 0}
+  vicImg1: {fileID: 0}
+  vicImg2: {fileID: 0}
 --- !u!1 &1339659126475267246
 GameObject:
   m_ObjectHideFlags: 0
