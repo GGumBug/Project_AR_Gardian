@@ -127,6 +127,8 @@ public class GuardianManager : MonoBehaviour
 
         Animator animator = BattleManager.GetInstance().FindGuardianAnimator();
         GuardianList[a].canAttack = false;
+        GameManager.GetInstance().NewPlayer.skill_1 = false;
+
         UIBattle uIBattle = BattleManager.GetInstance().FindUIBattle();
 
         GameManager.GetInstance().NewPlayer.canAttack = true;
