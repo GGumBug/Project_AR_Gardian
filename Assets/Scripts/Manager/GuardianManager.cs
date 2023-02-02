@@ -156,8 +156,9 @@ public class GuardianManager : MonoBehaviour
             BattleManager.GetInstance().page = Page.page_1;
             yield break;
         }
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
         AudioManager.instance.GuardianSFXPlay(27);
+        yield return new WaitForSeconds(4f);
         GameManager.GetInstance().SetHp(-100);
 
         uIBattle.RefreshHP();
