@@ -82,8 +82,7 @@ public class GuardianManager : MonoBehaviour
             SwichGuardianDieSound();
             BattleManager.GetInstance().uIBattle.RefreshHP();
             BattleManager.GetInstance().uIBattle.BattleInfo("도깨비 사냥에\n성공했습니다.");
-            uIBattle.vicImg1.DOFade(1, 1f);
-            uIBattle.vicImg2.DOFade(1, 1f);
+            
             GuardianList[curGuardian].isClear = true;
             BattleManager.GetInstance().page = Page.page_0;
             GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = false;
