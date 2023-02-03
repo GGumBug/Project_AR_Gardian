@@ -27,7 +27,6 @@ public class GuardianManager : MonoBehaviour
     public int attackDirection;
 
     public bool useUnblockableAttack;
-    UIBattle uIBattle;
 
 
     public GuardianBase[] GuardianList =
@@ -82,10 +81,10 @@ public class GuardianManager : MonoBehaviour
             SwichGuardianDieSound();
             BattleManager.GetInstance().uIBattle.RefreshHP();
             BattleManager.GetInstance().uIBattle.BattleInfo("도깨비 사냥에\n성공했습니다.");
-            
+            BattleManager.GetInstance().uIBattle.GameClearImg();
             GuardianList[curGuardian].isClear = true;
             BattleManager.GetInstance().page = Page.page_0;
-            GuardianManager.GetInstance().GuardianList[curGuardian].canAttack = false;
+            GetInstance().GuardianList[curGuardian].canAttack = false;
             GameClear();
         }
     }
@@ -107,12 +106,7 @@ public class GuardianManager : MonoBehaviour
         if(GuardianList[0].isClear && GuardianList[1].isClear && GuardianList[2].isClear)
         {
             ScenesManager.GetInstance().EndingSceneChangeInvoke();
-            //uIBattle.vicImg1.sprite = Resources.Load<Sprite>($"UI/vict");
-            //uIBattle.vicImg2.sprite = Resources.Load<Sprite>($"UI/vict");
-            //Image victIMG1 = (Image)Instantiate(uIBattle.vicImg1);
-            //Image victIMG2 = (Image)Instantiate(uIBattle.vicImg2);
-            uIBattle.vicImg1.DOFade(1, 1f);
-            uIBattle.vicImg2.DOFade(1, 1f);
+            BattleManager.GetInstance().uIBattle.GameClearImg();
         }
         else
         {
@@ -161,8 +155,9 @@ public class GuardianManager : MonoBehaviour
             BattleManager.GetInstance().page = Page.page_1;
             yield break;
         }
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1f);
         AudioManager.instance.GuardianSFXPlay(27);
+        yield return new WaitForSeconds(4f);
         GameManager.GetInstance().SetHp(-100);
 
         uIBattle.RefreshHP();

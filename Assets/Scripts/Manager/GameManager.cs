@@ -23,9 +23,8 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public Player NewPlayer = new Player("비형", 110, 100, 1f, 2f);
+    public Player NewPlayer = new Player("비형", 40, 100, 1f, 2f);
 
-    UIBattle uibattle;
     public int parryingDrection;
     public void SetHp(int dmg)
     {
@@ -84,7 +83,6 @@ public class GameManager : MonoBehaviour
                 }
                 NewPlayer.canAttack = false;
                 NewPlayer.isParrying = false;
-                SpawnManager.GetInstance().WispCheck = true;
                 GuardianManager.GetInstance().ResetGuardian();
                 UITitle.itemDataClone.Clear();
 

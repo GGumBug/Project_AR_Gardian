@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class DebugTest : MonoBehaviour
 {
-    [SerializeField]Button btnWisp;
-    [SerializeField]GameObject wisp;
+    //[SerializeField]Button btnWisp;
+    //[SerializeField]GameObject wisp;
 
-    public void DebugCreatWisp()
-    {
-        wisp = ObjectManager.GetInstance().CreateWisp();
-        wisp.transform.position = SpawnManager.GetInstance().spawnPosition.position;
-    }
+    //public void DebugCreatWisp()
+    //{
+    //    wisp = ObjectManager.GetInstance().CreateWisp();
+    //    wisp.transform.position = SpawnManager.GetInstance().spawnPosition.position;
+    //}
 }

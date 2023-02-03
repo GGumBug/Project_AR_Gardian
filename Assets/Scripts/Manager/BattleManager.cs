@@ -90,7 +90,9 @@ public class BattleManager : MonoBehaviour
 
         GuardianManager.GetInstance().GuardianList[curGuardian].canParrying = true;
         Debug.Log(GuardianManager.GetInstance().GuardianList[curGuardian].canParrying);
+
         yield return new WaitForSeconds(0.5f);
+
         if (GameManager.GetInstance().NewPlayer.isParrying && GuardianManager.GetInstance().attackDirection == GameManager.GetInstance().parryingDrection)
         {
             GuardianManager.GetInstance().GuardianList[curGuardian].ParryingCheck();
@@ -99,6 +101,7 @@ public class BattleManager : MonoBehaviour
 
         GuardianManager.GetInstance().GuardianList[curGuardian].canParrying = false;
         GuardianManager.GetInstance().GuardianList[curGuardian].Attack();
+        AudioManager.instance.PlayerSFXPlay(29);
 
         uIBattle = FindUIBattle();
         uIBattle.RefreshHP();
@@ -210,7 +213,7 @@ public class BattleManager : MonoBehaviour
 
     void PlayerAttackAnimation()
     {
-        switch (uIBattle.testSwipeManager.playerAttackDirection) // 최종 빌드때 SwipManager로 수정
+        switch (uIBattle.swipeManager.playerAttackDirection) // 최종 빌드때 SwipManager로 수정
         {
             case 0:
                 swordAnimator = FindSwordAnimator();

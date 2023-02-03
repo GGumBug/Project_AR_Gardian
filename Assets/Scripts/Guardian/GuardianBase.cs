@@ -69,8 +69,6 @@ public class GuardianBase
 
     public virtual void ParryingCheck()
     {
-        int p = GameManager.GetInstance().parryingDrection;
-
             BattleManager.GetInstance().GuardianStun();
     }
 
