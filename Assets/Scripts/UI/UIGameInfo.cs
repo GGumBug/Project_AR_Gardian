@@ -135,6 +135,7 @@ public class UIGameInfo : MonoBehaviour
                 break;
             case 9:
                 txtinfo.text = "도깨비를 모두 처치 하면 게임을 클리어 합니다.";
+                infoimg.gameObject.SetActive(true);
                 InfoImgBackChange();
                 InfoCount -= 1;
                 break;
